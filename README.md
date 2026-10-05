@@ -87,6 +87,8 @@ CryptoMKT and Uppercap use the following locally served assets, accessed October
 
 The Uppercap images appear in its [January 25, 2021 founder story](https://contenido.uppercap.com/knowledgebase/5-lecciones-de-la-startup-chilena-que-debuto-en-pandemia/), last updated February 19, 2021. The original `soporte.uppercap.com` asset URLs now redirect to `contenido.uppercap.com`; files use the PNG originals from that destination. [Uppercap’s July 13, 2020 platform article](https://contenido.uppercap.com/knowledgebase/donde-invertir-en-negocios/) supports its product overview. The old company domain redirects to [Uper](https://www.uper.co/en/), reflected in the website link. Later Uper-branded account-guide screenshots were excluded because the guide was revised in March 2022.
 
+Santiago confirmed he implemented the front end of the pictured CryptoMarket professional trading view. Its contribution breakdown combines that confirmation, the existing CV text, and the interface elements visible in the screenshot. It does not infer a framework, chart library, data-update mechanism, performance improvement, or custom chart-engine authorship from the image.
+
 A public search found Santiago’s [existing LinkedIn profile](https://www.linkedin.com/in/safernan12/) confirming the CryptoMarket role and a third-party employee-directory listing. Neither adds a substantiated new contribution beyond the CV, so no directory content or additional personal details were added. No company-authored personal feature was found in that search.
 
 The cheesecake illustration is an original inline SVG.

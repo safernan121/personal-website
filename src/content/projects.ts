@@ -90,27 +90,39 @@ export const projects: Project[] = [
     company: 'CryptoMarket / Uppercap',
     period: 'Oct 2019 — Nov 2021',
     description:
-      'CryptoMarket is a cryptocurrency exchange connecting digital assets with local-currency markets in Latin America. Its trading experience brings market charts, an order book, and buy/sell controls into one workspace.',
+      'CryptoMarket is a cryptocurrency exchange connecting digital assets with local-currency markets in Latin America. Its professional trading view brings price history, market depth, recent trades, order entry, and order status into one workspace.',
     descriptionDetail:
       'A guide published in May 2020 documented both a simpler exchange view and an advanced trading interface. The screenshot shown here captures the advanced view during my time at the company.',
     roleSummary:
-      'Built CryptoMarket’s professional trading interface, integrating market APIs, candlestick charts, and production buy/sell workflows.',
+      'I implemented the front end of CryptoMarket’s professional trading view shown here, integrating market APIs and candlestick charts with production buy/sell workflows. My work brought the chart, market-data panels, order-entry forms, and order tables together in a single interface.',
     context:
       'By October 2021, the exchange reported 500K registered users and approximately $3M in daily transactions. These figures describe the exchange as a whole.',
     contributions: [
       {
-        title: 'Market data and trading workflows',
-        text: 'Integrated market APIs and candlestick charts with the professional interface’s production buy/sell workflows.',
+        title: 'Chart integration',
+        text: 'Integrated the candlestick chart into the trading workspace, alongside market selection and chart controls.',
+      },
+      {
+        title: 'Market depth and trade activity',
+        text: 'Implemented the order-book and recent-trades panels, presenting buy/sell levels, prices, quantities, and trade timestamps alongside the chart.',
+      },
+      {
+        title: 'Buy and sell workflows',
+        text: 'Built paired buy/sell forms with price and quantity inputs, quantity sliders, total summaries, and order-type tabs, connecting the interface to production trading workflows.',
+      },
+      {
+        title: 'Active orders and order history',
+        text: 'Implemented the front-end views for active orders and order history, with tables organizing market, order type, price, quantity, and total information.',
       },
     ],
-    areas: ['JavaScript', 'Python', 'Node.js'],
+    areas: ['Front-end development', 'Market data', 'Chart integration', 'JavaScript', 'Python', 'Node.js'],
     website: 'https://www.cryptomkt.com/en/',
     websiteLabel: 'Visit CryptoMKT',
     media: {
       logo: '/images/cryptomkt/logo.png', logoWidth: 600, logoHeight: 55,
       image: '/images/cryptomkt/trading-2020.png', imageWidth: 1346, imageHeight: 706,
       imageAlt: 'CryptoMarket’s advanced trading screen, with a Bitcoin candlestick chart, order book, and buy/sell forms.',
-      caption: 'Advanced trading interface · May 2020',
+      caption: 'Professional trading interface · May 2020',
       source: 'https://www.criptonoticias.com/tutoriales-guias/cryptomkt-compra-vende-bitcoin-criptomonedas-moneda-local/',
       sourceLabel: 'CryptoMarket screenshot via CriptoNoticias',
     },
