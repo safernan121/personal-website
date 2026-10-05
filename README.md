@@ -4,7 +4,7 @@ A personal portfolio built with React, TypeScript, and Vite. It presents an intr
 
 ## Local development
 
-Use Node 22 (`nvm use` reads `.nvmrc`) and npm. Vite also supports Node 20.19+; the dependency lockfile is committed.
+Use Node 22 (`nvm use` reads `.nvmrc`) and npm. Node 22.12+ is required for the build and Cloudflare deployment tools; the dependency lockfile is committed.
 
 ```sh
 npm ci
@@ -53,13 +53,39 @@ The notebook defaults to Recipes; `/cheesecake?tab=reviews` opens Reviews direct
 
 The pointer glow is enabled only for desktop-sized viewports with a fine, hover-capable pointer and no reduced-motion preference. Reduced motion also disables smooth scrolling and transitions. All work-history content remains visible without hover.
 
-## Deployment later
+## Deployment to Cloudflare
 
-This repository does not deploy automatically. A static host can run `npm ci && npm run typecheck && npm run build` and serve `dist/`. No runtime server, database, or environment variables are required. The build assumes hosting at the domain root.
+The production domain is `https://safernan.dev`. `wrangler.jsonc` configures a static-assets-only Worker named `safernan-website`, serving `dist/` on both `safernan.dev` and `www.safernan.dev`. No runtime server, database, or application secrets are required. Deploying requires Cloudflare authentication and access to the account containing the domain.
 
-**Configure an SPA fallback:** requests for app routes such as `/projects/the-beacon` and `/cheesecake` must serve `index.html` with status 200, while existing asset paths serve their actual files. Vite development and preview already support this. For example, Netlify can use a `_redirects` rule `/* /index.html 200`; configure the equivalent rewrite on the chosen host. Without it, direct links and reloads on nested routes may return a server 404. No provider-specific deployment has been added yet.
+Cloudflare's `single-page-application` fallback serves `index.html` for app routes such as `/projects/the-beacon` and `/cheesecake`, so direct links and refreshes work. Existing asset paths serve their files. Unknown app routes display the React not-found view with HTTP status 200; a true server-side 404 would require a different routing setup.
 
-Before connecting a custom domain, add the canonical URL, `og:url`, and an absolute social-preview image URL to `index.html`. DNS, hosting configuration, and domain purchase are a separate step. The local preview server is for review, not production hosting.
+For a first deploy from this checkout:
+
+```sh
+npm ci
+npx wrangler login
+npm run deploy
+```
+
+`npm run deploy` runs lint, type checking, and the production build before uploading the site. Wrangler configures the custom domains; Cloudflare creates their DNS records and provisions HTTPS certificates. If a hostname already has a conflicting DNS record, review it before replacing it. Certificate activation may take time after deployment. `npm run preview:cloudflare` builds and serves the site locally through Cloudflare's runtime without publishing it.
+
+For automatic deployments, commit and push the configuration to `safernan121/personal-website`, then connect that repository in Cloudflare **Workers & Pages → Create application → import a Git repository**. Use:
+
+| Setting | Value |
+| --- | --- |
+| Worker name | `safernan-website` |
+| Production branch | `main` |
+| Root directory | Repository root |
+| Build command | `npm run lint && npm run typecheck && npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+The dashboard build installs dependencies automatically and reads the Node version from `.nvmrc`. Future pushes to the connected production branch will publish the site. This repository configuration alone does not enable automatic deployment; the Cloudflare Git integration must be connected first.
+
+The preferred address is the domain without `www`. The default canonical URL and `og:url` are set in `index.html`; `usePageMetadata` updates them for the current route, excluding query strings and fragments. `public/robots.txt` references `public/sitemap.xml`; update the sitemap when adding public routes. Crawlers that do not execute JavaScript still receive the homepage metadata on every route. Custom social-preview artwork and prerendering remain optional follow-ups.
+
+Both configured hostnames serve the site. To redirect `www` to the preferred address, add Cloudflare's **Redirect from WWW to root** redirect-rule template for this zone, preserving the path and query string. Domain-level redirects are not supported by Workers Static Assets `_redirects` files.
+
+After deployment, check HTTPS on both hostnames, direct links and reloads on every app route, asset loading, `robots.txt`, and `sitemap.xml`.
 
 ## Content boundaries
 

@@ -16,6 +16,9 @@ dist-ssr
 !.env.example
 playwright-report
 test-results
+.wrangler
+.dev.vars
+.dev.vars.*
 
 # Editor directories and files
 .vscode/*

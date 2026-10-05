@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "safernan-website",
+  "compatibility_date": "2026-10-05",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "safernan.dev", "custom_domain": true },
+    { "pattern": "www.safernan.dev", "custom_domain": true }
+  ]
+}
