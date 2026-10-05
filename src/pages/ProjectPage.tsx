@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router'
 import { projects, type Project } from '../content/projects'
 import { Icon } from '../components/Icon'
+import { ProjectMedia } from '../components/ProjectMedia'
 import { SiteHeader, SiteFooter } from '../components/SiteChrome'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import { NotFoundPage } from './NotFoundPage'
@@ -38,10 +39,11 @@ function ProjectDetail({ project }: { project: Project }) {
               rel="noreferrer"
               className={styles.externalLink}
             >
-              Visit thebeacon.gg <Icon name="arrow" width="17" height="17" />
+              {project.websiteLabel ?? `Visit ${project.name}`} <Icon name="arrow" width="17" height="17" />
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           )}
+          {project.websiteNote && <p className={styles.websiteNote}>{project.websiteNote}</p>}
         </div>
         <dl className={styles.projectMeta}>
           <div>
@@ -57,6 +59,7 @@ function ProjectDetail({ project }: { project: Project }) {
             <dd>{project.period}</dd>
           </div>
         </dl>
+        <ProjectMedia project={project} />
         {isBeacon && (
           <figure className={styles.beaconHero}>
             <div className={styles.beaconArt}>
@@ -90,7 +93,7 @@ function ProjectDetail({ project }: { project: Project }) {
           aria-labelledby="overview-heading"
         >
           <h2 id="overview-heading" className={styles.sectionLabel}>
-            {isBeacon ? 'The game' : 'My work'}
+            {isBeacon ? 'The game' : 'The platform'}
           </h2>
           <div className={styles.prose}>
             <p>{project.description}</p>
@@ -125,7 +128,7 @@ function ProjectDetail({ project }: { project: Project }) {
             aria-labelledby="contributions-heading"
           >
             <h2 id="contributions-heading" className={styles.sectionLabel}>
-              {isBeacon ? 'What I built' : 'Implementation'}
+              What I built
             </h2>
             <div className={styles.contributions}>
               {project.contributions.map((item, index) => (
@@ -176,6 +179,25 @@ function ProjectDetail({ project }: { project: Project }) {
               . Artwork belongs to The Beacon.
             </p>
           </div>
+        )}
+        {project.references && (
+          <section className={styles.detailSection} aria-labelledby="sources-heading">
+            <h2 id="sources-heading" className={styles.sectionLabel}>From that time</h2>
+            <div className={styles.references}>
+              {project.references.map((reference) => (
+                <article key={reference.url}>
+                  <p className={styles.referenceDate}>{reference.date}</p>
+                  <h3>
+                    <a href={reference.url} target="_blank" rel="noreferrer">
+                      {reference.title} <Icon name="arrow" width="15" height="15" />
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </h3>
+                  <p>{reference.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         )}
         <Link
           to={`/projects/${nextProject.slug}`}

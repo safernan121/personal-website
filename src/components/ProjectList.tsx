@@ -21,8 +21,15 @@ export function ProjectList() {
                   height="1096"
                   loading="lazy"
                 />
-              ) : project.slug === 'cryptomkt' ? (
-                'CM'
+              ) : project.media ? (
+                <img
+                  className={`${styles.cardLogo} ${project.media.lightLogoPanel ? styles.lightCardLogo : ''}`}
+                  src={project.media.logo}
+                  alt=""
+                  width={project.media.logoWidth}
+                  height={project.media.logoHeight}
+                  loading="lazy"
+                />
               ) : (
                 'U'
               )}

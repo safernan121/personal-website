@@ -100,6 +100,94 @@
 .externalLink:hover {
   color: var(--heading);
 }
+.websiteNote {
+  margin-top: 7px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.archiveHero {
+  margin: 42px 0 0;
+}
+.archiveFrame {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #17252f;
+}
+.archiveBrand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  background: #16232d;
+}
+.archiveBrand img {
+  display: block;
+  width: 235px;
+  max-width: 55%;
+  max-height: 66px;
+  height: auto;
+  object-fit: contain;
+  object-position: left;
+}
+.archiveBrand > span {
+  display: flex;
+  gap: 20px;
+  font: 9px/1.6 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a3b4c4;
+}
+.lightBrand {
+  background: #f3f4f6;
+}
+.lightBrand > span {
+  color: #526070;
+}
+.archiveImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.archiveHero figcaption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+  margin-top: 14px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.archiveHero a:hover,
+.references a:hover {
+  color: var(--accent);
+}
+.references {
+  display: grid;
+  gap: 28px;
+}
+.references .referenceDate {
+  font: 10px/1.8 var(--font-mono);
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.references h3 {
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.references h3 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.references p {
+  font-size: 12px;
+  line-height: 1.9;
+}
 .projectMeta {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
@@ -321,6 +409,15 @@
   width: 100%;
   height: auto;
 }
+.cardLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 7px;
+}
+.lightCardLogo {
+  background: #f3f4f6;
+}
 .projectCardCopy {
   align-self: center;
 }
@@ -527,6 +624,21 @@
   }
   .beaconHero {
     margin-top: 30px;
+  }
+  .archiveHero {
+    margin-top: 30px;
+  }
+  .archiveBrand {
+    padding: 20px;
+    gap: 15px;
+  }
+  .archiveBrand > span {
+    font-size: 8px;
+    gap: 8px;
+  }
+  .archiveBrand img {
+    max-width: 52%;
+    max-height: 48px;
   }
   .beaconArt {
     grid-template-columns: 1fr;

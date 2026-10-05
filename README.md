@@ -27,7 +27,7 @@ npm run preview
 ## Update content and styling
 
 - `src/content/profile.ts` contains the identity, introduction, social links, and ordered experience entries. Edit this file to update the content. Achievement figures refer to their original product/company context; keep that context when editing.
-- `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. The Beacon has official game artwork; CryptoMKT and Uppercap use the existing CV-derived text. Dates for the latter two reflect the shared employment period, not separate project launch dates.
+- `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. Product descriptions use the linked public sources; personal contributions retain the CV-derived text. CryptoMKT and Uppercap include dated imagery and source links from the employment period. Dates for the latter two reflect the shared employment period, not separate project launch dates.
 - `src/content/cheesecake.ts` contains the notebook introduction and initial tab copy. Recipes and reviews intentionally start empty; no personal reviews or recipes have been invented, and there is no submission form or persistence layer.
 - `src/pages/` contains the homepage, project detail, cheesecake, and not-found views. `Pages.module.css` styles the new pages and shared header.
 - `src/components/` contains the reusable profile, navigation, social links, and experience entry components. `Portfolio.module.css` defines their responsive layout and styles.
@@ -76,7 +76,20 @@ The Beacon description is adapted from [its official website](https://thebeacon.
 | `public/images/the-beacon/house.webp` | [Home](https://thebeacon.gg/assets/house-Dnc5OxVk.png) |
 | `public/images/the-beacon/social.webp` | [Social](https://thebeacon.gg/assets/social-B8SdEyTm.png) |
 
-The cheesecake illustration is an original inline SVG. CryptoMKT and Uppercap thumbnails are typographic initials, not official logos.
+CryptoMKT and Uppercap use the following locally served assets, accessed October 5, 2026. Visible captions link to the original article. Company imagery illustrates the product and does not imply Santiago created that specific artwork or every part of the pictured interface.
+
+| Local asset | Source and date |
+| --- | --- |
+| `public/images/cryptomkt/logo.png` | [Official CryptoMKT logo](https://www.cryptomkt.com/static/global/assets/images/cmkt-blanc.png), current website; not presented as a historical logo |
+| `public/images/cryptomkt/trading-2020.png` | [Original screenshot](https://www.criptonoticias.com/wp-content/uploads/2020/05/compra_venta_avanzada.png) in [CriptoNoticias’ guide](https://www.criptonoticias.com/tutoriales-guias/cryptomkt-compra-vende-bitcoin-criptomonedas-moneda-local/), published May 24, 2020; screenshot credited to CryptoMarket. The article was updated March 29, 2024, but this asset is in its May 2020 upload directory and shows the period interface. |
+| `public/images/uppercap/logo-2021.png` | [Original Uppercap logo](https://contenido.uppercap.com/wp-content/uploads/2021/02/ident-azul.png), February 2021 upload |
+| `public/images/uppercap/launch-2021.png` | [Launch illustration](https://contenido.uppercap.com/wp-content/uploads/2021/01/banner_cohete_sin-logo.png), January 2021 upload |
+
+The Uppercap images appear in its [January 25, 2021 founder story](https://contenido.uppercap.com/knowledgebase/5-lecciones-de-la-startup-chilena-que-debuto-en-pandemia/), last updated February 19, 2021. The original `soporte.uppercap.com` asset URLs now redirect to `contenido.uppercap.com`; files use the PNG originals from that destination. [Uppercap’s July 13, 2020 platform article](https://contenido.uppercap.com/knowledgebase/donde-invertir-en-negocios/) supports its product overview. The old company domain redirects to [Uper](https://www.uper.co/en/), reflected in the website link. Later Uper-branded account-guide screenshots were excluded because the guide was revised in March 2022.
+
+A public search found Santiago’s [existing LinkedIn profile](https://www.linkedin.com/in/safernan12/) confirming the CryptoMarket role and a third-party employee-directory listing. Neither adds a substantiated new contribution beyond the CV, so no directory content or additional personal details were added. No company-authored personal feature was found in that search.
+
+The cheesecake illustration is an original inline SVG.
 
 ## Manual release checks
 
