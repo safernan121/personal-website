@@ -188,6 +188,69 @@
   font-size: 12px;
   line-height: 1.9;
 }
+.screenSection {
+  padding: 50px 0;
+  border-bottom: 1px solid var(--border);
+}
+.screenNote {
+  max-width: 760px;
+  margin: 18px 0 30px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.screenGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px 24px;
+}
+.screenGrid figure {
+  margin: 0;
+  min-width: 0;
+}
+.wideScreen {
+  grid-column: 1 / -1;
+}
+.screenImageLink {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+}
+.screenImageLink img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.screenImageLink .formScreenImage {
+  aspect-ratio: 4 / 3;
+  padding: 24px;
+  object-fit: contain;
+}
+.screenGrid h3 {
+  margin-top: 17px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--heading);
+}
+.screenGrid p {
+  max-width: 760px;
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.screenSource {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 10px;
+  color: var(--accent);
+}
+.screenSource:hover {
+  color: var(--heading);
+}
 .projectMeta {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
@@ -639,6 +702,12 @@
   .archiveBrand img {
     max-width: 52%;
     max-height: 48px;
+  }
+  .screenSection {
+    padding: 38px 0;
+  }
+  .screenGrid {
+    grid-template-columns: 1fr;
   }
   .beaconArt {
     grid-template-columns: 1fr;

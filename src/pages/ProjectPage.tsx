@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router'
 import { projects, type Project } from '../content/projects'
 import { Icon } from '../components/Icon'
 import { ProjectMedia } from '../components/ProjectMedia'
+import { ProjectScreens } from '../components/ProjectScreens'
 import { SiteHeader, SiteFooter } from '../components/SiteChrome'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import { NotFoundPage } from './NotFoundPage'
@@ -148,6 +149,7 @@ function ProjectDetail({ project }: { project: Project }) {
             </div>
           </section>
         )}
+        <ProjectScreens project={project} />
         {isBeacon && (
           <div className={styles.gameGallery}>
             <figure>

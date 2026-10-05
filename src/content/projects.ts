@@ -30,6 +30,17 @@ export interface Project {
     lightLogoPanel?: boolean
   }
   references?: { title: string; date: string; description: string; url: string }[]
+  screenshots?: {
+    src: string
+    width: number
+    height: number
+    alt: string
+    title: string
+    caption: string
+    source: string
+    wide?: boolean
+  }[]
+  screenshotNote?: string
 }
 
 // Project descriptions and engineering contributions are deliberately separate.
@@ -148,14 +159,26 @@ export const projects: Project[] = [
     descriptionDetail:
       'Its 2020 knowledge base described a platform designed to organize business information and automate investment formalities. The January 2021 launch story captures the company’s early direction, with the original Uppercap branding shown here.',
     roleSummary:
-      'Built major parts of Uppercap’s investment platform, including project publishing, investment flows, vesting-based ownership, and portfolios.',
+      'I built major parts of Uppercap’s investment platform, including project publishing, the main investment mechanisms, portfolios, and vesting-based ownership. My work also covered referrals and a blockchain contract to tokenize each purchased share.',
     contributions: [
       {
-        title: 'Ownership and vesting',
-        text: 'Implemented blockchain contracts connecting investment offerings to tokenized ownership and vesting mechanics.',
+        title: 'Core investment mechanisms',
+        text: 'Built the platform’s main investment mechanisms, connecting investment opportunities with the workflows for participating in them.',
+      },
+      {
+        title: 'Share tokenization and vesting',
+        text: 'Built a blockchain contract to tokenize each purchased share, connecting investment offerings to tokenized ownership. I also implemented contracts supporting vesting mechanics.',
+      },
+      {
+        title: 'Referral features',
+        text: 'Contributed to the platform’s referral functionality alongside the investment experience.',
+      },
+      {
+        title: 'Project publishing and portfolios',
+        text: 'Built major parts of project publishing and investor portfolios, supporting both the companies presenting opportunities and the investors managing their participation.',
       },
     ],
-    areas: ['JavaScript', 'Python', 'Node.js', 'Blockchain'],
+    areas: ['Investment workflows', 'Share tokenization', 'Referrals', 'JavaScript', 'Python', 'Node.js', 'Blockchain'],
     website: 'https://www.uper.co/en/',
     websiteLabel: 'Visit Uper',
     websiteNote: 'Uppercap’s original domain now redirects to Uper.',
@@ -168,6 +191,40 @@ export const projects: Project[] = [
       sourceLabel: 'Uppercap’s official launch story',
       lightLogoPanel: true,
     },
+    screenshotNote:
+      'Public screenshots from guides first published in 2020–2021 and revised in 2022. Some show later Uper branding; exact capture dates are unverified.',
+    screenshots: [
+      {
+        src: '/images/uppercap/reservations-guide.jpg', width: 1024, height: 393,
+        alt: 'Investment opportunity cards for Biwiser, B21, and FudLup, with sidebar links for referrals, reservations, portfolio, and wallet.',
+        title: 'Investment opportunities and navigation',
+        caption: 'Company cards connect discovery with investing. The sidebar brings referrals, reservations, portfolios, and the wallet into the same workspace.',
+        source: 'https://contenido.uppercap.com/knowledgebase/que-son-las-reservas-en-uppercap/',
+        wide: true,
+      },
+      {
+        src: '/images/uppercap/portfolio-guide.png', width: 1024, height: 291,
+        alt: 'Digital-share portfolio listing companies, total and available share quantities, share-series information, and sell-share buttons.',
+        title: 'Digital-share portfolio',
+        caption: 'Holdings are organized by company and share series, with total and available quantities and an action to create an offer.',
+        source: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
+        wide: true,
+      },
+      {
+        src: '/images/uppercap/private-offer-2020.jpg', width: 498, height: 432,
+        alt: 'New private-offer form with share price, share quantity, a total in Chilean pesos, and a create-offer button.',
+        title: 'Private-offer entry',
+        caption: 'The form brings share price, quantity, and the transaction total together before publishing an offer.',
+        source: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
+      },
+      {
+        src: '/images/uppercap/offer-created-2020.png', width: 370, height: 285,
+        alt: 'Offer-published confirmation with a green checkmark and an OK button.',
+        title: 'Publication feedback',
+        caption: 'A confirmation screen closes the offer-creation flow with an explicit success state.',
+        source: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
+      },
+    ],
     references: [
       {
         title: 'The platform’s early purpose', date: '13 July 2020',
@@ -178,6 +235,21 @@ export const projects: Project[] = [
         title: 'Five lessons from launching Uppercap', date: '25 January 2021',
         description: 'A founder’s account of the launch, published during my work period. The original logo and illustration come from this article, last updated in February 2021.',
         url: 'https://contenido.uppercap.com/knowledgebase/5-lecciones-de-la-startup-chilena-que-debuto-en-pandemia/',
+      },
+      {
+        title: 'Portfolio and private-offer walkthrough', date: '13 July 2020 · revised 9 March 2022',
+        description: 'Public in-app screens showing digital-share holdings, offer entry, and publication feedback. The revised guide includes Uper branding.',
+        url: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
+      },
+      {
+        title: 'Reservations and investment states', date: '9 June 2021 · revised 29 September 2022',
+        description: 'Explains reservation states and how successful investment rounds connect reservations with the portfolio. Its public screenshot shows the investment workspace.',
+        url: 'https://contenido.uppercap.com/knowledgebase/que-son-las-reservas-en-uppercap/',
+      },
+      {
+        title: 'Referral-program guide', date: '22 September 2020 · revised 2 July 2024',
+        description: 'Documents the referral section and invitation flow. Its current reward terms were revised after my work period and are not used to describe my implementation.',
+        url: 'https://contenido.uppercap.com/knowledgebase/que-es-el-programa-de-referidos-de-uppercap/',
       },
     ],
   },
