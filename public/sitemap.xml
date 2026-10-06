@@ -1,11 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://safernan.dev/</loc></url>
-  <url><loc>https://safernan.dev/about</loc></url>
-  <url><loc>https://safernan.dev/projects/the-beacon</loc></url>
-  <url><loc>https://safernan.dev/projects/cryptomkt</loc></url>
-  <url><loc>https://safernan.dev/projects/uppercap</loc></url>
-  <url><loc>https://safernan.dev/projects/pantry-app</loc></url>
-  <url><loc>https://safernan.dev/cheesecake</loc></url>
-  <url><loc>https://safernan.dev/cheesecake/recipes/the-protein-cloud</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://safernan.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/about" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/about" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/projects/the-beacon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/the-beacon" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/the-beacon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/the-beacon" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/projects/the-beacon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/the-beacon" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/the-beacon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/the-beacon" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/projects/cryptomkt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/cryptomkt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/cryptomkt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/cryptomkt" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/projects/cryptomkt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/cryptomkt" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/cryptomkt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/cryptomkt" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/projects/uppercap</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/uppercap" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/uppercap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/uppercap" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/projects/uppercap</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/uppercap" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/uppercap" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/uppercap" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/projects/pantry-app</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/pantry-app" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/pantry-app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/pantry-app" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/projects/pantry-app</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/pantry-app" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/pantry-app" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/pantry-app" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/cheesecake</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/cheesecake" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/cheesecake" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/cheesecake" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/cheesecake</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/cheesecake" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/cheesecake" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/cheesecake" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/cheesecake/recipes/the-protein-cloud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/cheesecake/recipes/the-protein-cloud" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/cheesecake/recipes/the-protein-cloud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/cheesecake/recipes/the-protein-cloud" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/cheesecake/recipes/the-protein-cloud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/cheesecake/recipes/the-protein-cloud" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/cheesecake/recipes/the-protein-cloud" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/cheesecake/recipes/the-protein-cloud" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/cheesecake/recipes/ricotta-cheesecake</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/cheesecake/recipes/ricotta-cheesecake" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/cheesecake/recipes/ricotta-cheesecake" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/cheesecake/recipes/ricotta-cheesecake" />
+  </url>
+  <url>
+    <loc>https://safernan.dev/es/cheesecake/recipes/ricotta-cheesecake</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/cheesecake/recipes/ricotta-cheesecake" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/cheesecake/recipes/ricotta-cheesecake" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/cheesecake/recipes/ricotta-cheesecake" />
+  </url>
 </urlset>

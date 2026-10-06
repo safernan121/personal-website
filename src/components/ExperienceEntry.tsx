@@ -1,7 +1,9 @@
 import type { Experience } from '../content/profile'
+import { useLocale } from '../i18n/useLocale'
 import styles from './Portfolio.module.css'
 
 export function ExperienceEntry({ experience }: { experience: Experience }) {
+  const { ui } = useLocale()
   const { id, role, company, start, end, current, summary, context, highlights, areas } =
     experience
 
@@ -11,12 +13,12 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
         <div className={styles.period}>
           <span>
             {start} <span aria-hidden="true">—</span>
-            <span className="sr-only">to</span> {end}
+            <span className="sr-only">{ui.to}</span> {end}
           </span>
           {current && (
             <span className={styles.current}>
               <span />
-              Current
+              {ui.current}
             </span>
           )}
         </div>
@@ -36,7 +38,7 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
           </ul>
         )}
         {context && <p className={styles.contextNote}>{context}</p>}
-        <ul className={styles.tags} aria-label="Technologies and focus areas">
+        <ul className={styles.tags} aria-label={ui.focusAreas}>
           {areas.map((area) => (
             <li key={area}>{area}</li>
           ))}

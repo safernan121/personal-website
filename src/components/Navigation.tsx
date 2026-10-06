@@ -1,9 +1,11 @@
-import { sections, type SectionId } from '../content/profile'
+import type { SectionId } from '../content/profile'
+import { useLocale } from '../i18n/useLocale'
 import styles from './Portfolio.module.css'
 
 export function Navigation({ activeSection }: { activeSection: SectionId }) {
+  const { sections, ui } = useLocale()
   return (
-    <nav className={styles.navigation} aria-label="On this page">
+    <nav className={styles.navigation} aria-label={ui.onThisPage}>
       {sections.map(({ id, label, number }) => (
         <a
           key={id}

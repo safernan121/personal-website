@@ -1,14 +1,16 @@
 import type { Project } from '../content/projects'
+import { useLocale } from '../i18n/useLocale'
 import { Icon } from './Icon'
 import styles from './Pages.module.css'
 
 export function ProjectScreens({ project }: { project: Project }) {
+  const { ui } = useLocale()
   if (!project.screenshots?.length) return null
 
   return (
     <section className={styles.screenSection} aria-labelledby="screens-heading">
       <h2 id="screens-heading" className={styles.sectionLabel}>
-        Inside the platform
+        {ui.insidePlatform}
       </h2>
       {project.screenshotNote && (
         <p className={styles.screenNote}>{project.screenshotNote}</p>
@@ -24,7 +26,7 @@ export function ProjectScreens({ project }: { project: Project }) {
               href={screen.src}
               target="_blank"
               rel="noreferrer"
-              aria-label={`View full-size image: ${screen.title} (opens in a new tab)`}
+              aria-label={`${ui.fullSizeImage} ${screen.title} ${ui.newTab}`}
             >
               <img
                 src={screen.src}
@@ -44,8 +46,8 @@ export function ProjectScreens({ project }: { project: Project }) {
                 rel="noreferrer"
                 className={styles.screenSource}
               >
-                Official guide <Icon name="arrow" width="12" height="12" />
-                <span className="sr-only">: {screen.title} (opens in a new tab)</span>
+                {ui.officialGuide} <Icon name="arrow" width="12" height="12" />
+                <span className="sr-only">: {screen.title} {ui.newTab}</span>
               </a>
             </figcaption>
           </figure>

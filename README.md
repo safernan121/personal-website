@@ -31,7 +31,7 @@ npm run preview
 - Lead public copy with the product or team benefit, then support it with concrete work. Keep technology names where they establish experience, avoid repeating long responsibility lists across sections, and preserve the scope of each contribution. The homepage gives the short version; project pages carry the supporting detail.
 - `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. Product descriptions use the linked public sources; personal contributions come from the CV and Santiago's confirmed descriptions. Engineering roles and contributions appear before product imagery and context. CryptoMKT and Uppercap include dated imagery and source links from the employment period. Dates for the latter two reflect the shared employment period, not separate project launch dates.
 - `src/content/upcomingProjects.ts` contains upcoming projects, their intended features, and prototype screenshots. PantryApp's public overview is adapted from the local PantryApp repository's `docs/MASTERPLAN.md` and README, reviewed October 6, 2026. It describes the product direction without presenting unfinished features as available. Preserve the iOS/Android coming-soon message and visible warning on every prototype screenshot; no release date or subscription price is promised.
-- `src/content/cheesecake.ts` contains the notebook introduction and tab copy. `src/content/recipes.ts` contains recipe entries: ingredients, method, oven/tin/chilling details, kitchen notes, and approximate whole-cheesecake macros. The first entry, The Protein Cloud, uses Santiago’s supplied ricotta and cottage cheese recipe and nutrition estimates. Reviews remain empty; there is no submission form or persistence layer.
+- `src/content/cheesecake.ts` contains the notebook introduction and tab copy. `src/content/recipes.ts` contains recipe entries: ingredients, method, oven/tin/chilling details, kitchen notes, and approximate whole-cheesecake macros. The first entry, The Protein Cloud, uses Santiago’s supplied ricotta and cottage cheese recipe and nutrition estimates. `src/content/reviews.ts` contains the review type and English entries; the reviews cover Fismuler and PastéBCN in Barcelona, with Santiago’s photos and tasting notes. There is no submission form or persistence layer.
 - Add recipes to `src/content/recipes.ts` and optional photos under `public/images/cheesecake/`. Each recipe has its own `/cheesecake/recipes/:slug` page; the Recipes tab builds its notebook list from the entries. Update the sitemap when adding an entry. Keep ingredient ranges and optional ingredients, identify the nutrition scope, and get missing instructions from the author before presenting a complete recipe.
 - `src/pages/` contains the homepage, personal introduction, project detail, cheesecake, and not-found views. `Pages.module.css` styles the new pages and shared header.
 - `src/components/` contains the reusable profile, navigation, social links, and experience entry components. `Portfolio.module.css` defines their responsive layout and styles.
@@ -58,7 +58,71 @@ React Router provides the following routes, browser history, hash navigation, an
 
 The notebook defaults to Recipes; `/cheesecake?tab=reviews` opens Reviews directly. Tabs support Left/Right arrows, Home/End, and Tab to enter the active panel. An unrecognized tab query falls back to Recipes. Page changes move keyboard focus to the main content; tab changes preserve focus and scroll position. Unknown routes display a not-found view.
 
+## Languages
+
+English is the default at `/`. Every page also has a Spanish version under `/es/`, using the same slugs: for example, `/es/about`, `/es/projects/uppercap`, and `/es/cheesecake/recipes/the-protein-cloud`. The URL determines the language; browser preferences do not redirect visitors. Unknown paths under `/es/` show the Spanish not-found page.
+
+The header's EN / ES links switch to the equivalent page, preserving query strings and section anchors, including the notebook's selected tab. Internal navigation stays in the current language. Both languages use the same page components and artwork; text within existing screenshots remains as captured.
+
+English content stays in `src/content/`. Spanish copy lives in `src/content/es/index.ts`, sharing identifiers, assets, and source URLs with English. Interface and accessibility copy lives in `src/i18n/ui.ts`; TypeScript requires matching translation keys. When adding content, update both languages and the sitemap. Recipe detail IDs stay language-independent so list cards can select baking and chilling details in either language.
+
+`usePageMetadata` updates the document language, translated titles and descriptions, canonical URL, Open Graph locale, and English/Spanish alternate links. The sitemap lists both languages with reciprocal `hreflang` links and English as `x-default`. As with the existing site, route metadata updates in the browser; crawlers that do not execute JavaScript receive the default English HTML metadata.
+
+Run `npm test` for language routing, content parity, and page-rendering checks, alongside lint, type checking, and the production build.
+
 The pointer glow is enabled only for desktop-sized viewports with a fine, hover-capable pointer and no reduced-motion preference. Reduced motion also disables smooth scrolling and transitions. All work-history content remains visible without hover.
+
+## Add cheesecake reviews / Añadir reseñas de tartas de queso
+
+Reviews appear in full in the Reviews tab at `/cheesecake?tab=reviews` and `/es/cheesecake?tab=reviews`. Each entry requires a picture, title, description, and linked shop name. There are no dates or ratings. Array order controls display order, and a translated empty state appears when the collection has no entries. Photos sit beside the text on desktop and above it on mobile. Shop links open in a new tab with a translated accessibility announcement.
+
+Las reseñas aparecen completas en la pestaña Reseñas de `/cheesecake?tab=reviews` y `/es/cheesecake?tab=reviews`. Cada entrada necesita una foto, un título, una descripción y el nombre del local con un enlace. No hay fechas ni puntuaciones. El orden del array determina el orden de las reseñas, y aparece un mensaje traducido de contenido vacío cuando la colección no tiene entradas. Las fotos aparecen junto al texto en escritorio y encima en móvil. Los enlaces de los locales se abren en una pestaña nueva con un aviso de accesibilidad traducido.
+
+Add the English entry to `src/content/reviews.ts` and its Spanish equivalent to `src/content/es/index.ts` in the same update. Store photos under `public/images/cheesecake/`. Keep each `id`, image `src`, and `shop` identical in both languages; translate `title`, `description`, and image `alt`. Review entries use the existing notebook routes, so adding one does not require a new sitemap entry.
+
+Añade la entrada en inglés a `src/content/reviews.ts` y su equivalente en español a `src/content/es/index.ts` en la misma actualización. Guarda las fotos en `public/images/cheesecake/`. Mantén el mismo `id`, `src` de la imagen y `shop` en ambos idiomas; traduce `title`, `description` y `alt` de la imagen. Las entradas usan las rutas existentes del cuaderno, por lo que añadir una reseña no requiere una nueva entrada en el sitemap.
+
+Template only: replace every placeholder with your own review before adding these entries to the public collections.
+
+Solo es una plantilla: sustituye todos los valores de ejemplo por tu propia reseña antes de añadir estas entradas a las colecciones públicas.
+
+```ts
+// English — src/content/reviews.ts
+export const reviews: Review[] = [
+  {
+    id: 'your-review-id',
+    title: 'Your review title',
+    description: 'Your complete tasting notes.',
+    image: {
+      src: '/images/cheesecake/your-photo.webp',
+      alt: 'Describe your cheesecake photo.',
+    },
+    shop: { name: 'Shop name', url: 'https://example.com' },
+  },
+]
+
+// Español — src/content/es/index.ts
+export const reviews: Review[] = [
+  {
+    id: 'your-review-id',
+    title: 'El título de tu reseña',
+    description: 'Tus notas de degustación completas.',
+    image: {
+      src: '/images/cheesecake/your-photo.webp',
+      alt: 'Describe la foto de tu tarta de queso.',
+    },
+    shop: { name: 'Shop name', url: 'https://example.com' },
+  },
+]
+```
+
+Layout examples live only in `tests/fixtures/reviews.mjs`; they are not imported by the website or published as real reviews. The rendering tests use them to check both languages, long copy, preserved order, and shop links.
+
+Los ejemplos de diseño solo están en `tests/fixtures/reviews.mjs`; el sitio no los importa ni los publica como reseñas reales. Las pruebas de renderizado los usan para comprobar ambos idiomas, los textos largos, el orden y los enlaces de los locales.
+
+Reviews may optionally include `webSaid`, an array of `{ text, source: { label, url } }` notes. These appear separately under “What the web said:” with a source link beside each note. Keep personal impressions in `description`, paraphrase published facts, and translate each note while sharing its source URL and publication name. Fismuler’s notes link to the 20MINUTOS recipe demonstration and Condé Nast Traveler’s interview with Nino Redruello. PastéBCN’s notes link to its own catalogue and Vinos y Restaurantes’ coverage of Hugo Roche’s chocolate cheesecake. Shop links use Santiago’s supplied Google Maps URLs. Opening attendance and purchasing habits remain his personal account; reviews carry no publication dates.
+
+Las reseñas pueden incluir `webSaid`, un array opcional de notas con la forma `{ text, source: { label, url } }`. Aparecen por separado bajo «Lo que dice la web:», con un enlace a la fuente junto a cada nota. Mantén las impresiones personales en `description`, resume los hechos publicados con tus propias palabras y traduce cada nota conservando la URL y el nombre de la publicación. Las notas de Fismuler enlazan a la demostración de la receta de 20MINUTOS y a la entrevista de Condé Nast Traveler con Nino Redruello. Las de PastéBCN enlazan a su propio catálogo y al artículo de Vinos y Restaurantes sobre la tarta de chocolate de Hugo Roche. Los enlaces de los locales usan las URLs de Google Maps facilitadas por Santiago. La asistencia a la inauguración y los hábitos de compra siguen siendo su relato personal; las reseñas no llevan fechas de publicación.
 
 ## Deployment to Cloudflare
 

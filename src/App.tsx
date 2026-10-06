@@ -7,15 +7,12 @@ import {
   useLocation,
 } from 'react-router'
 import { PointerGlow } from './components/PointerGlow'
-import { HomePage } from './pages/HomePage'
-import { AboutPage } from './pages/AboutPage'
-import { ProjectPage } from './pages/ProjectPage'
-import { CheesecakePage } from './pages/CheesecakePage'
-import { RecipePage } from './pages/RecipePage'
-import { NotFoundPage } from './pages/NotFoundPage'
+import { useLocale } from './i18n/useLocale'
+import { getScrollKey, localizedRoutes } from './routes'
 
 function SiteLayout() {
   const { pathname } = useLocation()
+  const { ui } = useLocale()
   const previousPath = useRef(pathname)
   useEffect(() => {
     // Announce page changes without moving focus when a notebook tab changes.
@@ -28,11 +25,11 @@ function SiteLayout() {
   return (
     <>
       <a href="#content" className="skip-link">
-        Skip to content
+        {ui.skipToContent}
       </a>
       <PointerGlow />
       <Outlet />
-      <ScrollRestoration />
+      <ScrollRestoration getKey={getScrollKey} />
     </>
   )
 }
@@ -40,14 +37,7 @@ function SiteLayout() {
 const router = createBrowserRouter([
   {
     element: <SiteLayout />,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: 'about', element: <AboutPage /> },
-      { path: 'projects/:slug', element: <ProjectPage /> },
-      { path: 'cheesecake', element: <CheesecakePage /> },
-      { path: 'cheesecake/recipes/:slug', element: <RecipePage /> },
-      { path: '*', element: <NotFoundPage /> },
-    ],
+    children: localizedRoutes,
   },
 ])
 

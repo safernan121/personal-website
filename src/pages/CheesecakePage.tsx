@@ -1,17 +1,19 @@
 import { useRef, type KeyboardEvent } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { SiteHeader, SiteFooter } from '../components/SiteChrome'
-import { cheesecake } from '../content/cheesecake'
-import { recipes } from '../content/recipes'
+import type { cheesecake as englishCheesecake } from '../content/cheesecake'
+import { useLocale } from '../i18n/useLocale'
 import { CheesecakeIllustration } from '../components/CheesecakeIllustration'
 import { RecipeList } from '../components/RecipeList'
+import { ReviewList } from '../components/ReviewList'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import styles from '../components/Pages.module.css'
 
-type TabId = (typeof cheesecake.tabs)[number]['id']
+type TabId = (typeof englishCheesecake.tabs)[number]['id']
 
 export function CheesecakePage() {
-  usePageMetadata('Cheesecake — Santiago Fernández', cheesecake.introduction)
+  const { cheesecake, recipes, reviews, path, ui } = useLocale()
+  usePageMetadata(`${ui.cheesecake} — Santiago Fernández`, cheesecake.introduction)
   const [searchParams, setSearchParams] = useSearchParams()
   const activeTab: TabId =
     searchParams.get('tab') === 'reviews' ? 'reviews' : 'recipes'
@@ -56,13 +58,13 @@ export function CheesecakePage() {
     <div className={`${styles.pageShell} ${styles.cheesecakePage}`}>
       <SiteHeader />
       <main id="content" tabIndex={-1} className={styles.pageMain}>
-        <Link to="/" className={styles.backLink}>
-          <span aria-hidden="true">←</span> Back to portfolio
+        <Link to={path('/')} className={styles.backLink}>
+          <span aria-hidden="true">←</span> {ui.backToPortfolio}
         </Link>
         <div className={styles.cheesecakeHero}>
           <div>
             <p className={styles.label}>
-              Beyond the keyboard / A personal notebook
+              {ui.notebookEyebrow}
             </p>
             <h1>{cheesecake.title}</h1>
             <p className={styles.pageLead}>{cheesecake.introduction}</p>
@@ -71,7 +73,7 @@ export function CheesecakePage() {
         </div>
         <div
           role="tablist"
-          aria-label="Cheesecake notebook"
+          aria-label={ui.notebook}
           className={styles.tabs}
         >
           {cheesecake.tabs.map((tab, index) => (
@@ -92,7 +94,7 @@ export function CheesecakePage() {
               <span aria-hidden="true">0{index + 1}</span> {tab.label}
             </button>
           ))}
-          <span className={styles.notebookNote}>Made to be savored.</span>
+          <span className={styles.notebookNote}>{ui.savor}</span>
         </div>
         {cheesecake.tabs.map((tab) => (
           <section
@@ -103,13 +105,15 @@ export function CheesecakePage() {
             hidden={activeTab !== tab.id}
             tabIndex={0}
             className={
-              tab.id === 'recipes' && recipes.length > 0
+              (tab.id === 'recipes' ? recipes.length > 0 : reviews.length > 0)
                 ? styles.notebookPanel
                 : styles.tabPanel
             }
           >
             {tab.id === 'recipes' && recipes.length > 0 ? (
               <RecipeList />
+            ) : tab.id === 'reviews' && reviews.length > 0 ? (
+              <ReviewList reviews={reviews} />
             ) : (
               <>
                 <div className={styles.emptyIcon} aria-hidden="true">

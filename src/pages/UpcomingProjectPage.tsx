@@ -1,25 +1,27 @@
 import { Link } from 'react-router'
 import type { UpcomingProject } from '../content/upcomingProjects'
+import { useLocale } from '../i18n/useLocale'
 import { Icon } from '../components/Icon'
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import styles from '../components/Pages.module.css'
 
 export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
+  const { path, ui } = useLocale()
   usePageMetadata(
-    `${project.name} — Coming to iOS and Android — Santiago Fernández`,
-    `${project.summary} ${project.availability}. Currently in development.`,
+    `${project.name} — ${project.availability} — Santiago Fernández`,
+    `${project.summary} ${project.availability}. ${ui.currentlyInDevelopment}`,
   )
 
   return (
     <div className={styles.pageShell}>
       <SiteHeader />
       <main id="content" tabIndex={-1} className={styles.pageMain}>
-        <Link to="/#upcoming-projects" className={styles.backLink}>
-          <span aria-hidden="true">←</span> Upcoming projects
+        <Link to={path('/#upcoming-projects')} className={styles.backLink}>
+          <span aria-hidden="true">←</span> {ui.upcomingProjects}
         </Link>
         <div className={`${styles.projectIntro} ${styles.upcomingIntro}`}>
-          <p className={styles.label}>In development / {project.category}</p>
+          <p className={styles.label}>{ui.inDevelopment} / {project.category}</p>
           <h1>{project.name}</h1>
           <p className={styles.pageLead}>{project.tagline}</p>
           <p className={styles.upcomingIntroduction}>{project.introduction}</p>
@@ -30,16 +32,16 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
         </div>
         <section className={styles.prototypeSection} aria-labelledby="preview-heading">
           <div className={styles.previewHeader}>
-            <h2 id="preview-heading" className={styles.sectionLabel}>A first taste</h2>
-            <p>A peek inside PantryApp. Still taking shape.</p>
+            <h2 id="preview-heading" className={styles.sectionLabel}>{ui.firstTaste}</h2>
+            <p>{ui.pantryPeek}</p>
           </div>
           <div className={styles.prototypeGrid}>
             {project.screenshots.map((screen) => (
               <figure key={screen.src} className={styles.prototypeFigure}>
                 <div className={styles.prototypeFrame}>
                   <p className={styles.prototypeLabel}>
-                    <span aria-hidden="true">△</span> Early prototype image
-                    <span> Design may change</span>
+                    <span aria-hidden="true">△</span> {ui.prototypeImage}
+                    <span> {ui.designMayChange}</span>
                   </p>
                   <img
                     className={screen.cropSideGutters ? styles.cropSideGutters : undefined}
@@ -59,11 +61,10 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
           </div>
         </section>
         <section className={styles.detailSection} aria-labelledby="vision-heading">
-          <h2 id="vision-heading" className={styles.sectionLabel}>From shelf to table</h2>
+          <h2 id="vision-heading" className={styles.sectionLabel}>{ui.shelfToTable}</h2>
           <div className={styles.prose}>
             <p>
-              Less time wondering what’s in the fridge. More good meals with
-              what’s already there. Here’s how PantryApp will help.
+              {ui.pantryVision}
             </p>
           </div>
         </section>
@@ -79,23 +80,20 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
           ))}
         </div>
         <section className={styles.detailSection} aria-labelledby="next-heading">
-          <h2 id="next-heading" className={styles.sectionLabel}>Your kitchen, your way</h2>
+          <h2 id="next-heading" className={styles.sectionLabel}>{ui.yourKitchen}</h2>
           <div className={styles.prose}>
             <p>
-              Cooking for yourself or sharing a fridge? I want PantryApp to feel
-              like a helping hand in your kitchen. I’m starting with English and
-              Spanish, and building for both iPhone and Android.
+              {ui.pantryFuture}
             </p>
             <p className={styles.contextNote}>
-              Still cooking. PantryApp is in development, and these screens are
-              a first taste of what’s coming.
+              {ui.pantryStatus}
             </p>
           </div>
         </section>
-        <Link to="/#upcoming-projects" className={styles.nextProject}>
+        <Link to={path('/#upcoming-projects')} className={styles.nextProject}>
           <span>
-            <span className={styles.label}>Back to the portfolio</span>
-            <span className={styles.nextProjectName}>Upcoming projects</span>
+            <span className={styles.label}>{ui.backToPortfolio}</span>
+            <span className={styles.nextProjectName}>{ui.upcomingProjects}</span>
           </span>
           <Icon name="arrow" width="32" height="32" />
         </Link>

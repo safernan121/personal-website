@@ -6,15 +6,16 @@ import { UpcomingProjectList } from '../components/UpcomingProjectList'
 import { Link } from 'react-router'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import { Profile } from '../components/Profile'
-import { experiences, profile } from '../content/profile'
+import { useLocale } from '../i18n/useLocale'
 import { useActiveSection } from '../hooks/useActiveSection'
 import styles from '../components/Portfolio.module.css'
 
 const copyrightYear = new Date().getFullYear()
 
 export function HomePage() {
+  const { experiences, profile, path, ui } = useLocale()
   usePageMetadata(
-    'Santiago Fernández — Software Engineer',
+    `${profile.name} — ${profile.role}`,
     profile.description,
   )
   const activeSection = useActiveSection()
@@ -28,7 +29,7 @@ export function HomePage() {
           <main id="content" className={styles.content} tabIndex={-1}>
             <section id="about" aria-labelledby="about-heading">
               <h2 id="about-heading" className={styles.sectionHeading}>
-                <span>01</span> About
+                <span>01</span> {ui.about}
               </h2>
               <p className={styles.aboutLead}>
                 {profile.aboutLead[0]}
@@ -55,9 +56,9 @@ export function HomePage() {
             >
               <div className={styles.sectionHeader}>
                 <h2 id="experience-heading" className={styles.sectionHeading}>
-                  <span>02</span> Experience
+                  <span>02</span> {ui.experience}
                 </h2>
-                <span className={styles.careerPeriod}>2018 — Present</span>
+                <span className={styles.careerPeriod}>{ui.careerPeriod}</span>
               </div>
               <ol>
                 {experiences.map((experience) => (
@@ -74,7 +75,7 @@ export function HomePage() {
               className={styles.experience}
             >
               <h2 id="projects-heading" className={styles.sectionHeading}>
-                <span>03</span> Selected projects
+                <span>03</span> {ui.selectedProjects}
               </h2>
               <ProjectList />
             </section>
@@ -84,18 +85,18 @@ export function HomePage() {
               className={styles.experience}
             >
               <h2 id="upcoming-projects-heading" className={styles.sectionHeading}>
-                <span>04</span> Upcoming projects
+                <span>04</span> {ui.upcomingProjects}
               </h2>
-              <p className={styles.sectionIntro}>A look at what I’m building next.</p>
+              <p className={styles.sectionIntro}>{ui.upcomingIntro}</p>
               <UpcomingProjectList />
             </section>
             <div className={styles.contact}>
-              <p className={styles.contactLabel}>Have a product to build or a team to grow?</p>
+              <p className={styles.contactLabel}>{ui.contactPrompt}</p>
               <a
                 href={`mailto:${profile.email}`}
                 className={styles.contactLink}
               >
-                Let’s talk <Icon name="arrow" width="25" height="25" />
+                {ui.letsTalk} <Icon name="arrow" width="25" height="25" />
               </a>
             </div>
           </main>
@@ -104,9 +105,9 @@ export function HomePage() {
           <span>
             © {copyrightYear} {profile.name}
           </span>
-          <Link to="/about">Behind the keyboard ↗</Link>
+          <Link to={path('/about')}>{ui.behindKeyboard} ↗</Link>
           <a href="#top">
-            Back to top <Icon name="up" width="14" height="14" />
+            {ui.backToTop} <Icon name="up" width="14" height="14" />
           </a>
         </footer>
       </div>

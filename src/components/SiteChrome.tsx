@@ -1,65 +1,67 @@
-import { Link, useLocation } from 'react-router'
-import { profile } from '../content/profile'
-import { upcomingProjects } from '../content/upcomingProjects'
+import { Link } from 'react-router'
+import { useLocale } from '../i18n/useLocale'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import styles from './Pages.module.css'
 
 const copyrightYear = new Date().getFullYear()
 
 export function SiteHeader() {
-  const { pathname } = useLocation()
+  const { pathname, path, ui, upcomingProjects } = useLocale()
   const isUpcomingProject = upcomingProjects.some(
     (project) => pathname === `/projects/${project.slug}`,
   )
   return (
     <header className={styles.header}>
       <Link
-        to="/"
+        to={path('/')}
         className={styles.brand}
-        aria-label="Santiago Fernández — home"
+        aria-label={`Santiago Fernández — ${ui.home}`}
       >
         sf<span>.</span>
       </Link>
-      <span className={styles.headerLabel}>Personal portfolio</span>
-      <nav aria-label="Main navigation" className={styles.headerNav}>
+      <span className={styles.headerLabel}>{ui.portfolio}</span>
+      <nav aria-label={ui.mainNavigation} className={styles.headerNav}>
         <Link
-          to="/#projects"
+          to={path('/#projects')}
           aria-current={
             pathname.startsWith('/projects/') && !isUpcomingProject
               ? 'page'
               : undefined
           }
         >
-          Work
+          {ui.work}
         </Link>
         <Link
-          to="/#upcoming-projects"
+          to={path('/#upcoming-projects')}
           aria-current={isUpcomingProject ? 'page' : undefined}
         >
-          Upcoming
+          {ui.upcoming}
         </Link>
         <Link
-          to="/cheesecake"
+          to={path('/cheesecake')}
           aria-current={
             pathname === '/cheesecake' || pathname.startsWith('/cheesecake/')
               ? 'page'
               : undefined
           }
         >
-          Cheesecake
+          {ui.cheesecake}
         </Link>
       </nav>
+      <LanguageSwitcher />
     </header>
   )
 }
 
 export function SiteFooter() {
+  const { profile, path, ui } = useLocale()
   return (
     <footer className={styles.footer}>
       <span>
         © {copyrightYear} {profile.name}
       </span>
-      <Link to="/">
-        Back to portfolio <span aria-hidden="true">↗</span>
+      <Link to={path('/')}>
+        {ui.backToPortfolio} <span aria-hidden="true">↗</span>
       </Link>
     </footer>
   )

@@ -49,6 +49,26 @@
 .headerNav a[aria-current] {
   color: var(--accent);
 }
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 8px;
+  padding-left: 18px;
+  border-left: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.languageSwitcher a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.languageSwitcher a:hover,
+.languageSwitcher a[aria-current] {
+  color: var(--accent);
+}
 .pageMain {
   padding-top: 35px;
 }
@@ -826,11 +846,13 @@
   color: var(--muted);
   font-size: 11px;
 }
-.recipeList {
+.recipeList,
+.reviewList {
   display: grid;
   gap: 28px;
 }
-.recipeCard {
+.recipeCard,
+.reviewCard {
   display: grid;
   grid-template-columns: 260px 1fr;
   align-items: center;
@@ -838,7 +860,8 @@
   padding-bottom: 28px;
   border-bottom: 1px solid var(--border);
 }
-.recipeArtwork {
+.recipeArtwork,
+.reviewArtwork {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -853,13 +876,15 @@
   margin: 0;
 }
 .recipeArtwork img,
+.reviewArtwork img,
 .recipeHeroArtwork img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.recipeCardCopy {
+.recipeCardCopy,
+.reviewCopy {
   min-width: 0;
 }
 .recipeCategory {
@@ -867,7 +892,8 @@
   font: 10px/1.7 var(--font-mono);
   letter-spacing: 0.04em;
 }
-.recipeCard h3 {
+.recipeCard h3,
+.reviewCard h2 {
   margin-top: 9px;
   color: var(--heading);
   font-size: 27px;
@@ -879,7 +905,8 @@
   color: var(--heading);
   font-size: 13px;
 }
-.recipeCardDescription {
+.recipeCardDescription,
+.reviewDescription {
   max-width: 620px;
   margin-top: 12px;
   font-size: 13px;
@@ -893,7 +920,8 @@
   color: var(--muted);
   font-size: 11px;
 }
-.recipeCardLink {
+.recipeCardLink,
+.reviewShop {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -903,6 +931,48 @@
 }
 .recipeCard:hover h3 {
   color: var(--accent);
+}
+.reviewCard h2 {
+  margin-top: 0;
+}
+.reviewCopy {
+  overflow-wrap: anywhere;
+}
+.reviewShop {
+  min-height: 44px;
+  margin-top: 12px;
+}
+.reviewShop svg {
+  flex-shrink: 0;
+}
+.reviewShop:hover {
+  color: var(--heading);
+}
+.reviewWebNotes {
+  max-width: 620px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.reviewWebNotes h3 {
+  margin-bottom: 10px;
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 500;
+}
+.reviewWebNotes ul {
+  display: grid;
+  gap: 12px;
+}
+.reviewWebNotes p {
+  font-size: 12px;
+  line-height: 1.85;
+}
+.reviewWebNotes a {
+  color: var(--accent);
+}
+.reviewWebNotes a:hover {
+  color: var(--heading);
 }
 .recipeIntro {
   display: grid;
@@ -1084,6 +1154,9 @@
   .header {
     min-height: 88px;
   }
+  .headerLabel {
+    display: none;
+  }
   .projectIntro {
     padding-top: 38px;
   }
@@ -1106,7 +1179,8 @@
   .cheesecakeHero .label {
     max-width: 250px;
   }
-  .recipeCard {
+  .recipeCard,
+  .reviewCard {
     grid-template-columns: 210px 1fr;
     gap: 25px;
   }
@@ -1168,13 +1242,22 @@
   }
   .header {
     min-height: 76px;
+    flex-wrap: wrap;
+    gap: 0 18px;
+    padding: 10px 0;
   }
   .headerLabel {
     display: none;
   }
   .headerNav {
-    gap: 24px;
+    order: 3;
+    flex-basis: 100%;
+    justify-content: space-between;
+    gap: 12px;
     font-size: 11px;
+  }
+  .languageSwitcher {
+    margin-left: auto;
   }
   .pageMain {
     padding-top: 20px;
@@ -1303,7 +1386,8 @@
   .tabPanel h2 {
     font-size: 24px;
   }
-  .recipeCard {
+  .recipeCard,
+  .reviewCard {
     grid-template-columns: 1fr;
     gap: 22px;
   }
@@ -1313,7 +1397,8 @@
   .recipeArtwork .cakeIllustration {
     width: 165px;
   }
-  .recipeCard h3 {
+  .recipeCard h3,
+  .reviewCard h2 {
     font-size: 25px;
   }
   .recipeIntro {

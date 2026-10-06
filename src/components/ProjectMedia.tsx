@@ -1,7 +1,9 @@
 import type { Project } from '../content/projects'
+import { useLocale } from '../i18n/useLocale'
 import styles from './Pages.module.css'
 
 export function ProjectMedia({ project }: { project: Project }) {
+  const { ui } = useLocale()
   const media = project.media
   if (!media) return null
 
@@ -13,12 +15,12 @@ export function ProjectMedia({ project }: { project: Project }) {
         >
           <img
             src={media.logo}
-            alt={`${project.name} logo`}
+            alt={`${project.name} ${ui.logo}`}
             width={media.logoWidth}
             height={media.logoHeight}
           />
           <span>
-            From the archive <span aria-hidden="true">↘</span>
+            {ui.archive} <span aria-hidden="true">↘</span>
           </span>
         </div>
         <img
@@ -34,7 +36,7 @@ export function ProjectMedia({ project }: { project: Project }) {
         <span>{media.caption}</span>
         <a href={media.source} target="_blank" rel="noreferrer">
           {media.sourceLabel} ↗
-          <span className="sr-only"> (opens in a new tab)</span>
+          <span className="sr-only"> {ui.newTab}</span>
         </a>
       </figcaption>
     </figure>

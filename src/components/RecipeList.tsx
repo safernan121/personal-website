@@ -1,23 +1,24 @@
 import { Link } from 'react-router'
-import { recipes } from '../content/recipes'
+import { useLocale } from '../i18n/useLocale'
 import { CheesecakeIllustration } from './CheesecakeIllustration'
 import { Icon } from './Icon'
 import styles from './Pages.module.css'
 
 export function RecipeList() {
+  const { recipes, path, ui } = useLocale()
   return (
     <>
       <div className={styles.notebookHeading}>
-        <h2>From my kitchen</h2>
+        <h2>{ui.fromKitchen}</h2>
         <span>
-          {recipes.length} {recipes.length === 1 ? 'recipe' : 'recipes'}
+          {recipes.length} {recipes.length === 1 ? ui.recipe : ui.recipes}
         </span>
       </div>
       <ul className={styles.recipeList}>
         {recipes.map((recipe) => (
           <li key={recipe.slug}>
             <Link
-              to={`/cheesecake/recipes/${recipe.slug}`}
+              to={path(`/cheesecake/recipes/${recipe.slug}`)}
               className={styles.recipeCard}
             >
               <div className={styles.recipeArtwork}>
@@ -25,6 +26,7 @@ export function RecipeList() {
                   <img
                     src={recipe.image.src}
                     alt={recipe.image.alt}
+                    style={{ objectPosition: recipe.image.position }}
                     loading="lazy"
                     decoding="async"
                   />
@@ -42,7 +44,7 @@ export function RecipeList() {
                 <ul className={styles.recipeCardMeta}>
                   {recipe.details
                     .filter(
-                      (detail) => detail.label === 'Bake' || detail.label === 'Chill',
+                      (detail) => detail.id === 'bake' || detail.id === 'chill',
                     )
                     .map((detail) => (
                       <li key={detail.label}>
@@ -51,7 +53,7 @@ export function RecipeList() {
                     ))}
                 </ul>
                 <span className={styles.recipeCardLink}>
-                  Read recipe <Icon name="arrow" width="15" height="15" />
+                  {ui.readRecipe} <Icon name="arrow" width="15" height="15" />
                 </span>
               </div>
             </Link>

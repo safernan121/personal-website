@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router'
-import { projects, type Project } from '../content/projects'
-import { upcomingProjects } from '../content/upcomingProjects'
+import type { Project } from '../content/projects'
+import { useLocale } from '../i18n/useLocale'
 import { UpcomingProjectPage } from './UpcomingProjectPage'
 import { Icon } from '../components/Icon'
 import { ProjectMedia } from '../components/ProjectMedia'
@@ -11,6 +11,7 @@ import { NotFoundPage } from './NotFoundPage'
 import styles from '../components/Pages.module.css'
 
 export function ProjectPage() {
+  const { projects, upcomingProjects } = useLocale()
   const { slug } = useParams()
   const project = projects.find((item) => item.slug === slug)
   const upcomingProject = upcomingProjects.find((item) => item.slug === slug)
@@ -19,6 +20,7 @@ export function ProjectPage() {
 }
 
 function ProjectDetail({ project }: { project: Project }) {
+  const { projects, path, ui } = useLocale()
   usePageMetadata(`${project.name} — Santiago Fernández`, project.tagline)
   const isBeacon = project.slug === 'the-beacon'
   const nextProject =
@@ -28,8 +30,8 @@ function ProjectDetail({ project }: { project: Project }) {
     <div className={styles.pageShell}>
       <SiteHeader />
       <main id="content" tabIndex={-1} className={styles.pageMain}>
-        <Link to="/#projects" className={styles.backLink}>
-          <span aria-hidden="true">←</span> All projects
+        <Link to={path('/#projects')} className={styles.backLink}>
+          <span aria-hidden="true">←</span> {ui.allProjects}
         </Link>
         <div className={styles.projectIntro}>
           <p className={styles.label}>
@@ -44,23 +46,23 @@ function ProjectDetail({ project }: { project: Project }) {
               rel="noreferrer"
               className={styles.externalLink}
             >
-              {project.websiteLabel ?? `Visit ${project.name}`} <Icon name="arrow" width="17" height="17" />
-              <span className="sr-only"> (opens in a new tab)</span>
+              {project.websiteLabel ?? `${ui.visit} ${project.name}`} <Icon name="arrow" width="17" height="17" />
+              <span className="sr-only"> {ui.newTab}</span>
             </a>
           )}
           {project.websiteNote && <p className={styles.websiteNote}>{project.websiteNote}</p>}
         </div>
         <dl className={styles.projectMeta}>
           <div>
-            <dt>Role</dt>
+            <dt>{ui.role}</dt>
             <dd>{project.role}</dd>
           </div>
           <div>
-            <dt>Team</dt>
+            <dt>{ui.team}</dt>
             <dd>{project.company}</dd>
           </div>
           <div>
-            <dt>Period</dt>
+            <dt>{ui.period}</dt>
             <dd>{project.period}</dd>
           </div>
         </dl>
@@ -70,13 +72,13 @@ function ProjectDetail({ project }: { project: Project }) {
             aria-labelledby="role-heading"
           >
             <h2 id="role-heading" className={styles.sectionLabel}>
-              My role
+              {ui.myRole}
             </h2>
             <div className={styles.prose}>
               <p>{project.roleSummary}</p>
               <ul
                 className={styles.areaList}
-                aria-label="Technologies and focus areas"
+                aria-label={ui.focusAreas}
               >
                 {project.areas.map((area) => (
                   <li key={area}>{area}</li>
@@ -91,7 +93,7 @@ function ProjectDetail({ project }: { project: Project }) {
             aria-labelledby="contributions-heading"
           >
             <h2 id="contributions-heading" className={styles.sectionLabel}>
-              My contributions
+              {ui.myContributions}
             </h2>
             <div className={styles.contributions}>
               {project.contributions.map((item, index) => (
@@ -125,16 +127,16 @@ function ProjectDetail({ project }: { project: Project }) {
               <img
                 className={styles.beaconCombat}
                 src="/images/the-beacon/combat.webp"
-                alt="Pixel-art dungeon scene with adventurers facing skeletons and magical traps."
+                alt={ui.beaconCombatAlt}
                 width="1540"
                 height="1096"
                 fetchPriority="high"
               />
             </div>
             <figcaption>
-              Game artwork from{' '}
+              {ui.gameArtworkFrom}{' '}
               <a href="https://thebeacon.gg/" target="_blank" rel="noreferrer">
-                The Beacon <span className="sr-only">(opens in a new tab)</span>
+                The Beacon <span className="sr-only">{ui.newTab}</span>
                 ↗
               </a>
             </figcaption>
@@ -145,7 +147,7 @@ function ProjectDetail({ project }: { project: Project }) {
           aria-labelledby="overview-heading"
         >
           <h2 id="overview-heading" className={styles.sectionLabel}>
-            The product
+            {ui.product}
           </h2>
           <div className={styles.prose}>
             <p>{project.description}</p>
@@ -159,36 +161,36 @@ function ProjectDetail({ project }: { project: Project }) {
             <figure>
               <img
                 src="/images/the-beacon/house.webp"
-                alt="A decorated pixel-art home with a bed, stove, and dining table."
+                alt={ui.beaconHomeAlt}
                 width="600"
                 height="450"
                 loading="lazy"
               />
-              <figcaption>A place to make your own.</figcaption>
+              <figcaption>{ui.makeYourOwn}</figcaption>
             </figure>
             <figure>
               <img
                 src="/images/the-beacon/social.webp"
-                alt="Players gathering outside a cave entrance in a forest."
+                alt={ui.beaconSocialAlt}
                 width="391"
                 height="280"
                 loading="lazy"
               />
-              <figcaption>A world to share.</figcaption>
+              <figcaption>{ui.worldToShare}</figcaption>
             </figure>
             <p>
-              Images and game description adapted from{' '}
+              {ui.adaptedFrom}{' '}
               <a href="https://thebeacon.gg/" target="_blank" rel="noreferrer">
                 thebeacon.gg
-                <span className="sr-only"> (opens in a new tab)</span>
+                <span className="sr-only"> {ui.newTab}</span>
               </a>
-              . Artwork belongs to The Beacon.
+              . {ui.artworkCredit}
             </p>
           </div>
         )}
         {project.references && (
           <section className={styles.detailSection} aria-labelledby="sources-heading">
-            <h2 id="sources-heading" className={styles.sectionLabel}>Project sources</h2>
+            <h2 id="sources-heading" className={styles.sectionLabel}>{ui.projectSources}</h2>
             <div className={styles.references}>
               {project.references.map((reference) => (
                 <article key={reference.url}>
@@ -196,7 +198,7 @@ function ProjectDetail({ project }: { project: Project }) {
                   <h3>
                     <a href={reference.url} target="_blank" rel="noreferrer">
                       {reference.title} <Icon name="arrow" width="15" height="15" />
-                      <span className="sr-only"> (opens in a new tab)</span>
+                      <span className="sr-only"> {ui.newTab}</span>
                     </a>
                   </h3>
                   <p>{reference.description}</p>
@@ -206,11 +208,11 @@ function ProjectDetail({ project }: { project: Project }) {
           </section>
         )}
         <Link
-          to={`/projects/${nextProject.slug}`}
+          to={path(`/projects/${nextProject.slug}`)}
           className={styles.nextProject}
         >
           <span>
-            <span className={styles.label}>Next project</span>
+            <span className={styles.label}>{ui.nextProject}</span>
             <span className={styles.nextProjectName}>{nextProject.name}</span>
           </span>
           <Icon name="arrow" width="32" height="32" />

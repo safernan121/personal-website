@@ -1,19 +1,20 @@
 import { Link } from 'react-router'
 import { Icon } from '../components/Icon'
 import { SiteHeader, SiteFooter } from '../components/SiteChrome'
-import { aboutMe } from '../content/about'
+import { useLocale } from '../i18n/useLocale'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import styles from '../components/Pages.module.css'
 
 export function AboutPage() {
-  usePageMetadata('Behind the keyboard — Santiago Fernández', aboutMe.description)
+  const { aboutMe, path, ui } = useLocale()
+  usePageMetadata(`${aboutMe.label} — Santiago Fernández`, aboutMe.description)
 
   return (
     <div className={styles.pageShell}>
       <SiteHeader />
       <main id="content" tabIndex={-1} className={styles.pageMain}>
-        <Link to="/" className={styles.backLink}>
-          <span aria-hidden="true">←</span> Back to portfolio
+        <Link to={path('/')} className={styles.backLink}>
+          <span aria-hidden="true">←</span> {ui.backToPortfolio}
         </Link>
         <div className={styles.projectIntro}>
           <p className={styles.label}>{aboutMe.label}</p>
@@ -43,8 +44,8 @@ export function AboutPage() {
                 </div>
               ))}
             </dl>
-            <Link to="/cheesecake" className={styles.externalLink}>
-              Visit my cheesecake notebook
+            <Link to={path('/cheesecake')} className={styles.externalLink}>
+              {ui.visitNotebook}
               <Icon name="arrow" width="14" height="14" />
             </Link>
           </div>

@@ -1,15 +1,16 @@
 import { Link } from 'react-router'
-import { upcomingProjects } from '../content/upcomingProjects'
+import { useLocale } from '../i18n/useLocale'
 import { Icon } from './Icon'
 import styles from './Pages.module.css'
 
 export function UpcomingProjectList() {
+  const { upcomingProjects, path, ui } = useLocale()
   return (
     <ul className={styles.upcomingList}>
       {upcomingProjects.map((project) => (
         <li key={project.slug}>
           <Link
-            to={`/projects/${project.slug}`}
+            to={path(`/projects/${project.slug}`)}
             className={`${styles.projectCard} ${styles.upcomingCard}`}
           >
             <span className={styles.pantryMark} aria-hidden="true">
@@ -24,7 +25,7 @@ export function UpcomingProjectList() {
               </svg>
             </span>
             <span className={styles.projectCardCopy}>
-              <span className={styles.upcomingLabel}>In development</span>
+              <span className={styles.upcomingLabel}>{ui.inDevelopment}</span>
               <span className={styles.projectCardTitle}>
                 {project.name} <Icon name="arrow" width="18" height="18" />
               </span>

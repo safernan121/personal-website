@@ -1,14 +1,15 @@
 import { Link } from 'react-router'
-import { projects } from '../content/projects'
+import { useLocale } from '../i18n/useLocale'
 import { Icon } from './Icon'
 import styles from './Pages.module.css'
 
 export function ProjectList() {
+  const { projects, path } = useLocale()
   return (
     <ul className={styles.projectList}>
       {projects.map((project) => (
         <li key={project.slug}>
-          <Link to={`/projects/${project.slug}`} className={styles.projectCard}>
+          <Link to={path(`/projects/${project.slug}`)} className={styles.projectCard}>
             <span
               className={`${styles.projectMark} ${project.slug === 'the-beacon' ? styles.beaconMark : ''}`}
               aria-hidden="true"

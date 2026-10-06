@@ -1,37 +1,44 @@
 import { Link, useParams } from 'react-router'
 import { CheesecakeIllustration } from '../components/CheesecakeIllustration'
 import { SiteHeader, SiteFooter } from '../components/SiteChrome'
-import { recipes, type Recipe } from '../content/recipes'
+import type { Recipe } from '../content/recipes'
+import { useLocale } from '../i18n/useLocale'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import { NotFoundPage } from './NotFoundPage'
 import styles from '../components/Pages.module.css'
 
 export function RecipePage() {
+  const { recipes } = useLocale()
   const { slug } = useParams()
   const recipe = recipes.find((item) => item.slug === slug)
   return recipe ? <RecipeDetail recipe={recipe} /> : <NotFoundPage />
 }
 
 function RecipeDetail({ recipe }: { recipe: Recipe }) {
+  const { path, ui } = useLocale()
   usePageMetadata(`${recipe.name} — Santiago Fernández`, recipe.description)
 
   return (
     <div className={`${styles.pageShell} ${styles.cheesecakePage}`}>
       <SiteHeader />
       <main id="content" tabIndex={-1} className={styles.pageMain}>
-        <Link to="/cheesecake" className={styles.backLink}>
-          <span aria-hidden="true">←</span> All recipes
+        <Link to={path('/cheesecake')} className={styles.backLink}>
+          <span aria-hidden="true">←</span> {ui.allRecipes}
         </Link>
         <div className={styles.recipeIntro}>
           <div>
-            <p className={styles.label}>From my kitchen / {recipe.category}</p>
+            <p className={styles.label}>{ui.fromKitchen} / {recipe.category}</p>
             <h1>{recipe.name}.</h1>
             <p className={styles.recipeIntroSubtitle}>{recipe.subtitle}</p>
             <p className={styles.recipeLead}>{recipe.description}</p>
           </div>
           <div className={styles.recipeHeroArtwork}>
             {recipe.image ? (
-              <img src={recipe.image.src} alt={recipe.image.alt} />
+              <img
+                src={recipe.image.src}
+                alt={recipe.image.alt}
+                style={{ objectPosition: recipe.image.position }}
+              />
             ) : (
               <CheesecakeIllustration />
             )}
@@ -48,7 +55,7 @@ function RecipeDetail({ recipe }: { recipe: Recipe }) {
         <div className={styles.recipeBody}>
           <section aria-labelledby="ingredients-heading">
             <h2 id="ingredients-heading" className={styles.recipeSectionTitle}>
-              Ingredients
+              {ui.ingredients}
             </h2>
             <ul className={styles.recipeIngredients}>
               {recipe.ingredients.map((ingredient) => (
@@ -66,7 +73,7 @@ function RecipeDetail({ recipe }: { recipe: Recipe }) {
           </section>
           <section aria-labelledby="method-heading">
             <h2 id="method-heading" className={styles.recipeSectionTitle}>
-              Method
+              {ui.method}
             </h2>
             <ol className={styles.recipeSteps}>
               {recipe.steps.map((step, index) => (
@@ -89,9 +96,9 @@ function RecipeDetail({ recipe }: { recipe: Recipe }) {
         >
           <div className={styles.nutritionHeading}>
             <h2 id="nutrition-heading" className={styles.recipeSectionTitle}>
-              Macros
+              {ui.nutrition}
             </h2>
-            <p>{recipe.nutrition.scope} · Approximate</p>
+            <p>{recipe.nutrition.scope} · {ui.approximate}</p>
           </div>
           <dl className={styles.nutritionValues}>
             {recipe.nutrition.values.map((macro) => (
@@ -106,7 +113,7 @@ function RecipeDetail({ recipe }: { recipe: Recipe }) {
         {recipe.notes.length > 0 && (
           <section className={styles.recipeNotes} aria-labelledby="notes-heading">
             <h2 id="notes-heading" className={styles.recipeSectionTitle}>
-              Notes from my kitchen
+              {ui.kitchenNotes}
             </h2>
             <ul>
               {recipe.notes.map((note) => (
