@@ -24,6 +24,10 @@ export const recipes: Recipe[] = [
     description:
       'It may not win any taste contests or be the best cheesecake you’ve ever had. But it’s made for everyday cravings: a simple cheesecake fix that can fit into a balanced diet, in a portion that works for you, without having to wait for “cheat day.”',
     category: 'Baked / Protein',
+    image: {
+      src: '/images/cheesecake/the-protein-cloud.webp',
+      alt: 'The Protein Cloud cheesecake in a rectangular glass baking dish in the oven.',
+    },
     ingredients: [
       { name: 'Ricotta', quantity: '250 g' },
       { name: 'Cottage cheese', quantity: '250 g' },
