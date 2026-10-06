@@ -2,6 +2,7 @@ import { ExperienceEntry } from '../components/ExperienceEntry'
 import { Icon } from '../components/Icon'
 import { SiteHeader } from '../components/SiteChrome'
 import { ProjectList } from '../components/ProjectList'
+import { UpcomingProjectList } from '../components/UpcomingProjectList'
 import { Link } from 'react-router'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import { Profile } from '../components/Profile'
@@ -76,6 +77,17 @@ export function HomePage() {
                 <span>03</span> Selected projects
               </h2>
               <ProjectList />
+            </section>
+            <section
+              id="upcoming-projects"
+              aria-labelledby="upcoming-projects-heading"
+              className={styles.experience}
+            >
+              <h2 id="upcoming-projects-heading" className={styles.sectionHeading}>
+                <span>04</span> Upcoming projects
+              </h2>
+              <p className={styles.sectionIntro}>A look at what I’m building next.</p>
+              <UpcomingProjectList />
             </section>
             <div className={styles.contact}>
               <p className={styles.contactLabel}>Have a product to build or a team to grow?</p>

@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router'
 import { projects, type Project } from '../content/projects'
+import { upcomingProjects } from '../content/upcomingProjects'
+import { UpcomingProjectPage } from './UpcomingProjectPage'
 import { Icon } from '../components/Icon'
 import { ProjectMedia } from '../components/ProjectMedia'
 import { ProjectScreens } from '../components/ProjectScreens'
@@ -11,6 +13,8 @@ import styles from '../components/Pages.module.css'
 export function ProjectPage() {
   const { slug } = useParams()
   const project = projects.find((item) => item.slug === slug)
+  const upcomingProject = upcomingProjects.find((item) => item.slug === slug)
+  if (upcomingProject) return <UpcomingProjectPage project={upcomingProject} />
   return project ? <ProjectDetail project={project} /> : <NotFoundPage />
 }
 

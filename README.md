@@ -1,6 +1,6 @@
 # Santiago Fernández — Personal Website
 
-A personal portfolio built with React, TypeScript, and Vite. It presents an introduction, professional experience, individual project pages, and a cheesecake notebook. The responsive, dark layout is inspired by Brittany Chiang's portfolio, with an original implementation and Santiago's own content.
+A personal portfolio built with React, TypeScript, and Vite. It presents an introduction, professional experience, selected and upcoming project pages, and a cheesecake notebook. The responsive, dark layout is inspired by Brittany Chiang's portfolio, with an original implementation and Santiago's own content.
 
 ## Local development
 
@@ -29,6 +29,7 @@ npm run preview
 - `src/content/profile.ts` contains the identity, introduction, social links, and ordered experience entries. Highlights have a short title and supporting text for easier scanning. Product/company scale appears separately from personal achievements; keep that attribution when editing.
 - Lead public copy with the product or team benefit, then support it with concrete work. Keep technology names where they establish experience, avoid repeating long responsibility lists across sections, and preserve the scope of each contribution. The homepage gives the short version; project pages carry the supporting detail.
 - `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. Product descriptions use the linked public sources; personal contributions come from the CV and Santiago's confirmed descriptions. Engineering roles and contributions appear before product imagery and context. CryptoMKT and Uppercap include dated imagery and source links from the employment period. Dates for the latter two reflect the shared employment period, not separate project launch dates.
+- `src/content/upcomingProjects.ts` contains upcoming projects, their intended features, and prototype screenshots. PantryApp's public overview is adapted from the local PantryApp repository's `docs/MASTERPLAN.md` and README, reviewed October 6, 2026. It describes the product direction without presenting unfinished features as available. Preserve the iOS/Android coming-soon message and visible warning on every prototype screenshot; no release date or subscription price is promised.
 - `src/content/cheesecake.ts` contains the notebook introduction and tab copy. `src/content/recipes.ts` contains recipe entries: ingredients, method, oven/tin/chilling details, kitchen notes, and approximate whole-cheesecake macros. The first entry, The Protein Cloud, uses Santiago’s supplied ricotta and cottage cheese recipe and nutrition estimates. Reviews remain empty; there is no submission form or persistence layer.
 - Add recipes to `src/content/recipes.ts` and optional photos under `public/images/cheesecake/`. Each recipe has its own `/cheesecake/recipes/:slug` page; the Recipes tab builds its notebook list from the entries. Update the sitemap when adding an entry. Keep ingredient ranges and optional ingredients, identify the nutrition scope, and get missing instructions from the author before presenting a complete recipe.
 - `src/pages/` contains the homepage, project detail, cheesecake, and not-found views. `Pages.module.css` styles the new pages and shared header.
@@ -41,7 +42,7 @@ Inter is bundled from `@fontsource-variable/inter` and served locally. The page 
 
 ## Interaction and accessibility
 
-The homepage uses `#about`, `#experience`, and `#projects` anchors and updates its active navigation as the visitor scrolls. The profile is sticky on desktop and flows normally on smaller screens. Links support keyboard focus, and a skip link moves focus directly to the content.
+The homepage uses `#about`, `#experience`, `#projects`, and `#upcoming-projects` anchors and updates its active navigation as the visitor scrolls. The profile is sticky on desktop and flows normally on smaller screens. Links support keyboard focus, and a skip link moves focus directly to the content.
 
 React Router provides the following routes, browser history, hash navigation, and scroll restoration:
 
@@ -49,6 +50,7 @@ React Router provides the following routes, browser history, hash navigation, an
 - `/projects/the-beacon` — game overview and engineering contributions
 - `/projects/cryptomkt` — professional trading interface
 - `/projects/uppercap` — investment platform
+- `/projects/pantry-app` — upcoming kitchen companion, planned features, and labeled early prototype images
 - `/cheesecake` — Recipes and Reviews tabs
 - `/cheesecake/recipes/the-protein-cloud` — ricotta and cottage cheese recipe
 
@@ -137,10 +139,13 @@ A public search found Santiago’s [existing LinkedIn profile](https://www.linke
 
 The cheesecake illustration is an original inline SVG.
 
+PantryApp uses the owner's existing `docs/pantry-preview.png` and `docs/nutrition-preview.jpg` from the local PantryApp repository, copied into `public/images/pantry-app/`. They show an early example pantry and ingredient nutrition form. Each screenshot has a visible “Early prototype image” warning and “Design may change” label. Screenshots fill their frames without added padding; CSS crops only the nutrition preview's empty side gutters, preserving the original image file and visible form. The homepage uses an original inline SVG sprout mark rather than a product screenshot. The copy speaks directly to home cooks and describes future benefits, informed by the masterplan: pantry tracking, ingredient nutrition, existing-recipe discovery, weekly planning, household stock/shopping, reviewed camera suggestions, and English/Spanish support. The page identifies the app as in development. Detailed storage rules, shopping connectivity requirements, and undecided pricing remain in the PantryApp documentation rather than the public product pitch.
+
 ## Manual release checks
 
 - Review at 390px, 768px, and 1440px widths and confirm there is no horizontal overflow.
-- Follow all three section links; scroll back to About and check the active navigation.
+- Follow all four section links; scroll back to About and check the active navigation.
+- Open PantryApp from Upcoming projects and the header link, verify both prototype labels, and return to the upcoming section. Check its direct URL and refresh.
 - Open each project from the homepage, use Next project and All projects, and check Back/Forward, direct links, and refresh.
 - Switch cheesecake tabs with a pointer and with Arrow Left/Right and Home/End. Confirm only the selected panel is visible, reload Reviews, and test browser Back.
 - Check the not-found view for both unknown routes and unknown project slugs.

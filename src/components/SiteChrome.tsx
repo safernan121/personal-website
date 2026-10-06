@@ -1,11 +1,15 @@
 import { Link, useLocation } from 'react-router'
 import { profile } from '../content/profile'
+import { upcomingProjects } from '../content/upcomingProjects'
 import styles from './Pages.module.css'
 
 const copyrightYear = new Date().getFullYear()
 
 export function SiteHeader() {
   const { pathname } = useLocation()
+  const isUpcomingProject = upcomingProjects.some(
+    (project) => pathname === `/projects/${project.slug}`,
+  )
   return (
     <header className={styles.header}>
       <Link
@@ -19,9 +23,19 @@ export function SiteHeader() {
       <nav aria-label="Main navigation" className={styles.headerNav}>
         <Link
           to="/#projects"
-          aria-current={pathname.startsWith('/projects/') ? 'page' : undefined}
+          aria-current={
+            pathname.startsWith('/projects/') && !isUpcomingProject
+              ? 'page'
+              : undefined
+          }
         >
           Work
+        </Link>
+        <Link
+          to="/#upcoming-projects"
+          aria-current={isUpcomingProject ? 'page' : undefined}
+        >
+          Upcoming
         </Link>
         <Link
           to="/cheesecake"

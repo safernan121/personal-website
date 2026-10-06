@@ -181,6 +181,11 @@
 .experience {
   margin-top: 79px;
 }
+.sectionIntro {
+  margin-top: 22px;
+  font-size: 13px;
+  line-height: 1.8;
+}
 .sectionHeader {
   display: flex;
   align-items: center;

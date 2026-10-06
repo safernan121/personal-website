@@ -15,6 +15,16 @@ export function useActiveSection(): SectionId {
         if (element && element.getBoundingClientRect().top <= readingLine)
           active = id
       }
+      // The final section can be too short to reach the reading line.
+      const finalSection = sections.at(-1)
+      if (
+        finalSection &&
+        window.scrollY > 0 &&
+        window.scrollY + window.innerHeight >=
+          document.documentElement.scrollHeight - 2
+      ) {
+        active = finalSection.id
+      }
       setActiveSection(active)
     }
     const schedule = () => {
