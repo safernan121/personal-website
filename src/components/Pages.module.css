@@ -617,6 +617,270 @@
   line-height: 1.85;
 }
 
+.notebookPanel {
+  padding-top: 28px;
+}
+.notebookPanel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+.notebookHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+.notebookHeading h2 {
+  color: var(--heading);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.notebookHeading > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.recipeList {
+  display: grid;
+  gap: 28px;
+}
+.recipeCard {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.recipeArtwork {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #29303a, #182536);
+}
+.recipeArtwork .cakeIllustration {
+  display: block;
+  width: 80%;
+  margin: 0;
+}
+.recipeArtwork img,
+.recipeHeroArtwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recipeCardCopy {
+  min-width: 0;
+}
+.recipeCategory {
+  color: var(--muted);
+  font: 10px/1.7 var(--font-mono);
+  letter-spacing: 0.04em;
+}
+.recipeCard h3 {
+  margin-top: 9px;
+  color: var(--heading);
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.recipeSubtitle {
+  margin-top: 5px;
+  color: var(--heading);
+  font-size: 13px;
+}
+.recipeCardDescription {
+  max-width: 620px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.85;
+}
+.recipeCardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 22px;
+  margin-top: 17px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.recipeCardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 19px;
+  color: var(--accent);
+  font-size: 12px;
+}
+.recipeCard:hover h3 {
+  color: var(--accent);
+}
+.recipeIntro {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  align-items: center;
+  gap: 38px;
+  padding: 45px 0 40px;
+}
+.recipeIntro h1 {
+  margin-top: 20px;
+  color: var(--heading);
+  font-size: clamp(45px, 6.5vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.12;
+}
+.recipeIntroSubtitle {
+  margin-top: 16px;
+  color: var(--accent);
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+.recipeLead {
+  max-width: 620px;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.85;
+}
+.recipeHeroArtwork {
+  overflow: hidden;
+  border-radius: 5px;
+}
+.recipeHeroArtwork img {
+  aspect-ratio: 4 / 3;
+}
+.recipeDetails,
+.nutritionValues {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+}
+.recipeDetails {
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.recipeDetails dt,
+.nutritionValues dt {
+  color: var(--muted);
+  font: 11px/1.7 var(--font-mono);
+}
+.recipeDetails dd {
+  margin: 8px 0 0;
+  color: var(--heading);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.recipeBody {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: start;
+  gap: 55px;
+  padding: 42px 0;
+}
+.recipeSectionTitle {
+  color: var(--heading);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.recipeIngredients {
+  margin-top: 18px;
+}
+.recipeIngredients li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.recipeIngredients small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.ingredientQuantity {
+  flex-shrink: 0;
+  color: var(--heading);
+}
+.recipeSteps {
+  display: grid;
+  gap: 27px;
+  margin-top: 22px;
+  list-style: decimal;
+}
+.recipeSteps li {
+  display: grid;
+  grid-template-columns: 23px 1fr;
+  gap: 15px;
+}
+.recipeStepNumber {
+  padding-top: 3px;
+  color: var(--accent);
+  font: 11px/1.7 var(--font-mono);
+}
+.recipeSteps h3 {
+  margin-bottom: 7px;
+  color: var(--heading);
+  font-size: 16px;
+  font-weight: 500;
+}
+.recipeSteps p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.recipeNutrition {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.nutritionHeading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 9px 24px;
+  margin-bottom: 23px;
+}
+.nutritionHeading p {
+  color: var(--accent);
+  font-size: 12px;
+}
+.nutritionValues dd {
+  margin: 8px 0 0;
+  color: var(--heading);
+  font-size: 23px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+}
+.nutritionNote {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+.recipeNotes {
+  margin-top: 38px;
+  padding-left: 22px;
+  border-left: 2px solid var(--accent);
+}
+.recipeNotes ul {
+  display: grid;
+  gap: 9px;
+  margin-top: 17px;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
 @media (max-width: 959px) {
   .pageShell {
     padding: 0 40px;
@@ -646,6 +910,24 @@
   }
   .cheesecakeHero .label {
     max-width: 250px;
+  }
+  .recipeCard {
+    grid-template-columns: 210px 1fr;
+    gap: 25px;
+  }
+  .recipeIntro {
+    grid-template-columns: 1fr 200px;
+    gap: 25px;
+  }
+  .recipeBody {
+    gap: 35px;
+  }
+  .recipeDetails,
+  .nutritionValues {
+    gap: 18px;
+  }
+  .nutritionValues dd {
+    font-size: 19px;
   }
 }
 @media (max-width: 600px) {
@@ -788,5 +1070,49 @@
   }
   .tabPanel h2 {
     font-size: 24px;
+  }
+  .recipeCard {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .recipeArtwork {
+    aspect-ratio: 16 / 9;
+  }
+  .recipeArtwork .cakeIllustration {
+    width: 165px;
+  }
+  .recipeCard h3 {
+    font-size: 25px;
+  }
+  .recipeIntro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 0;
+  }
+  .recipeIntro h1 {
+    font-size: clamp(41px, 11vw, 58px);
+  }
+  .recipeIntroSubtitle {
+    font-size: 16px;
+  }
+  .recipeHeroArtwork .cakeIllustration {
+    width: 180px;
+    margin: 0 auto;
+  }
+  .recipeDetails,
+  .nutritionValues {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 18px;
+  }
+  .recipeBody {
+    grid-template-columns: 1fr;
+    gap: 37px;
+    padding: 34px 0;
+  }
+  .nutritionValues dd {
+    font-size: 18px;
+  }
+  .recipeNotes {
+    padding-left: 17px;
   }
 }

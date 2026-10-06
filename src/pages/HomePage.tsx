@@ -14,7 +14,7 @@ const copyrightYear = new Date().getFullYear()
 export function HomePage() {
   usePageMetadata(
     'Santiago Fernández — Software Engineer',
-    'Santiago Fernández is a software engineer based in Barcelona, building gameplay systems, developer tools, and web applications.',
+    profile.description,
   )
   const activeSection = useActiveSection()
 
@@ -78,7 +78,7 @@ export function HomePage() {
               <ProjectList />
             </section>
             <div className={styles.contact}>
-              <p className={styles.contactLabel}>Have something in mind?</p>
+              <p className={styles.contactLabel}>Have a product to build or a team to grow?</p>
               <a
                 href={`mailto:${profile.email}`}
                 className={styles.contactLink}

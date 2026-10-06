@@ -2,7 +2,7 @@ import type { Experience } from '../content/profile'
 import styles from './Portfolio.module.css'
 
 export function ExperienceEntry({ experience }: { experience: Experience }) {
-  const { id, role, company, start, end, current, summary, highlights, areas } =
+  const { id, role, company, start, end, current, summary, context, highlights, areas } =
     experience
 
   return (
@@ -28,10 +28,14 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
         {highlights.length > 0 && (
           <ul className={styles.highlights}>
             {highlights.map((highlight) => (
-              <li key={highlight}>{highlight}</li>
+              <li key={highlight.title}>
+                <strong className={styles.highlightTitle}>{highlight.title}</strong>
+                {highlight.text}
+              </li>
             ))}
           </ul>
         )}
+        {context && <p className={styles.contextNote}>{context}</p>}
         <ul className={styles.tags} aria-label="Technologies and focus areas">
           {areas.map((area) => (
             <li key={area}>{area}</li>

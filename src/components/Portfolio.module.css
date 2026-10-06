@@ -272,6 +272,18 @@
   opacity: 0.65;
   content: '';
 }
+.highlightTitle {
+  display: block;
+  color: var(--heading);
+  font-weight: 550;
+  margin-bottom: 3px;
+}
+.contextNote {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
 .tags {
   display: flex;
   gap: 7px;

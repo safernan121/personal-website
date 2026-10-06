@@ -60,6 +60,53 @@ function ProjectDetail({ project }: { project: Project }) {
             <dd>{project.period}</dd>
           </div>
         </dl>
+        {project.roleSummary && (
+          <section
+            className={styles.detailSection}
+            aria-labelledby="role-heading"
+          >
+            <h2 id="role-heading" className={styles.sectionLabel}>
+              My role
+            </h2>
+            <div className={styles.prose}>
+              <p>{project.roleSummary}</p>
+              <ul
+                className={styles.areaList}
+                aria-label="Technologies and focus areas"
+              >
+                {project.areas.map((area) => (
+                  <li key={area}>{area}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+        {project.contributions.length > 0 && (
+          <section
+            className={styles.detailSection}
+            aria-labelledby="contributions-heading"
+          >
+            <h2 id="contributions-heading" className={styles.sectionLabel}>
+              My contributions
+            </h2>
+            <div className={styles.contributions}>
+              {project.contributions.map((item, index) => (
+                <article key={item.title} className={styles.contribution}>
+                  <span
+                    className={styles.contributionNumber}
+                    aria-hidden="true"
+                  >
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
         <ProjectMedia project={project} />
         {isBeacon && (
           <figure className={styles.beaconHero}>
@@ -94,61 +141,14 @@ function ProjectDetail({ project }: { project: Project }) {
           aria-labelledby="overview-heading"
         >
           <h2 id="overview-heading" className={styles.sectionLabel}>
-            {isBeacon ? 'The game' : 'The platform'}
+            The product
           </h2>
           <div className={styles.prose}>
             <p>{project.description}</p>
             {project.descriptionDetail && <p>{project.descriptionDetail}</p>}
-            <ul
-              className={styles.areaList}
-              aria-label="Technologies and focus areas"
-            >
-              {project.areas.map((area) => (
-                <li key={area}>{area}</li>
-              ))}
-            </ul>
+            {project.context && <p className={styles.contextNote}>{project.context}</p>}
           </div>
         </section>
-        {project.roleSummary && (
-          <section
-            className={styles.detailSection}
-            aria-labelledby="role-heading"
-          >
-            <h2 id="role-heading" className={styles.sectionLabel}>
-              My role
-            </h2>
-            <div className={styles.prose}>
-              <p>{project.roleSummary}</p>
-              {project.context && <p className={styles.contextNote}>{project.context}</p>}
-            </div>
-          </section>
-        )}
-        {project.contributions.length > 0 && (
-          <section
-            className={styles.detailSection}
-            aria-labelledby="contributions-heading"
-          >
-            <h2 id="contributions-heading" className={styles.sectionLabel}>
-              What I built
-            </h2>
-            <div className={styles.contributions}>
-              {project.contributions.map((item, index) => (
-                <article key={item.title} className={styles.contribution}>
-                  <span
-                    className={styles.contributionNumber}
-                    aria-hidden="true"
-                  >
-                    0{index + 1}
-                  </span>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
         <ProjectScreens project={project} />
         {isBeacon && (
           <div className={styles.gameGallery}>
@@ -184,7 +184,7 @@ function ProjectDetail({ project }: { project: Project }) {
         )}
         {project.references && (
           <section className={styles.detailSection} aria-labelledby="sources-heading">
-            <h2 id="sources-heading" className={styles.sectionLabel}>From that time</h2>
+            <h2 id="sources-heading" className={styles.sectionLabel}>Project sources</h2>
             <div className={styles.references}>
               {project.references.map((reference) => (
                 <article key={reference.url}>

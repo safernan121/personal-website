@@ -10,6 +10,7 @@ import { PointerGlow } from './components/PointerGlow'
 import { HomePage } from './pages/HomePage'
 import { ProjectPage } from './pages/ProjectPage'
 import { CheesecakePage } from './pages/CheesecakePage'
+import { RecipePage } from './pages/RecipePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 
 function SiteLayout() {
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'projects/:slug', element: <ProjectPage /> },
       { path: 'cheesecake', element: <CheesecakePage /> },
+      { path: 'cheesecake/recipes/:slug', element: <RecipePage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

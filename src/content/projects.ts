@@ -45,48 +45,52 @@ export interface Project {
 
 // Project descriptions and engineering contributions are deliberately separate.
 // Product context is adapted from the linked sources; personal contributions come
-// from the CV. Historical visuals document the product, not individual authorship.
+// from the CV and Santiago's confirmed descriptions of his work. Historical
+// visuals document the product, not individual authorship.
 export const projects: Project[] = [
   {
     slug: 'the-beacon',
     name: 'The Beacon',
     number: '01',
-    category: 'Game development',
-    tagline: 'A world to explore. Systems to bring it to life.',
+    category: 'Online game',
+    tagline: 'Building the game and the systems behind it.',
     role: 'Software Engineer',
     company: 'Skillcap Studio / Gambit Studio',
     period: 'Nov 2021 — Present',
     description:
-      'The Beacon is a fantasy action roguelite with a pixel-art world. Players venture into dungeons, fight enemies, and collect loot. Alongside combat, the game brings together home customization, collectible items, and social spaces where players can meet.',
-    descriptionDetail:
-      'The official site presents three sides of the experience: dungeon adventures, a home to make your own, and a world to share with other players.',
+      'The Beacon is an online fantasy action game built around dungeon exploration, combat, and loot. Players can also customize a home, collect items, and meet in shared social spaces.',
     roleSummary:
-      'As one of five core engineers at Skillcap / Gambit Studio, I work across gameplay, developer tooling, APIs, and content infrastructure. My work supports both the experience players interact with and the team building it.',
+      'I’m one of five core engineers building The Beacon at Skillcap / Gambit Studio. My work spans gameplay features, the shared systems behind new game modes, and the tools used to bring content into the game. I also help shape technical decisions and review code across the team.',
     context:
-      'During its largest campaign, The Beacon reached 220K peak daily active users and 650K+ new accounts.',
+      'Product scale: During its largest campaign, The Beacon reached 220K peak daily active users and 650K+ new accounts.',
     contributions: [
       {
-        title: 'From artwork to game-ready assets',
-        text: 'Designed and owned an automated pipeline that turns layered artwork into game-ready animated assets, eliminating most manual integration work and standardizing 1,500+ production configurations.',
+        title: 'Artwork to game-ready assets',
+        text: 'I proposed and built the workflow that turns layered artwork into game-ready animations, and still maintain it. Artists can import a source file and choose a configuration instead of spending roughly five minutes setting up each animated asset by hand. The pipeline standardizes 1,500+ production configurations.',
       },
       {
-        title: 'A shared foundation for content',
-        text: 'Built a data-driven content architecture for 700+ game assets and item definitions, creating shared infrastructure extended by multiple engineers.',
+        title: 'A foundation for new game modes',
+        text: 'Replaced separate game-mode implementations with shared systems for managing game state and generating rooms. This gave new modes and live events a common foundation.',
       },
       {
-        title: 'Reusable gameplay systems',
-        text: 'Redesigned procedural-content architecture around reusable state, room-generation, and lifecycle systems to accelerate live events and new game modes.',
+        title: 'Shared models for game content',
+        text: 'Replaced one-off content definitions with shared data models for 700+ game assets and items. The models support both content creation and gameplay, giving multiple engineers a consistent foundation to extend.',
       },
       {
-        title: 'Connecting the client and the team',
-        text: 'Built the initial client data layer with GraphQL and offline development support; reviewed PRs and contributed to architecture decisions across the team.',
+        title: 'Development without a live backend',
+        text: 'Built the initial GraphQL client architecture and a local data layer that mirrors the production data model. Engineers could develop and test gameplay without connecting to the live backend.',
+      },
+      {
+        title: 'Combat implementation',
+        text: 'Designed and implemented combat behavior for enemies and bosses, and contributed to shared combat systems.',
       },
     ],
     areas: [
-      'Game systems',
-      'Developer tooling',
+      'Gameplay',
+      'Software architecture',
       'GraphQL',
-      'Content pipelines',
+      'Shared systems',
+      'Developer tools',
     ],
     website: 'https://thebeacon.gg/',
     websiteLabel: 'Visit thebeacon.gg',
@@ -96,37 +100,37 @@ export const projects: Project[] = [
     name: 'CryptoMKT',
     number: '02',
     category: 'Trading platform',
-    tagline: 'Bringing market data and trading workflows together.',
+    tagline: 'A trading workspace for understanding the market and managing orders.',
     role: 'Full-Stack Developer',
     company: 'CryptoMarket / Uppercap',
     period: 'Oct 2019 — Nov 2021',
     description:
-      'CryptoMarket is a cryptocurrency exchange connecting digital assets with local-currency markets in Latin America. Its professional trading view brings price history, market depth, recent trades, order entry, and order status into one workspace.',
+      'CryptoMarket is a cryptocurrency exchange serving local-currency markets in Latin America. Its professional interface lets users study price movements, place trades, and manage orders in one workspace.',
     descriptionDetail:
-      'A guide published in May 2020 documented both a simpler exchange view and an advanced trading interface. The screenshot shown here captures the advanced view during my time at the company.',
+      'The archived screenshot shows the trading interface documented in May 2020, during my time at the company.',
     roleSummary:
-      'I implemented the front end of CryptoMarket’s professional trading view shown here, integrating market APIs and candlestick charts with production buy/sell workflows. My work brought the chart, market-data panels, order-entry forms, and order tables together in a single interface.',
+      'I built the full frontend of CryptoMarket’s professional trading interface, connecting market data, charts, buying and selling, and order tracking in one workspace. My work included the API integrations and trading workflows shown here.',
     context:
-      'By October 2021, the exchange reported 500K registered users and approximately $3M in daily transactions. These figures describe the exchange as a whole.',
+      'Company scale: By October 2021, the exchange reported 500K registered users and approximately $3M in daily transactions.',
     contributions: [
       {
-        title: 'Chart integration',
-        text: 'Integrated the candlestick chart into the trading workspace, alongside market selection and chart controls.',
+        title: 'Market data and charts',
+        text: 'Connected market APIs to the interface and integrated candlestick charts, so users could select a trading pair and explore its price history.',
       },
       {
-        title: 'Market depth and trade activity',
-        text: 'Implemented the order-book and recent-trades panels, presenting buy/sell levels, prices, quantities, and trade timestamps alongside the chart.',
+        title: 'Order book and recent trades',
+        text: 'Built the order book and recent-trades panels, putting buy and sell prices and recent market activity alongside the chart.',
       },
       {
-        title: 'Buy and sell workflows',
-        text: 'Built paired buy/sell forms with price and quantity inputs, quantity sliders, total summaries, and order-type tabs, connecting the interface to production trading workflows.',
+        title: 'Buying and selling',
+        text: 'Built the buy and sell forms and connected them to the exchange’s trading workflows, so users could configure and place orders from the same workspace.',
       },
       {
-        title: 'Active orders and order history',
-        text: 'Implemented the front-end views for active orders and order history, with tables organizing market, order type, price, quantity, and total information.',
+        title: 'Order tracking',
+        text: 'Built views for active orders and trading history, helping users track open orders and review previous orders.',
       },
     ],
-    areas: ['Front-end development', 'Market data', 'Chart integration', 'JavaScript', 'Python', 'Node.js'],
+    areas: ['JavaScript', 'Frontend engineering', 'API integration', 'Data visualization', 'Trading workflows'],
     website: 'https://www.cryptomkt.com/en/',
     websiteLabel: 'Visit CryptoMKT',
     media: {
@@ -140,7 +144,7 @@ export const projects: Project[] = [
     references: [
       {
         title: 'Trading interface guide', date: '24 May 2020',
-        description: 'Contemporary screenshots of the simple and advanced trading views. The article was later updated in March 2024; the image used here is from its May 2020 uploads.',
+        description: 'Screenshots of the simple and professional trading views. This image is from May 2020; the guide was updated in March 2024.',
         url: 'https://www.criptonoticias.com/tutoriales-guias/cryptomkt-compra-vende-bitcoin-criptomonedas-moneda-local/',
       },
     ],
@@ -150,35 +154,33 @@ export const projects: Project[] = [
     name: 'Uppercap',
     number: '03',
     category: 'Investment platform',
-    tagline: 'Connecting investment offerings with tokenized ownership.',
+    tagline: 'Helping build an investment platform from the ground up.',
     role: 'Full-Stack Developer',
     company: 'CryptoMarket / Uppercap',
     period: 'Oct 2019 — Nov 2021',
     description:
-      'Uppercap was an online platform connecting companies raising capital with investors. It brought company information, investment opportunities, and the legal steps of private-capital participation into a digital experience.',
-    descriptionDetail:
-      'Its 2020 knowledge base described a platform designed to organize business information and automate investment formalities. The January 2021 launch story captures the company’s early direction, with the original Uppercap branding shown here.',
+      'Uppercap connected companies raising capital with investors. The platform brought company information, investment opportunities, and ownership records into one online experience.',
     roleSummary:
-      'I built major parts of Uppercap’s investment platform, including project publishing, the main investment mechanisms, portfolios, and vesting-based ownership. My work also covered referrals and a blockchain contract to tokenize each purchased share.',
+      'I was part of Uppercap’s original engineering team, helping build its investment web app from the initial implementation through early iterations and its rebrand. I worked across the frontend and backend, co-implementing the core investment journey and contributing to payment integrations, investor portfolios, and contracts for share ownership.',
     contributions: [
       {
-        title: 'Core investment mechanisms',
-        text: 'Built the platform’s main investment mechanisms, connecting investment opportunities with the workflows for participating in them.',
+        title: 'From login to investment',
+        text: 'Co-implemented the investment journey across the frontend and backend, from login to buying shares. My work included public and private company profiles, setting up and launching investment rounds, and vesting options for companies.',
       },
       {
-        title: 'Share tokenization and vesting',
-        text: 'Built a blockchain contract to tokenize each purchased share, connecting investment offerings to tokenized ownership. I also implemented contracts supporting vesting mechanics.',
+        title: 'Connecting purchases to payments',
+        text: 'Co-implemented the connection to Chilean bank APIs for credit-card payments, linking share purchases in the app with payment processing.',
       },
       {
-        title: 'Referral features',
-        text: 'Contributed to the platform’s referral functionality alongside the investment experience.',
+        title: 'Share ownership and vesting',
+        text: 'Implemented blockchain contracts to represent purchased shares and manage vesting. These linked investments in the application to records of investors’ ownership.',
       },
       {
-        title: 'Project publishing and portfolios',
-        text: 'Built major parts of project publishing and investor portfolios, supporting both the companies presenting opportunities and the investors managing their participation.',
+        title: 'Investor portfolios and referrals',
+        text: 'Implemented portfolio features for investors to review their holdings, with additional contributions to the platform’s referral functionality.',
       },
     ],
-    areas: ['Investment workflows', 'Share tokenization', 'Referrals', 'JavaScript', 'Python', 'Node.js', 'Blockchain'],
+    areas: ['Investment flows', 'Payment integration', 'JavaScript', 'Python', 'Node.js', 'Blockchain'],
     website: 'https://www.uper.co/en/',
     websiteLabel: 'Visit Uper',
     websiteNote: 'Uppercap’s original domain now redirects to Uper.',
@@ -192,63 +194,63 @@ export const projects: Project[] = [
       lightLogoPanel: true,
     },
     screenshotNote:
-      'Public screenshots from guides first published in 2020–2021 and revised in 2022. Some show later Uper branding; exact capture dates are unverified.',
+      'These public guide images illustrate the platform. The guides were updated after my time there; some show Uper branding, and exact capture dates are unverified.',
     screenshots: [
       {
         src: '/images/uppercap/reservations-guide.jpg', width: 1024, height: 393,
         alt: 'Investment opportunity cards for Biwiser, B21, and FudLup, with sidebar links for referrals, reservations, portfolio, and wallet.',
-        title: 'Investment opportunities and navigation',
-        caption: 'Company cards connect discovery with investing. The sidebar brings referrals, reservations, portfolios, and the wallet into the same workspace.',
+        title: 'Investment workspace',
+        caption: 'Browse investment opportunities and move between reservations, holdings, and referral features.',
         source: 'https://contenido.uppercap.com/knowledgebase/que-son-las-reservas-en-uppercap/',
         wide: true,
       },
       {
         src: '/images/uppercap/portfolio-guide.png', width: 1024, height: 291,
         alt: 'Digital-share portfolio listing companies, total and available share quantities, share-series information, and sell-share buttons.',
-        title: 'Digital-share portfolio',
-        caption: 'Holdings are organized by company and share series, with total and available quantities and an action to create an offer.',
+        title: 'Investor portfolio',
+        caption: 'Review holdings by company and share series, including total and available shares.',
         source: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
         wide: true,
       },
       {
         src: '/images/uppercap/private-offer-2020.jpg', width: 498, height: 432,
         alt: 'New private-offer form with share price, share quantity, a total in Chilean pesos, and a create-offer button.',
-        title: 'Private-offer entry',
-        caption: 'The form brings share price, quantity, and the transaction total together before publishing an offer.',
+        title: 'Create a private offer',
+        caption: 'Set a share price and quantity, then review the total before publishing an offer.',
         source: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
       },
       {
         src: '/images/uppercap/offer-created-2020.png', width: 370, height: 285,
         alt: 'Offer-published confirmation with a green checkmark and an OK button.',
-        title: 'Publication feedback',
-        caption: 'A confirmation screen closes the offer-creation flow with an explicit success state.',
+        title: 'Offer published',
+        caption: 'Confirm that an offer has been published.',
         source: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
       },
     ],
     references: [
       {
         title: 'The platform’s early purpose', date: '13 July 2020',
-        description: 'Uppercap’s own explanation of how its platform organized private-capital opportunities and investment formalities.',
+        description: 'Uppercap’s original explanation of the platform and its investment process.',
         url: 'https://contenido.uppercap.com/knowledgebase/donde-invertir-en-negocios/',
       },
       {
         title: 'Five lessons from launching Uppercap', date: '25 January 2021',
-        description: 'A founder’s account of the launch, published during my work period. The original logo and illustration come from this article, last updated in February 2021.',
+        description: 'A founder’s account of the launch during my time at Uppercap. The original logo and illustration shown here come from this article.',
         url: 'https://contenido.uppercap.com/knowledgebase/5-lecciones-de-la-startup-chilena-que-debuto-en-pandemia/',
       },
       {
         title: 'Portfolio and private-offer walkthrough', date: '13 July 2020 · revised 9 March 2022',
-        description: 'Public in-app screens showing digital-share holdings, offer entry, and publication feedback. The revised guide includes Uper branding.',
+        description: 'A guide to share holdings and private offers, with screenshots of the platform. The updated version uses Uper branding.',
         url: 'https://contenido.uppercap.com/knowledgebase/como-hacer-una-oferta-privada-en-uppercap/',
       },
       {
         title: 'Reservations and investment states', date: '9 June 2021 · revised 29 September 2022',
-        description: 'Explains reservation states and how successful investment rounds connect reservations with the portfolio. Its public screenshot shows the investment workspace.',
+        description: 'How reservations connect investment opportunities with investor portfolios, illustrated by the workspace screenshot.',
         url: 'https://contenido.uppercap.com/knowledgebase/que-son-las-reservas-en-uppercap/',
       },
       {
         title: 'Referral-program guide', date: '22 September 2020 · revised 2 July 2024',
-        description: 'Documents the referral section and invitation flow. Its current reward terms were revised after my work period and are not used to describe my implementation.',
+        description: 'A guide to referrals and invitations, revised after my time at Uppercap.',
         url: 'https://contenido.uppercap.com/knowledgebase/que-es-el-programa-de-referidos-de-uppercap/',
       },
     ],

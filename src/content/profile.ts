@@ -12,7 +12,8 @@ export interface Experience {
   end: string
   current?: boolean
   summary: string
-  highlights: string[]
+  context?: string
+  highlights: { title: string; text: string }[]
   areas: string[]
 }
 
@@ -22,32 +23,44 @@ export const profile = {
   lastName: 'Fernández',
   role: 'Software Engineer',
   location: 'Barcelona, Spain',
-  tagline: 'I build gameplay systems, developer tools, and web applications.',
+  tagline:
+    'I build software people use and systems teams build on.',
+  description:
+    'Santiago Fernández, software engineer in Barcelona. 7+ years building products, shared systems, and tools across gaming and fintech.',
   aboutLead: [
-    'Behind every good experience,',
-    'there’s a system that makes it work.',
+    'From the interface',
+    'to the systems behind it.',
   ],
   about: [
     [
-      { text: 'I’m a software engineer working across ' },
-      { text: 'game development and the web', emphasis: true },
+      { text: 'I’m a software engineer based in Barcelona with ' },
+      { text: '7+ years of experience', emphasis: true },
       {
-        text: '. My work connects gameplay architecture, production tooling, APIs, and the interfaces people use.',
+        text: ' building products in gaming and fintech. My work spans the interfaces people use, the systems behind them, and the tools that help teams deliver.',
       },
     ],
     [
-      { text: 'Currently, I’m one of five core engineers behind ' },
+      { text: 'At Skillcap / Gambit Studio, I’m one of five core engineers building ' },
       { text: 'The Beacon', emphasis: true },
       {
-        text: ' at Skillcap / Gambit Studio. I build the tools artists create with, the infrastructure engineers build on, and the systems players interact with.',
+        text: '. My work ranges from combat features to the foundations for new game modes. I also created and maintain an automated workflow that turns artists’ source files into game-ready animations.',
       },
     ],
     [
       {
-        text: 'Previously, I worked on trading and investment applications at ',
+        text: 'Previously, I was part of the original engineering team at ',
       },
-      { text: 'CryptoMarket / Uppercap', emphasis: true },
-      { text: ', after starting in frontend development at Primus BI.' },
+      { text: 'Uppercap', emphasis: true },
+      {
+        text: ', helping build its first investment web app. I co-implemented the investment journey across the frontend and backend, from company profiles and investment rounds to share purchases and payments.',
+      },
+    ],
+    [
+      { text: 'At ' },
+      { text: 'CryptoMKT', emphasis: true },
+      {
+        text: ', I built the full frontend of its professional trading interface. I began my career in frontend development at Primus BI.',
+      },
     ],
   ],
   email: 'safernan121@gmail.com',
@@ -72,18 +85,37 @@ export const experiences: Experience[] = [
     end: 'Present',
     current: true,
     summary:
-      'One of five core engineers behind The Beacon, working across gameplay, tooling, APIs, and content infrastructure. The product reached 220K peak daily active users and 650K+ new accounts during its largest campaign.',
+      'One of five core engineers building The Beacon, with work spanning gameplay, shared systems, and the tools the team uses to ship new content.',
+    context:
+      'Product scale: The Beacon reached 220K peak daily active users and 650K+ new accounts during its largest campaign.',
     highlights: [
-      'Designed and owned an automated pipeline that turns layered artwork into game-ready animated assets, eliminating most manual integration work and standardizing 1,500+ production configurations.',
-      'Built a data-driven content architecture for 700+ game assets and item definitions, creating shared infrastructure extended by multiple engineers.',
-      'Redesigned procedural-content architecture around reusable state, room-generation, and lifecycle systems to accelerate live events and new game modes.',
-      'Built the initial client data layer with GraphQL and offline development support; reviewed PRs and contributed to architecture decisions across the team.',
+      {
+        title: 'Artwork to game-ready assets',
+        text: 'Own an automated workflow I proposed and built to turn artwork into game-ready animations, replacing manual setup and standardizing 1,500+ production configurations.',
+      },
+      {
+        title: 'A foundation for new game modes',
+        text: 'Replaced separate game-mode implementations with shared systems for game state and room generation, giving new modes and live events a common foundation.',
+      },
+      {
+        title: 'Shared models for game content',
+        text: 'Created shared data models for 700+ game assets and items, giving multiple engineers a consistent way to create content and use it in gameplay.',
+      },
+      {
+        title: 'Development without a live backend',
+        text: 'Built the initial GraphQL client architecture and a local data layer, allowing engineers to develop and test gameplay without connecting to the live backend.',
+      },
+      {
+        title: 'Combat implementation',
+        text: 'Designed and implemented combat behavior for enemies and bosses, and contributed to shared combat systems.',
+      },
     ],
     areas: [
-      'Game systems',
-      'Developer tooling',
+      'Software architecture',
+      'Developer tools',
       'GraphQL',
-      'Content pipelines',
+      'Data modeling',
+      'Shared systems',
     ],
   },
   {
@@ -93,10 +125,22 @@ export const experiences: Experience[] = [
     start: 'Oct 2019',
     end: 'Nov 2021',
     summary:
-      'Built CryptoMarket’s professional trading interface, integrating market APIs, candlestick charts, and production buy/sell workflows. By October 2021, the exchange reported 500K registered users and approximately $3M in daily transactions.',
+      'Built trading and investment applications at CryptoMarket / Uppercap, joining Uppercap’s original engineering team to help build its first web app.',
+    context:
+      'Company scale: By October 2021, CryptoMarket reported 500K registered users and approximately $3M in daily transactions.',
     highlights: [
-      'Built major parts of Uppercap’s investment platform, including project publishing, investment flows, vesting-based ownership, and portfolios.',
-      'Implemented blockchain contracts connecting investment offerings to tokenized ownership and vesting mechanics.',
+      {
+        title: 'Trading frontend',
+        text: 'Built the full frontend of CryptoMarket’s professional trading interface, connecting market data, charts, order entry, and order tracking.',
+      },
+      {
+        title: 'The investment journey',
+        text: 'Co-implemented Uppercap’s investment journey across the frontend and backend, covering account access, company profiles, investment rounds, share purchases, and integration with Chilean bank APIs for credit-card payments.',
+      },
+      {
+        title: 'Ownership contracts',
+        text: 'Built blockchain contracts that represented purchased shares and supported ownership vesting.',
+      },
     ],
     areas: ['JavaScript', 'Python', 'Node.js', 'Blockchain'],
   },
@@ -107,7 +151,7 @@ export const experiences: Experience[] = [
     start: 'Nov 2018',
     end: 'Sep 2019',
     summary:
-      'Improved and maintained the company’s web interfaces before transitioning into the joint Uppercap initiative with CryptoMarket.',
+      'Maintained and improved Primus BI’s web interfaces, then joined Uppercap, its investment-platform initiative with CryptoMarket.',
     highlights: [],
     areas: ['Web interfaces', 'Frontend development'],
   },

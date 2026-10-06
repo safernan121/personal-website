@@ -9,7 +9,7 @@ export function Profile({ activeSection }: { activeSection: SectionId }) {
     <header className={styles.profile}>
       <div>
         <p className={styles.eyebrow}>
-          <span className={styles.smallLine} /> Building with purpose
+          <span className={styles.smallLine} /> Products · Systems · Tools
         </p>
         <h1 className={styles.name}>
           <span>{profile.firstName}</span> <span>{profile.lastName}</span>

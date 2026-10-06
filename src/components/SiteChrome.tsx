@@ -25,7 +25,11 @@ export function SiteHeader() {
         </Link>
         <Link
           to="/cheesecake"
-          aria-current={pathname === '/cheesecake' ? 'page' : undefined}
+          aria-current={
+            pathname === '/cheesecake' || pathname.startsWith('/cheesecake/')
+              ? 'page'
+              : undefined
+          }
         >
           Cheesecake
         </Link>

@@ -14,7 +14,7 @@ export function NotFoundPage() {
       <main id="content" tabIndex={-1} className={styles.pageMain}>
         <div className={styles.projectIntro}>
           <p className={styles.label}>404 / A wrong turn</p>
-          <h1>Nothing here yet.</h1>
+          <h1>Page not found.</h1>
           <p className={styles.pageLead}>
             This page doesn’t exist. Let’s get you back to the portfolio.
           </p>

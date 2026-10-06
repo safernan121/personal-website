@@ -8,7 +8,7 @@ export const cheesecake = {
       label: 'Recipes',
       title: 'Good things take a little baking.',
       description:
-        'A place for cheesecake recipes, kitchen experiments, and notes for the next batch. The first recipe will live here.',
+        'Recipes, experiments, and notes for the next batch.',
       status: 'No recipes yet',
     },
     {
@@ -16,7 +16,7 @@ export const cheesecake = {
       label: 'Reviews',
       title: 'Every slice has a story.',
       description:
-        'A place for cheesecake discoveries, tasting notes, and the spots worth coming back to. The first review will live here.',
+        'Cheesecake discoveries, tasting notes, and places worth another slice.',
       status: 'No reviews yet',
     },
   ],

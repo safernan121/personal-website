@@ -26,9 +26,11 @@ npm run preview
 
 ## Update content and styling
 
-- `src/content/profile.ts` contains the identity, introduction, social links, and ordered experience entries. Edit this file to update the content. Achievement figures refer to their original product/company context; keep that context when editing.
-- `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. Product descriptions use the linked public sources; personal contributions retain the CV-derived text. CryptoMKT and Uppercap include dated imagery and source links from the employment period. Dates for the latter two reflect the shared employment period, not separate project launch dates.
-- `src/content/cheesecake.ts` contains the notebook introduction and initial tab copy. Recipes and reviews intentionally start empty; no personal reviews or recipes have been invented, and there is no submission form or persistence layer.
+- `src/content/profile.ts` contains the identity, introduction, social links, and ordered experience entries. Highlights have a short title and supporting text for easier scanning. Product/company scale appears separately from personal achievements; keep that attribution when editing.
+- Lead public copy with the product or team benefit, then support it with concrete work. Keep technology names where they establish experience, avoid repeating long responsibility lists across sections, and preserve the scope of each contribution. The homepage gives the short version; project pages carry the supporting detail.
+- `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. Product descriptions use the linked public sources; personal contributions come from the CV and Santiago's confirmed descriptions. Engineering roles and contributions appear before product imagery and context. CryptoMKT and Uppercap include dated imagery and source links from the employment period. Dates for the latter two reflect the shared employment period, not separate project launch dates.
+- `src/content/cheesecake.ts` contains the notebook introduction and tab copy. `src/content/recipes.ts` contains recipe entries: ingredients, method, oven/tin/chilling details, kitchen notes, and approximate whole-cheesecake macros. The first entry, The Protein Cloud, uses Santiago’s supplied ricotta and cottage cheese recipe and nutrition estimates. Reviews remain empty; there is no submission form or persistence layer.
+- Add recipes to `src/content/recipes.ts` and optional photos under `public/images/cheesecake/`. Each recipe has its own `/cheesecake/recipes/:slug` page; the Recipes tab builds its notebook list from the entries. Update the sitemap when adding an entry. Keep ingredient ranges and optional ingredients, identify the nutrition scope, and get missing instructions from the author before presenting a complete recipe.
 - `src/pages/` contains the homepage, project detail, cheesecake, and not-found views. `Pages.module.css` styles the new pages and shared header.
 - `src/components/` contains the reusable profile, navigation, social links, and experience entry components. `Portfolio.module.css` defines their responsive layout and styles.
 - `src/index.css` contains shared colors, typography, global accessibility styles, and reduced-motion behavior.
@@ -48,6 +50,7 @@ React Router provides the following routes, browser history, hash navigation, an
 - `/projects/cryptomkt` — professional trading interface
 - `/projects/uppercap` — investment platform
 - `/cheesecake` — Recipes and Reviews tabs
+- `/cheesecake/recipes/the-protein-cloud` — ricotta and cottage cheese recipe
 
 The notebook defaults to Recipes; `/cheesecake?tab=reviews` opens Reviews directly. Tabs support Left/Right arrows, Home/End, and Tab to enter the active panel. An unrecognized tab query falls back to Recipes. Page changes move keyboard focus to the main content; tab changes preserve focus and scroll position. Unknown routes display a not-found view.
 
@@ -93,7 +96,7 @@ The original CV, its phone number, and the PDF download are intentionally not in
 
 ## Artwork and sources
 
-The Beacon description is adapted from [its official website](https://thebeacon.gg/), accessed October 5, 2026. Engineering contributions come from Santiago's supplied CV. Product-wide campaign metrics remain attributed to the game. All game artwork belongs to The Beacon; visible credits link to the source. Local files are the WebP responses served by the official website, saved with matching extensions:
+The Beacon description is adapted from [its official website](https://thebeacon.gg/), accessed October 5, 2026. Engineering contributions come from Santiago's supplied CV and his confirmed descriptions of the asset-import workflow and combat work. The approximate five-minute setup time is his reported estimate, not a benchmark or an aggregate hours-saved calculation. He confirmed designing and implementing enemies and bosses, with additional contributions to shared combat systems; the copy does not imply ownership of the entire combat architecture or independently verified player reception. Product-wide campaign metrics remain attributed to the game. All game artwork belongs to The Beacon; visible credits link to the source. Local files are the WebP responses served by the official website, saved with matching extensions:
 
 | Local asset | Official source |
 | --- | --- |
@@ -125,6 +128,8 @@ Uppercap also includes public in-app screenshots from two official guides:
 These are product-context screenshots from public support documentation. Their exact capture dates are unverified, and some show later Uper branding. Upload-directory dates alone do not prove that files remained unchanged. The page explicitly states this distinction, provides original-guide links, and offers full-size image links for reading small UI text. Source-example share quantities are not presented as Santiago’s personal holdings or project impact. The launch artwork remains separately identified as original Uppercap material.
 
 Santiago additionally confirmed work on Uppercap’s referrals, main investment mechanisms, and a blockchain contract tokenizing each purchased share. These additions are attributed to his account, alongside the existing CV contributions on project publishing, portfolios, and vesting. Screen descriptions do not claim he personally implemented every pictured feature. No blockchain network, token standard, referral reward percentage, or security/performance claim has been inferred. The [referral guide](https://contenido.uppercap.com/knowledgebase/que-es-el-programa-de-referidos-de-uppercap/) was first published September 22, 2020 but revised July 2, 2024; later reward terms are excluded. A linked step-by-step investment tutorial required sign-in and was not accessed.
+
+Santiago confirmed being part of Uppercap’s original team, helping implement the first web-app iterations and staying through its rebrand. He co-implemented the investment journey across the frontend and backend, including login, public and private company profiles, company vesting options, investment-round setup and launching, share purchases, and integration with Chilean bank APIs for credit-card payments. The copy describes shared implementation rather than sole system ownership or product-design authorship. No payment provider, authentication mechanism, or detailed access-control implementation has been inferred. His observation that much of his work remains recognizable in the product is not used to assert that the underlying code is unchanged.
 
 Santiago confirmed he implemented the front end of the pictured CryptoMarket professional trading view. Its contribution breakdown combines that confirmation, the existing CV text, and the interface elements visible in the screenshot. It does not infer a framework, chart library, data-update mechanism, performance improvement, or custom chart-engine authorship from the image.
 
