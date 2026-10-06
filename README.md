@@ -27,12 +27,13 @@ npm run preview
 ## Update content and styling
 
 - `src/content/profile.ts` contains the identity, introduction, social links, and ordered experience entries. Highlights have a short title and supporting text for easier scanning. Product/company scale appears separately from personal achievements; keep that attribution when editing.
+- `src/content/about.ts` contains the separate personal introduction at `/about`, reached through the small “Behind the keyboard” link in the homepage footer. It introduces Santiago’s Chilean roots, home in Barcelona after life as a digital nomad, and interests in cooking, calisthenics, music, and games. Its personal details come from his confirmed descriptions: karaoke pick “Take On Me” by a-ha and a preference for baked cheesecake. The page links to the cheesecake notebook; the homepage keeps its professional introduction.
 - Lead public copy with the product or team benefit, then support it with concrete work. Keep technology names where they establish experience, avoid repeating long responsibility lists across sections, and preserve the scope of each contribution. The homepage gives the short version; project pages carry the supporting detail.
 - `src/content/projects.ts` contains the three project pages, their descriptions, contributions, and metadata. Product descriptions use the linked public sources; personal contributions come from the CV and Santiago's confirmed descriptions. Engineering roles and contributions appear before product imagery and context. CryptoMKT and Uppercap include dated imagery and source links from the employment period. Dates for the latter two reflect the shared employment period, not separate project launch dates.
 - `src/content/upcomingProjects.ts` contains upcoming projects, their intended features, and prototype screenshots. PantryApp's public overview is adapted from the local PantryApp repository's `docs/MASTERPLAN.md` and README, reviewed October 6, 2026. It describes the product direction without presenting unfinished features as available. Preserve the iOS/Android coming-soon message and visible warning on every prototype screenshot; no release date or subscription price is promised.
 - `src/content/cheesecake.ts` contains the notebook introduction and tab copy. `src/content/recipes.ts` contains recipe entries: ingredients, method, oven/tin/chilling details, kitchen notes, and approximate whole-cheesecake macros. The first entry, The Protein Cloud, uses Santiago’s supplied ricotta and cottage cheese recipe and nutrition estimates. Reviews remain empty; there is no submission form or persistence layer.
 - Add recipes to `src/content/recipes.ts` and optional photos under `public/images/cheesecake/`. Each recipe has its own `/cheesecake/recipes/:slug` page; the Recipes tab builds its notebook list from the entries. Update the sitemap when adding an entry. Keep ingredient ranges and optional ingredients, identify the nutrition scope, and get missing instructions from the author before presenting a complete recipe.
-- `src/pages/` contains the homepage, project detail, cheesecake, and not-found views. `Pages.module.css` styles the new pages and shared header.
+- `src/pages/` contains the homepage, personal introduction, project detail, cheesecake, and not-found views. `Pages.module.css` styles the new pages and shared header.
 - `src/components/` contains the reusable profile, navigation, social links, and experience entry components. `Portfolio.module.css` defines their responsive layout and styles.
 - `src/index.css` contains shared colors, typography, global accessibility styles, and reduced-motion behavior.
 - `index.html` contains the default page title, description, and social-preview metadata. `usePageMetadata` updates these in the browser for each route. Crawlers that do not execute JavaScript still receive the default metadata; prerendering would be needed for reliable per-project social previews.
@@ -47,6 +48,7 @@ The homepage uses `#about`, `#experience`, `#projects`, and `#upcoming-projects`
 React Router provides the following routes, browser history, hash navigation, and scroll restoration:
 
 - `/` — portfolio
+- `/about` — Behind the keyboard, a personal introduction
 - `/projects/the-beacon` — game overview and engineering contributions
 - `/projects/cryptomkt` — professional trading interface
 - `/projects/uppercap` — investment platform
@@ -145,6 +147,7 @@ PantryApp uses the owner's existing `docs/pantry-preview.png` and `docs/nutritio
 
 - Review at 390px, 768px, and 1440px widths and confirm there is no horizontal overflow.
 - Follow all four section links; scroll back to About and check the active navigation.
+- Open Behind the keyboard from the homepage footer, follow its cheesecake link, and return to the portfolio. Check `/about` directly and refresh it.
 - Open PantryApp from Upcoming projects and the header link, verify both prototype labels, and return to the upcoming section. Check its direct URL and refresh.
 - Open each project from the homepage, use Next project and All projects, and check Back/Forward, direct links, and refresh.
 - Switch cheesecake tabs with a pointer and with Arrow Left/Right and Home/End. Confirm only the selected panel is visible, reload Reviews, and test browser Back.

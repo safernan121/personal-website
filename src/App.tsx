@@ -8,6 +8,7 @@ import {
 } from 'react-router'
 import { PointerGlow } from './components/PointerGlow'
 import { HomePage } from './pages/HomePage'
+import { AboutPage } from './pages/AboutPage'
 import { ProjectPage } from './pages/ProjectPage'
 import { CheesecakePage } from './pages/CheesecakePage'
 import { RecipePage } from './pages/RecipePage'
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
     element: <SiteLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 'about', element: <AboutPage /> },
       { path: 'projects/:slug', element: <ProjectPage /> },
       { path: 'cheesecake', element: <CheesecakePage /> },
       { path: 'cheesecake/recipes/:slug', element: <RecipePage /> },

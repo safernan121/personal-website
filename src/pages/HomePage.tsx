@@ -104,7 +104,7 @@ export function HomePage() {
           <span>
             © {copyrightYear} {profile.name}
           </span>
-          <Link to="/cheesecake">Beyond code: Cheesecake ↗</Link>
+          <Link to="/about">Behind the keyboard ↗</Link>
           <a href="#top">
             Back to top <Icon name="up" width="14" height="14" />
           </a>
