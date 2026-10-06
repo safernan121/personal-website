@@ -22,7 +22,7 @@ export const recipes: Recipe[] = [
     name: 'The Protein Cloud',
     subtitle: 'Ricotta & cottage cheese cheesecake',
     description:
-      'Ricotta, cottage cheese, vanilla protein powder, and a little honey. Blend until smooth, bake gently, and let the fridge finish the job.',
+      'It may not win any taste contests or be the best cheesecake you’ve ever had. But it’s made for everyday cravings: a simple cheesecake fix that can fit into a balanced diet, in a portion that works for you, without having to wait for “cheat day.”',
     category: 'Baked / Protein',
     ingredients: [
       { name: 'Ricotta', quantity: '250 g' },
@@ -67,9 +67,8 @@ export const recipes: Recipe[] = [
       },
     ],
     notes: [
-      'Give the cottage cheese time in the blender so the mixture is very smooth.',
-      'Look for set edges and a slightly wobbly centre when taking it out of the oven.',
-      'An overnight chill is worth the wait: it firms up substantially when cold.',
+      'For a lighter take, use more cottage cheese and less ricotta. The trade-off is a little less richness and flavour.',
+      'Vanilla protein powder can easily overpower the cheese and honey. If you want those flavours to shine, leave it out or use unflavoured protein powder.',
     ],
     nutrition: {
       scope: 'Whole cheesecake',
