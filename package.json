@@ -30,9 +30,7 @@
     "wrangler": "^4.147.0"
   },
   "overrides": {
-    "miniflare": {
-      "sharp": "0.35.5"
-    }
+    "sharp": "0.35.5"
   },
   "description": "The personal portfolio of Santiago Fernández, Software Engineer.",
   "engines": {
