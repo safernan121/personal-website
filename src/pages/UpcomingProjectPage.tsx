@@ -7,7 +7,7 @@ import { usePageMetadata } from '../hooks/usePageMetadata'
 import styles from '../components/Pages.module.css'
 
 export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
-  const { path, ui } = useLocale()
+  const { path, profile, ui } = useLocale()
   usePageMetadata(
     `${project.name} — ${project.availability} — Santiago Fernández`,
     `${project.summary} ${project.availability}. ${ui.currentlyInDevelopment}`,
@@ -88,6 +88,13 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
             <p className={styles.contextNote}>
               {ui.pantryStatus}
             </p>
+            <a
+              href={`mailto:${profile.email}?subject=${encodeURIComponent(ui.pantryTestingSubject)}`}
+              className={styles.externalLink}
+            >
+              <Icon name="email" width="16" height="16" />
+              <span>{ui.pantryTestingLink}</span>
+            </a>
           </div>
         </section>
         <Link to={path('/#upcoming-projects')} className={styles.nextProject}>
