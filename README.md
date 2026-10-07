@@ -158,6 +158,16 @@ Both configured hostnames serve the site. To redirect `www` to the preferred add
 
 After deployment, check HTTPS on both hostnames, direct links and reloads on every app route, asset loading, `robots.txt`, and `sitemap.xml`.
 
+## Browser security
+
+`public/_headers` applies the same security policy to English, Spanish, and static assets through Cloudflare Workers Static Assets. Vite copies it to `dist/` during the build. The Content Security Policy permits local scripts, styles, fonts, and images, blocks inline scripts, framing, and form submissions, and upgrades insecure resource requests. The other headers disable MIME sniffing and unused device permissions, limit referrer information, and isolate cross-origin resources. Verify changes with `npm run preview:cloudflare`; Vite's preview server does not apply `_headers`.
+
+`public/_headers` aplica la misma política de seguridad al inglés, al español y a los archivos estáticos mediante Cloudflare Workers Static Assets. Vite lo copia a `dist/` durante la compilación. La política de seguridad de contenido permite scripts, estilos, fuentes e imágenes locales, bloquea scripts en línea, la inclusión en marcos y el envío de formularios, y actualiza las solicitudes de recursos inseguros. Las demás cabeceras desactivan la detección automática de tipos MIME y los permisos de dispositivos que no se usan, limitan la información del referente y aíslan los recursos entre orígenes. Comprueba los cambios con `npm run preview:cloudflare`; el servidor de vista previa de Vite no aplica `_headers`.
+
+HSTS lasts one year on `safernan.dev` and `www.safernan.dev`, whose HTTPS certificates have been verified. It does not cover other subdomains or request preload registration. HSTS protects browsers after an HTTPS visit; enable Cloudflare's **Always Use HTTPS** separately to redirect a first HTTP visit. The scoped npm override pins Miniflare's Sharp dependency to `0.35.5`, which fixes [GHSA-wq5f-xc86-pv6w](https://github.com/lovell/sharp/security/advisories/GHSA-wq5f-xc86-pv6w). Remove it once Wrangler's Miniflare dependency uses a patched version, then regenerate the lockfile and run the audit.
+
+HSTS dura un año en `safernan.dev` y `www.safernan.dev`, cuyos certificados HTTPS se han verificado. No cubre otros subdominios ni solicita el registro de precarga. HSTS protege los navegadores después de una visita HTTPS; activa por separado **Always Use HTTPS** en Cloudflare para redirigir una primera visita HTTP. La sustitución de npm fija la dependencia Sharp de Miniflare en `0.35.5`, que corrige [GHSA-wq5f-xc86-pv6w](https://github.com/lovell/sharp/security/advisories/GHSA-wq5f-xc86-pv6w). Elimínala cuando la dependencia Miniflare de Wrangler use una versión corregida, regenera el archivo de bloqueo y ejecuta la auditoría.
+
 ## Content boundaries
 
 The original CV, its phone number, and the PDF download are intentionally not included. The displayed email and professional profile links are the chosen contact methods. No blog or education section is included.

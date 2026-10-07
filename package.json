@@ -29,6 +29,11 @@
     "vite": "^8.3.0",
     "wrangler": "^4.147.0"
   },
+  "overrides": {
+    "miniflare": {
+      "sharp": "0.35.5"
+    }
+  },
   "description": "The personal portfolio of Santiago Fernández, Software Engineer.",
   "engines": {
     "node": ">=22.12.0"
