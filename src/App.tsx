@@ -6,7 +6,6 @@ import {
   ScrollRestoration,
   useLocation,
 } from 'react-router'
-import { PointerGlow } from './components/PointerGlow'
 import { useLocale } from './i18n/useLocale'
 import { getScrollKey, localizedRoutes } from './routes'
 
@@ -27,7 +26,6 @@ function SiteLayout() {
       <a href="#content" className="skip-link">
         {ui.skipToContent}
       </a>
-      <PointerGlow />
       <Outlet />
       <ScrollRestoration getKey={getScrollKey} />
     </>

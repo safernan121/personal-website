@@ -18,7 +18,7 @@ The source for **[safernan.dev](https://safernan.dev)**, the portfolio of Santia
 - **Bilingual by design.** English lives at `/` and Spanish under `/es/`, using the same components and slugs. Interface strings are typed so a missing translation fails type checking (`Record<keyof typeof en, string>`), and the tests check content parity and that every internal link stays in the current language.
 - **Content as typed data.** All copy lives in TypeScript modules under `src/content/`, and pages render from it. Project pages support optional deep dives (problem, what I built, key decision, outcome, plus a step diagram) defined entirely in data.
 - **Locked-down by default.** A strict Content Security Policy blocks inline scripts and style attributes, framing, and form submissions. It's paired with HSTS, cross-origin isolation headers, and a minimal permissions policy. The site makes no third-party requests: the font is self-hosted and there is no analytics.
-- **Accessible.** A skip link, focus moved to the main content on navigation, keyboard-operable tabs (arrow keys, Home/End, roving focus), scroll-aware section navigation, and reduced-motion support that turns off the pointer glow and smooth scrolling.
+- **Accessible.** A skip link, focus moved to the main content on navigation, keyboard-operable tabs (arrow keys, Home/End, roving focus), light and dark modes that follow the system setting until a visitor chooses one, and reduced-motion support that turns off smooth scrolling and transitions.
 - **Tested rendering.** The tests load the real routes and content through Vite's SSR loader and render pages in both languages with `react-dom/server`, so routing, translations, and links are checked without a browser.
 - **Résumé from source.** The linked PDF is generated from `resume/santiago-fernandez-cv.html` with headless Chrome (`npm run cv`), so the CV is versioned alongside the site.
 
@@ -34,9 +34,10 @@ src/
   i18n/           Locale detection, localized paths, interface strings
   pages/          Route views: home, about, project, cheesecake, recipe, not found
   components/     Shared UI and CSS Modules
-  hooks/          Active-section tracking and per-route metadata
+  hooks/          Color mode state, per-route metadata
   routes.tsx      Route table, shared by both languages
-public/           Static files, security headers (_headers), sitemap, résumé PDF
+public/           Static files, security headers (_headers), sitemap, résumé PDF,
+                  and theme-init.js (applies the saved color mode before first paint)
 resume/           Résumé source (HTML → PDF)
 tests/            Rendering, routing, and translation tests
 docs/CONTENT.md   Content rules, sources, and image attribution
@@ -78,5 +79,3 @@ Editing rules, the review and recipe templates, and the sources for every fact a
 ## License
 
 The code is [MIT licensed](LICENSE). The content, résumé, and personal photos are not: they're © Santiago Fernández, and third-party images belong to their owners. See [NOTICE.md](NOTICE.md) for details. If you reuse the code, please swap in your own content.
-
-The layout is inspired by [Brittany Chiang's portfolio](https://brittanychiang.com); the implementation and content are original.

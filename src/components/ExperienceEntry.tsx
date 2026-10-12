@@ -8,7 +8,7 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
     experience
 
   return (
-    <li className={styles.experienceEntry}>
+    <li className={`${styles.experienceEntry} ${current ? styles.currentEntry : ''}`}>
       <article aria-labelledby={`${id}-title`}>
         <div className={styles.period}>
           <span>
@@ -22,27 +22,29 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
             </span>
           )}
         </div>
-        <h3 id={`${id}-title`} className={styles.jobTitle}>
-          {role}
-        </h3>
-        <p className={styles.company}>{company}</p>
-        <p className={styles.summary}>{summary}</p>
-        {highlights.length > 0 && (
-          <ul className={styles.highlights}>
-            {highlights.map((highlight) => (
-              <li key={highlight.title}>
-                <strong className={styles.highlightTitle}>{highlight.title}</strong>
-                {highlight.text}
-              </li>
+        <div className={styles.nodeBody}>
+          <h3 id={`${id}-title`} className={styles.jobTitle}>
+            {role}
+          </h3>
+          <p className={styles.company}>{company}</p>
+          <p className={styles.summary}>{summary}</p>
+          {highlights.length > 0 && (
+            <ul className={styles.highlights}>
+              {highlights.map((highlight) => (
+                <li key={highlight.title}>
+                  <strong className={styles.highlightTitle}>{highlight.title}</strong>
+                  {highlight.text}
+                </li>
+              ))}
+            </ul>
+          )}
+          {context && <p className={styles.contextNote}>{context}</p>}
+          <ul className={styles.tags} aria-label={ui.technologies}>
+            {stack.map((item) => (
+              <li key={item}>{item}</li>
             ))}
           </ul>
-        )}
-        {context && <p className={styles.contextNote}>{context}</p>}
-        <ul className={styles.tags} aria-label={ui.technologies}>
-          {stack.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        </div>
       </article>
     </li>
   )

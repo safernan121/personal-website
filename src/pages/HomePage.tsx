@@ -7,7 +7,6 @@ import { Link } from 'react-router'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 import { Profile } from '../components/Profile'
 import { useLocale } from '../i18n/useLocale'
-import { useActiveSection } from '../hooks/useActiveSection'
 import styles from '../components/Portfolio.module.css'
 
 const copyrightYear = new Date().getFullYear()
@@ -18,18 +17,17 @@ export function HomePage() {
     `${profile.name} — ${profile.role}`,
     profile.description,
   )
-  const activeSection = useActiveSection()
 
   return (
     <>
       <div id="top" className={styles.shell}>
         <SiteHeader />
         <div className={styles.layout}>
-          <Profile activeSection={activeSection} />
+          <Profile />
           <main id="content" className={styles.content} tabIndex={-1}>
             <section id="about" aria-labelledby="about-heading">
               <h2 id="about-heading" className={styles.sectionHeading}>
-                <span>01</span> {ui.about}
+                {ui.about}
               </h2>
               <p className={styles.aboutLead}>
                 {profile.aboutLead[0]}
@@ -56,11 +54,11 @@ export function HomePage() {
             >
               <div className={styles.sectionHeader}>
                 <h2 id="experience-heading" className={styles.sectionHeading}>
-                  <span>02</span> {ui.experience}
+                  {ui.experience}
                 </h2>
                 <span className={styles.careerPeriod}>{ui.careerPeriod}</span>
               </div>
-              <ol>
+              <ol className={styles.timeline}>
                 {experiences.map((experience) => (
                   <ExperienceEntry
                     key={experience.id}
@@ -75,7 +73,7 @@ export function HomePage() {
               className={styles.experience}
             >
               <h2 id="projects-heading" className={styles.sectionHeading}>
-                <span>03</span> {ui.selectedProjects}
+                {ui.selectedProjects}
               </h2>
               <ProjectList />
             </section>
@@ -85,7 +83,7 @@ export function HomePage() {
               className={styles.experience}
             >
               <h2 id="upcoming-projects-heading" className={styles.sectionHeading}>
-                <span>04</span> {ui.upcomingProjects}
+                {ui.upcomingProjects}
               </h2>
               <p className={styles.sectionIntro}>{ui.upcomingIntro}</p>
               <UpcomingProjectList />

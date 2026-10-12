@@ -1,6 +1,6 @@
 import type { SVGProps } from 'react'
 
-type IconName = 'github' | 'linkedin' | 'email' | 'resume' | 'arrow' | 'up'
+type IconName = 'github' | 'linkedin' | 'email' | 'resume' | 'arrow' | 'up' | 'sun' | 'moon'
 
 export function Icon({
   name,
@@ -46,6 +46,13 @@ export function Icon({
       )}
       {name === 'arrow' && <path d="M6 18 18 6M6 6h12v12" />}
       {name === 'up' && <path d="M12 19V5m-6 6 6-6 6 6" />}
+      {name === 'sun' && (
+        <>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </>
+      )}
+      {name === 'moon' && <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" />}
     </svg>
   )
 }

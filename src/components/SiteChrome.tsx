@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { useLocale } from '../i18n/useLocale'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { ThemeToggle } from './ThemeControls'
 import styles from './Pages.module.css'
 
 const copyrightYear = new Date().getFullYear()
@@ -17,7 +18,8 @@ export function SiteHeader() {
         className={styles.brand}
         aria-label={`Santiago Fernández — ${ui.home}`}
       >
-        sf<span>.</span>
+        <span className={styles.brandPort} aria-hidden="true" />
+        sf
       </Link>
       <span className={styles.headerLabel}>{ui.portfolio}</span>
       <nav aria-label={ui.mainNavigation} className={styles.headerNav}>
@@ -48,7 +50,10 @@ export function SiteHeader() {
           {ui.cheesecake}
         </Link>
       </nav>
-      <LanguageSwitcher />
+      <div className={styles.headerTools}>
+        <LanguageSwitcher />
+        <ThemeToggle />
+      </div>
     </header>
   )
 }

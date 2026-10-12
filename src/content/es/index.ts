@@ -120,13 +120,6 @@ export const experiences: Experience[] = [
   },
 ]
 
-export const sections = [
-  { id: 'about', label: 'Sobre mí', number: '01' },
-  { id: 'experience', label: 'Experiencia', number: '02' },
-  { id: 'projects', label: 'Proyectos', number: '03' },
-  { id: 'upcoming-projects', label: 'Próximos proyectos', number: '04' },
-] as const
-
 export const aboutMe: typeof englishAboutMe = {
   label: 'Detrás del teclado',
   title: 'Hola, soy Santiago.',

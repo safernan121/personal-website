@@ -1,23 +1,43 @@
-import type { SectionId } from '../content/profile'
+import { Fragment } from 'react'
 import { useLocale } from '../i18n/useLocale'
-import { Navigation } from './Navigation'
 import { SocialLinks } from './SocialLinks'
 import styles from './Portfolio.module.css'
 
-export function Profile({ activeSection }: { activeSection: SectionId }) {
+export function Profile() {
   const { profile, ui } = useLocale()
+  const focusAreas = ui.profileEyebrow.split(' · ')
   return (
     <header className={styles.profile}>
-      <div>
-        <p className={styles.eyebrow}>
-          <span className={styles.smallLine} /> {ui.profileEyebrow}
-        </p>
-        <h1 className={styles.name}>
-          <span>{profile.firstName}</span> <span>{profile.lastName}</span>
-        </h1>
-        <p className={styles.role}>{profile.role}</p>
-        <p className={styles.tagline}>{profile.tagline}</p>
-        <dl className={styles.stack} aria-label={ui.techStack}>
+      <p className={styles.graph}>
+        <span className="sr-only">{ui.profileEyebrow}</span>
+        <span className={styles.graphNodes} aria-hidden="true">
+          {focusAreas.map((area, index) => (
+            <Fragment key={area}>
+              {index > 0 && (
+                <svg
+                  className={styles.graphWire}
+                  viewBox="0 0 100 72"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d={index % 2 ? 'M0 15 C55 15 45 57 100 57' : 'M0 57 C55 57 45 15 100 15'}
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+              )}
+              <span className={styles.graphNode}>{area}</span>
+            </Fragment>
+          ))}
+        </span>
+      </p>
+      <h1 className={styles.name}>{profile.name}</h1>
+      <p className={styles.role}>{profile.role}</p>
+      <p className={styles.tagline}>{profile.tagline}</p>
+      <section className={styles.stackNode} aria-labelledby="stack-heading">
+        <h2 id="stack-heading" className={styles.nodeTitle}>
+          {ui.techStack}
+        </h2>
+        <dl className={styles.stack}>
           {profile.stack.map((group) => (
             <div key={group.label}>
               <dt>{group.label}</dt>
@@ -31,11 +51,8 @@ export function Profile({ activeSection }: { activeSection: SectionId }) {
             </div>
           ))}
         </dl>
-        <Navigation activeSection={activeSection} />
-      </div>
-      <div className={styles.profileFooter}>
-        <SocialLinks />
-      </div>
+      </section>
+      <SocialLinks />
     </header>
   )
 }

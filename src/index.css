@@ -9,21 +9,49 @@
 
 :root {
   font-family: 'Inter Variable', sans-serif;
-  color: #a4b0c4;
-  background: #0d1627;
+  color: var(--text);
+  background: var(--background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
-  --background: #0d1627;
-  --surface: #121e31;
-  --text: #a4b0c4;
-  --muted: #8696ae;
-  --heading: #e8eef7;
-  --accent: #70ddc4;
-  --border: #243148;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --accent-2-soft: color-mix(in srgb, var(--accent-2) 12%, transparent);
+  --node-shadow: 0 1px 0 color-mix(in srgb, var(--heading) 4%, transparent),
+    0 8px 24px -16px color-mix(in srgb, var(--heading) 30%, transparent);
+}
+
+/* Light is the default; public/theme-init.js sets data-theme on the root element. */
+:root {
+  color-scheme: light;
+  --background: #f3f4f2;
+  --surface: #fbfcfa;
+  --surface-raised: #e7e9e6;
+  --text: #3e434a;
+  --muted: #5f6570;
+  --heading: #15181d;
+  --border: #d6d9d5;
+  --border-strong: #b6bab5;
+  --accent: #2a47c4;
+  --accent-2: #a04818;
+  --grid-dot: #cdd1cc;
+  --cheese: #8a5810;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #101113;
+  --surface: #17181b;
+  --surface-raised: #1f2125;
+  --text: #b9bec7;
+  --muted: #8a909a;
+  --heading: #eef0f4;
+  --border: #2a2d32;
+  --border-strong: #40444c;
+  --accent: #8fa2ff;
+  --accent-2: #f29a62;
+  --grid-dot: #25272b;
+  --cheese: #e9bd82;
 }
 
 * {
@@ -36,14 +64,10 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-}
-body::before {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  background: radial-gradient(ellipse at 0% 0%, #14294066, transparent 55%);
-  content: '';
-  pointer-events: none;
+  background-color: var(--background);
+  /* The node-editor canvas. */
+  background-image: radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
 }
 a {
   color: inherit;
@@ -61,7 +85,7 @@ button:focus-visible {
 }
 ::selection {
   color: var(--heading);
-  background: #237362;
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
 }
 p,
 h1,

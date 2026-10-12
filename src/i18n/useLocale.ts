@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router'
-import { profile, experiences, sections } from '../content/profile'
+import { profile, experiences } from '../content/profile'
 import { aboutMe } from '../content/about'
 import { projects } from '../content/projects'
 import { upcomingProjects } from '../content/upcomingProjects'
@@ -11,7 +11,7 @@ import { getLocale, localizedPath, withoutLocale } from './locale'
 import { ui } from './ui'
 
 export const content = {
-  en: { profile, experiences, sections, aboutMe, projects, upcomingProjects, recipes, reviews, cheesecake },
+  en: { profile, experiences, aboutMe, projects, upcomingProjects, recipes, reviews, cheesecake },
   es: spanish,
 }
 

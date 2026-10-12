@@ -28,8 +28,8 @@ export function CheesecakeIllustration() {
         cy="188"
         rx="87"
         ry="15"
-        fill="#182234"
-        stroke="#48505a"
+        fill="var(--surface-raised)"
+        stroke="var(--border-strong)"
       />
       <path
         d="M69 130 179 99l52 39-125 31Z"

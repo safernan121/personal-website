@@ -140,7 +140,8 @@ The favicon, the cheesecake illustration, and the PantryApp sprout mark are orig
 ## Manual release checks
 
 - Review at 390px, 768px, and 1440px widths, in English and Spanish, with no horizontal overflow.
-- Follow all four section links, scroll back to About, and check the active navigation.
+- Follow the header links (Work, Upcoming, Cheesecake) from the homepage and from a project page.
+- Switch between light and dark modes, reload, and confirm the choice persists; clear site data and confirm the mode follows the system setting.
 - Open Behind the keyboard from the homepage footer, follow its cheesecake link, and return. Check `/about` directly and refresh it.
 - Open PantryApp from Upcoming projects and the header, verify both prototype labels, and check its direct URL and refresh.
 - Open each project from the homepage; use Next project and All projects; check Back/Forward, direct links, and refresh. Open and close each “How I built it”.
@@ -148,5 +149,5 @@ The favicon, the cheesecake illustration, and the PantryApp sprout mark are orig
 - Check the not-found view for unknown routes and unknown project slugs.
 - Navigate from the skip link through the contact links using only the keyboard.
 - Check the email, LinkedIn, GitHub, and résumé links.
-- Enable reduced motion and confirm the pointer glow and smooth scrolling are disabled.
+- Enable reduced motion and confirm smooth scrolling and transitions are disabled.
 - Check the browser console and network panel for errors, and verify dates and figures against the sources above.
