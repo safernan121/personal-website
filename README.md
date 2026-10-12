@@ -77,6 +77,6 @@ Editing rules, the review and recipe templates, and the sources for every fact a
 
 ## License
 
-The code is [MIT licensed](LICENSE). The content, résumé, and personal photos are not: they're © Santiago Fernández. Third-party images belong to their owners. If you reuse the code, please swap in your own content.
+The code is [MIT licensed](LICENSE). The content, résumé, and personal photos are not: they're © Santiago Fernández, and third-party images belong to their owners. See [NOTICE.md](NOTICE.md) for details. If you reuse the code, please swap in your own content.
 
 The layout is inspired by [Brittany Chiang's portfolio](https://brittanychiang.com); the implementation and content are original.
