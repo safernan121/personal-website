@@ -59,11 +59,11 @@ export const experiences: Experience[] = [
     highlights: [
       {
         title: 'Editor de casas de los jugadores',
-        text: 'Soy responsable de la capa de producto del editor de casas: un motor de reglas de colocación para rotaciones, anclajes y soporte estructural, con validación al guardar, persistencia mediante Hasura GraphQL y un arranque más rápido.',
+        text: 'Soy responsable de la capa de producto del editor de casas lanzado para los jugadores: un motor de reglas de colocación para rotaciones, anclajes y soporte estructural, con validación al guardar y persistencia mediante Hasura GraphQL.',
       },
       {
         title: 'Editor de programación visual',
-        text: 'Contribuidor principal de Tinker, el editor basado en nodos que el equipo usa para la lógica del juego, donde añadí validación de esquemas, diagnóstico de errores, deshacer/rehacer, copiar/pegar y serialización.',
+        text: 'Contribuidor principal de Tinker, el editor basado en nodos con el que artistas y otras personas sin perfil de desarrollo crearon y probaron habilidades y enemigos, donde añadí validación de esquemas, diagnóstico de errores, deshacer/rehacer, copiar/pegar y serialización.',
       },
       {
         title: 'De ilustraciones a recursos listos para el juego',
@@ -103,7 +103,7 @@ export const experiences: Experience[] = [
       },
       {
         title: 'Contratos de propiedad',
-        text: 'Construí contratos en blockchain que representaban las acciones compradas y permitían gestionar la adquisición gradual de derechos de propiedad (vesting).',
+        text: 'Construí contratos inteligentes en Solidity que representaban las acciones compradas y permitían gestionar la adquisición gradual de derechos de propiedad (vesting).',
       },
     ],
     stack: englishExperiences[1].stack,
@@ -168,15 +168,112 @@ export const projects: Project[] = [
     contributions: [
       {
         title: 'Editor de casas de los jugadores',
-        text: 'Soy responsable de la capa de producto del editor de casas de los jugadores, construido sobre una base existente de edición con vóxeles. Lo integré en el juego y escribí su motor de reglas de colocación, que calcula las huellas rotadas y aplica anclajes, soporte estructural y eliminaciones en cascada. Mantuve separados el estado del borrador, las reglas de distribución y la orquestación del editor para que las reglas sigan siendo testeables, y conecté el guardado con el backend mediante modelos ORM y endpoints de Hasura GraphQL. También añadí revestimientos y alfombras, y mejoré el tiempo de arranque del editor.',
+        text: 'Soy responsable de la capa de producto del editor de casas de los jugadores, que se lanzó para los jugadores. Construido sobre una base existente de edición con vóxeles, permite decorar la casa con muebles, revestimientos de paredes y suelos, y alfombras, y guarda la distribución en el backend. Escribí su motor de reglas de colocación y lo conecté de principio a fin, desde el editor hasta la base de datos.',
+        details: {
+          flow: {
+            label: 'Cómo una edición se convierte en una distribución guardada',
+            steps: [
+              { title: 'Edición del jugador', text: 'Colocar, rotar o quitar un objeto' },
+              { title: 'Borrador', text: 'Registra lo que se colocó y se quitó' },
+              { title: 'Reglas de distribución', text: 'Huellas, anclajes y soporte' },
+              { title: 'Validación al guardar', text: 'Revisa la distribución completa' },
+              { title: 'Backend', text: 'Modelos ORM y Hasura GraphQL' },
+            ],
+          },
+          sections: [
+            {
+              label: 'El problema',
+              text: 'Los jugadores colocan decoraciones sobre una cuadrícula de vóxeles, y cada pieza sigue sus propias reglas: algunas van en el suelo, otras cuelgan de una pared y otras pueden sostener objetos encima. Una distribución que se ve bien en pantalla puede no ser válida, con objetos superpuestos, flotando o sin soporte cuando se quita lo que tenían debajo. El editor tenía que detectarlo mientras el jugador edita, y el backend tenía que recibir una distribución fiable.',
+            },
+            {
+              label: 'Lo que construí',
+              items: [
+                'Un motor de reglas de colocación que calcula la huella rotada de cada objeto y comprueba su anclaje, el soporte que tiene debajo y su espacio antes de aceptar una colocación.',
+                'Validación al quitar objetos que tiene en cuenta todo lo que descansa sobre ellos, para que quitar una mesa no deje objetos flotando.',
+                'Formas visuales y físicas separadas, para que un objeto pueda verse más grande que el espacio que realmente ocupa.',
+                'Validación y persistencia al guardar, con modelos ORM y endpoints de Hasura GraphQL para almacenar las distribuciones.',
+                'Revestimientos de paredes y suelos, y alfombras, con los prototipos de objetos del editor importados y generados a partir de los datos compartidos de objetos.',
+              ],
+            },
+            {
+              label: 'Decisión clave',
+              text: 'Dividí el editor en tres partes: un borrador que registra lo que se colocó y se quitó, un módulo de reglas que conoce dimensiones, anclajes, soportes y rotaciones, y una capa de editor que gestiona la interacción, los avisos y el guardado. Separar las reglas de la interfaz permitió probarlas y cambiarlas por sí solas, y las mismas reglas deciden tanto lo que un jugador puede hacer como lo que se permite guardar.',
+            },
+            {
+              label: 'Resultado',
+              text: 'El editor de casas se lanzó para los jugadores como parte de The Beacon. Sus reglas de colocación, que escribí yo, rigen cada colocación y cada distribución guardada.',
+            },
+          ],
+          credit: 'Construido sobre la base de modelos de vóxeles y edición de otro ingeniero; otros compañeros finalizaron gran parte de la interfaz y el arte.',
+        },
       },
       {
         title: 'Editor de programación visual',
-        text: 'Tinker es el editor basado en nodos que el equipo usa para crear la lógica del juego y los esquemas de datos. No lo creé yo, pero me convertí en uno de sus principales contribuidores: añadí validación de esquemas y diagnóstico de errores, descubrimiento de dependencias, nodos de conversión de tipos, deshacer/rehacer, copiar/pegar y edición por lotes, y mejoras de serialización. Estas capacidades se reutilizan en los distintos tipos de nodos del editor.',
+        text: 'Tinker es el editor basado en nodos que el equipo usa para crear la lógica del juego y los esquemas de datos. No lo creé yo, pero me convertí en uno de sus principales contribuidores, con el objetivo de hacerlo fiable para quienes lo usan, incluidos artistas y otras personas sin perfil de desarrollo que crearon y probaron con él muchas de las habilidades y enemigos del juego.',
+        details: {
+          sections: [
+            {
+              label: 'El problema',
+              text: 'En un editor visual, la lógica se construye conectando nodos en lugar de escribir código. Sin salvaguardas, una conexión equivocada o un campo vacío solo aparece al ejecutar el juego, y un clic erróneo puede deshacer minutos de trabajo. Esto importa sobre todo a quienes no son ingenieros.',
+            },
+            {
+              label: 'Lo que construí',
+              items: [
+                'Validación de esquemas y diagnóstico de errores que señalan el nodo y el campo con un problema antes de ejecutar nada.',
+                'Descubrimiento de dependencias entre los grafos y los datos que usan.',
+                'Nodos de conversión de tipos, para que los valores de distintos tipos se conviertan de forma explícita.',
+                'Deshacer/rehacer, copiar/pegar y edición por lotes sobre selecciones.',
+                'Mejoras de serialización para que los grafos se guarden y carguen de forma fiable.',
+              ],
+            },
+            {
+              label: 'Resultado',
+              text: 'Artistas y otras personas sin perfil de desarrollo usaron Tinker para implementar y probar muchas de las habilidades y enemigos del juego.',
+            },
+          ],
+          credit: 'Tinker lo creó otro ingeniero, y varios compañeros lo han ampliado.',
+        },
       },
       {
         title: 'De ilustraciones a recursos listos para el juego',
         text: 'Propuse y construí el flujo que convierte ilustraciones por capas en animaciones listas para el juego, y sigo manteniéndolo. Los artistas pueden importar un archivo original y elegir una configuración, en lugar de dedicar unos cinco minutos a configurar cada recurso animado a mano. El proceso estandariza más de 1.500 configuraciones de producción.',
+        details: {
+          flow: {
+            label: 'Del arte original al juego',
+            steps: [
+              { title: 'Archivo de Aseprite', text: 'Arte original por capas' },
+              { title: 'Perfil de importación', text: 'Ajustes por familia de recursos' },
+              { title: 'Importador', text: 'Fork de Importality con modos de salida del estudio' },
+              { title: 'Escena de Godot', text: 'Sprites y animaciones generadas' },
+              { title: 'En el juego', text: 'Usada por las mecánicas y la interfaz' },
+            ],
+          },
+          sections: [
+            {
+              label: 'El problema',
+              text: 'Los artistas dibujan personajes, enemigos y objetos como archivos de Aseprite por capas. Convertir cada uno en una animación funcional implicaba configurar a mano escenas, capas de sprites y pistas de animación en Godot, unos cinco minutos por recurso. Con cientos de recursos, era lento, y cada configuración hecha a mano podía alejarse de las convenciones del equipo.',
+            },
+            {
+              label: 'Lo que construí',
+              items: [
+                'Modos de salida para el plugin de código abierto Importality que generan las escenas de sprites por capas del estudio directamente desde los archivos originales.',
+                'Generación de animaciones que crea bibliotecas y reproductores de animación a partir de las capas originales, con pistas, tiempos y estados de reinicio coherentes.',
+                'Importaciones que respetan las paletas y admiten escenas base personalizadas, para que los recursos importados sigan las convenciones del juego.',
+                'Perfiles de importación: reglas por ruta que aplican los ajustes adecuados a familias enteras de recursos, como cosméticos, enemigos, iconos y personajes, y los reimportan en bloque.',
+                'Soporte sin interfaz gráfica, para que las importaciones puedan ejecutarse sin abrir el editor.',
+              ],
+            },
+            {
+              label: 'Decisión clave',
+              text: 'En lugar de escribir un importador desde cero, partí de un plugin de código abierto existente y me centré en la capa específica del estudio: modos de salida, convenciones y perfiles en bloque. La lectura de los archivos originales quedó en un proyecto mantenido por su autor, y mi trabajo se centró en lo que necesitaba el equipo.',
+            },
+            {
+              label: 'Resultado',
+              text: 'Más de 1.500 configuraciones de importación del proyecto usan las salidas personalizadas del flujo, incluidas 649 variantes de sprites por capas. Los artistas eligen una configuración en lugar de montar cada recurso animado a mano.',
+            },
+          ],
+          credit: 'El plugin original Importality y el núcleo del sistema de sprites por capas los construyeron otras personas; yo construí la capa de importación específica del estudio.',
+        },
       },
       {
         title: 'Una base para nuevos modos de juego',
@@ -264,7 +361,7 @@ export const projects: Project[] = [
       },
       {
         title: 'Propiedad de acciones y vesting',
-        text: 'Implementé contratos en blockchain para representar las acciones compradas y gestionar la adquisición gradual de derechos (vesting). Estos vinculaban las inversiones en la aplicación con los registros de propiedad de los inversores.',
+        text: 'Implementé contratos inteligentes en Solidity para representar las acciones compradas y gestionar la adquisición gradual de derechos (vesting). Estos vinculaban las inversiones en la aplicación con los registros de propiedad de los inversores.',
       },
       {
         title: 'Carteras de inversores y referidos',

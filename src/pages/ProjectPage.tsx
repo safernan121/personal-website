@@ -107,6 +107,42 @@ function ProjectDetail({ project }: { project: Project }) {
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
+                    {item.details && (
+                      <details className={styles.deepDive}>
+                        <summary>{ui.howIBuiltIt}</summary>
+                        <div className={styles.deepDiveBody}>
+                          {item.details.flow && (
+                            <figure className={styles.flow}>
+                              <figcaption>{item.details.flow.label}</figcaption>
+                              <ol>
+                                {item.details.flow.steps.map((step) => (
+                                  <li key={step.title}>
+                                    <strong>{step.title}</strong>
+                                    <span>{step.text}</span>
+                                  </li>
+                                ))}
+                              </ol>
+                            </figure>
+                          )}
+                          {item.details.sections.map((section) => (
+                            <section key={section.label}>
+                              <h4>{section.label}</h4>
+                              {section.text && <p>{section.text}</p>}
+                              {section.items && (
+                                <ul>
+                                  {section.items.map((point) => (
+                                    <li key={point}>{point}</li>
+                                  ))}
+                                </ul>
+                              )}
+                            </section>
+                          ))}
+                          {item.details.credit && (
+                            <p className={styles.deepDiveCredit}>{item.details.credit}</p>
+                          )}
+                        </div>
+                      </details>
+                    )}
                   </div>
                 </article>
               ))}

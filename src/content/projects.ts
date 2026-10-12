@@ -1,3 +1,9 @@
+export interface ContributionDetails {
+  sections: { label: string; text?: string; items?: string[] }[]
+  flow?: { label: string; steps: { title: string; text: string }[] }
+  credit?: string
+}
+
 export interface Project {
   slug: string
   name: string
@@ -11,7 +17,7 @@ export interface Project {
   descriptionDetail?: string
   roleSummary?: string
   context?: string
-  contributions: { title: string; text: string }[]
+  contributions: { title: string; text: string; details?: ContributionDetails }[]
   stack: string[]
   website?: string
   websiteLabel?: string
@@ -66,15 +72,112 @@ export const projects: Project[] = [
     contributions: [
       {
         title: 'Player house editor',
-        text: 'I own the product layer of the player house editor, built on an existing voxel-editor foundation. I integrated it into the game and wrote its placement-rule engine, which calculates rotated footprints and enforces anchors, structural support, and removal cascades. I kept draft state, layout rules, and editor orchestration separate so the rules stay testable, and connected saving to the backend through ORM models and Hasura GraphQL endpoints. I also added skins and carpets and improved the editor’s startup time.',
+        text: 'I own the product layer of the player house editor, which shipped to players. Built on an existing voxel-editor foundation, it lets players decorate their homes with furniture, wall and floor skins, and carpets, and saves their layouts to the backend. I wrote its placement-rule engine and connected it end to end, from the editor to the database.',
+        details: {
+          flow: {
+            label: 'How an edit becomes a saved layout',
+            steps: [
+              { title: 'Player edit', text: 'Place, rotate, or remove an item' },
+              { title: 'Draft', text: 'Tracks what was placed and removed' },
+              { title: 'Layout rules', text: 'Footprints, anchors, and support' },
+              { title: 'Save validation', text: 'Checks the whole layout' },
+              { title: 'Backend', text: 'ORM models and Hasura GraphQL' },
+            ],
+          },
+          sections: [
+            {
+              label: 'The problem',
+              text: 'Players place decorations on a voxel grid, and each piece follows its own rules: some stand on the floor, some hang on a wall, and some can hold other items on top. A layout that looks fine on screen can still be invalid, with items overlapping, floating, or left unsupported when something beneath them is removed. The editor had to catch this while the player edits, and the backend had to receive a layout it could trust.',
+            },
+            {
+              label: 'What I built',
+              items: [
+                'A placement-rule engine that calculates each item’s rotated footprint and checks its anchor, the support beneath it, and its space before a placement is accepted.',
+                'Removal validation that accounts for everything resting on an item, so removing a table can’t leave items floating.',
+                'Separate visual and physical shapes, so an item can look larger than the space it actually occupies.',
+                'Save validation and persistence, with ORM models and Hasura GraphQL endpoints for storing layouts.',
+                'Wall and floor skins and carpets, with the editor’s item prototypes imported and generated from the shared item data.',
+              ],
+            },
+            {
+              label: 'Key decision',
+              text: 'I split the editor into three parts: a draft that records what was placed and removed, a rules module that knows dimensions, anchors, supports, and rotations, and an editor layer that handles input, feedback, and saving. Keeping the rules apart from the interface meant they could be tested and changed on their own, and the same rules decide both what a player can do and what is allowed to be saved.',
+            },
+            {
+              label: 'Outcome',
+              text: 'The house editor shipped to players as part of The Beacon. Its placement rules, which I wrote, govern every placement and every saved layout.',
+            },
+          ],
+          credit: 'Built on another engineer’s voxel-model and editor foundations; teammates finalized much of the interface and art.',
+        },
       },
       {
         title: 'Visual programming editor',
-        text: 'Tinker is the team’s node-based editor for building game logic and data schemas. I didn’t create it, but I became a major contributor: I added schema validation and issue diagnostics, dependency discovery, type-cast nodes, undo/redo, copy/paste and batch editing, and serialization improvements. These capabilities are reused across the editor’s node types.',
+        text: 'Tinker is the team’s node-based editor for building game logic and data schemas. I didn’t create it, but I became a major contributor, focused on making it dependable for the people who use it, including artists and other non-developers who built and tested many of the game’s abilities and enemies with it.',
+        details: {
+          sections: [
+            {
+              label: 'The problem',
+              text: 'In a visual editor, people build logic by connecting nodes instead of writing code. Without guardrails, a wrong connection or a missing field only shows up once the game runs, and one misclick can undo minutes of work. That matters most for people who aren’t engineers.',
+            },
+            {
+              label: 'What I built',
+              items: [
+                'Schema validation and issue diagnostics that point to the node and field with a problem before anything runs.',
+                'Dependency discovery between graphs and the data they use.',
+                'Type-cast nodes, so values of different types are converted explicitly.',
+                'Undo/redo, copy/paste, and batch editing across selections.',
+                'Serialization improvements so graphs save and load reliably.',
+              ],
+            },
+            {
+              label: 'Outcome',
+              text: 'Artists and other non-developers used Tinker to implement and test many of the game’s abilities and enemies.',
+            },
+          ],
+          credit: 'Tinker was created by another engineer, and several teammates have extended it.',
+        },
       },
       {
         title: 'Artwork to game-ready assets',
         text: 'I proposed and built the workflow that turns layered artwork into game-ready animations, and still maintain it. Artists can import a source file and choose a configuration instead of spending roughly five minutes setting up each animated asset by hand. The pipeline standardizes 1,500+ production configurations.',
+        details: {
+          flow: {
+            label: 'From source art to the game',
+            steps: [
+              { title: 'Aseprite file', text: 'Layered source art' },
+              { title: 'Import profile', text: 'Settings by asset family' },
+              { title: 'Importer', text: 'Importality fork with studio output modes' },
+              { title: 'Godot scene', text: 'Sprites and baked animations' },
+              { title: 'In the game', text: 'Used by gameplay and interface' },
+            ],
+          },
+          sections: [
+            {
+              label: 'The problem',
+              text: 'Artists draw characters, enemies, and items as layered Aseprite files. Turning each one into a working animation meant setting up scenes, sprite layers, and animation tracks by hand in Godot, about five minutes per asset. Across hundreds of assets, that was slow, and every hand-built setup could drift from the team’s conventions.',
+            },
+            {
+              label: 'What I built',
+              items: [
+                'Output modes for the open-source Importality plugin that generate the studio’s layered sprite scenes directly from source files.',
+                'Animation baking that builds animation libraries and players from the layered source data, with consistent tracks, timing, and reset states.',
+                'Palette-aware imports and support for custom base scenes, so imported assets follow the game’s existing conventions.',
+                'Import profiles: path-based rules that apply the right settings to whole asset families, such as cosmetics, enemies, icons, and characters, and reimport them in bulk.',
+                'Headless support, so imports can run without the editor interface.',
+              ],
+            },
+            {
+              label: 'Key decision',
+              text: 'Rather than write an importer from scratch, I built on an existing open-source plugin and focused on the studio-specific layer: output modes, conventions, and bulk profiles. Parsing source files stayed in a maintained upstream project, and my work went where the team’s needs were.',
+            },
+            {
+              label: 'Outcome',
+              text: 'More than 1,500 of the project’s import configurations use the pipeline’s custom outputs, including 649 layered sprite variants. Artists choose a configuration instead of building each animated asset by hand.',
+            },
+          ],
+          credit: 'The upstream Importality plugin and the core layered-sprite runtime were built by others; I built the studio-specific import layer.',
+        },
       },
       {
         title: 'A foundation for new game modes',
@@ -179,14 +282,14 @@ export const projects: Project[] = [
       },
       {
         title: 'Share ownership and vesting',
-        text: 'Implemented blockchain contracts to represent purchased shares and manage vesting. These linked investments in the application to records of investors’ ownership.',
+        text: 'Implemented Solidity smart contracts to represent purchased shares and manage vesting. These linked investments in the application to records of investors’ ownership.',
       },
       {
         title: 'Investor portfolios and referrals',
         text: 'Implemented portfolio features for investors to review their holdings, with additional contributions to the platform’s referral functionality.',
       },
     ],
-    stack: ['Python', 'Django', 'JavaScript', 'Node.js', 'Solidity'],
+    stack: ['Python', 'Django', 'Node.js', 'Solidity'],
     website: 'https://www.uper.co/en/',
     websiteLabel: 'Visit Uper',
     websiteNote: 'Uppercap’s original domain now redirects to Uper.',

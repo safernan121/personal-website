@@ -101,11 +101,11 @@ export const experiences: Experience[] = [
     highlights: [
       {
         title: 'Player house editor',
-        text: 'Own the product layer of the house editor: a placement-rule engine for rotations, anchors, and structural support, with save validation, persistence through Hasura GraphQL, and faster startup.',
+        text: 'Own the product layer of the house editor shipped to players: a placement-rule engine for rotations, anchors, and structural support, with save validation and persistence through Hasura GraphQL.',
       },
       {
         title: 'Visual programming editor',
-        text: 'Major contributor to Tinker, the team’s node-based editor for game logic, adding schema validation, issue diagnostics, undo/redo, copy/paste, and serialization.',
+        text: 'Major contributor to Tinker, the node-based editor artists and other non-developers used to build and test abilities and enemies, adding schema validation, issue diagnostics, undo/redo, copy/paste, and serialization.',
       },
       {
         title: 'Artwork to game-ready assets',
@@ -147,10 +147,10 @@ export const experiences: Experience[] = [
       },
       {
         title: 'Ownership contracts',
-        text: 'Built blockchain contracts that represented purchased shares and supported ownership vesting.',
+        text: 'Built Solidity smart contracts that represented purchased shares and supported ownership vesting.',
       },
     ],
-    stack: ['JavaScript', 'Python', 'Django', 'Node.js', 'Solidity'],
+    stack: ['Python', 'Django', 'Node.js', 'Solidity'],
   },
   {
     id: 'primus-bi',
