@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Santiago Fernández — CV</title>
+<!-- Source for public/santiago-fernandez-cv.pdf. Rebuild with: npm run cv -->
+<style>
+  @page { size: Letter; margin: 0.45in 0.7in 0.4in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Helvetica, Arial, sans-serif; font-size: 9.5pt; line-height: 1.28; color: #111; }
+  a { color: inherit; text-decoration: none; }
+  h1 { font-size: 23pt; color: #1b2f4a; line-height: 1.1; }
+  .role { font-size: 12.5pt; margin-top: 3pt; }
+  .contact { color: #4f6684; font-size: 9.5pt; margin-top: 7pt; line-height: 1.4; }
+  hr { border: 0; border-top: 1px solid #333; margin: 8pt 0 7pt; }
+  h2 { font-size: 10.5pt; color: #1f4f7a; text-transform: uppercase; letter-spacing: 0.02em; margin: 9pt 0 4pt; }
+  .entry { margin-top: 5pt; }
+  .head { display: flex; justify-content: space-between; font-weight: bold; }
+  .head span:last-child { font-weight: normal; color: #4f6684; }
+  .title { color: #4f6684; margin-top: 1pt; }
+  .intro { margin-top: 4pt; }
+  ul { margin: 4pt 0 0 13pt; }
+  li { margin-top: 1.8pt; padding-left: 2pt; }
+  .context { color: #4f6684; font-size: 9pt; margin-top: 4pt; }
+  .skills p { margin-top: 1.5pt; }
+</style>
+</head>
+<body>
+  <h1>Santiago Fernández</h1>
+  <p class="role">Software Engineer</p>
+  <p class="contact">Barcelona, Spain | <a href="mailto:safernan121@gmail.com">safernan121@gmail.com</a><br>
+    <a href="https://safernan.dev">safernan.dev</a> | <a href="https://www.linkedin.com/in/safernan12/">linkedin.com/in/safernan12</a></p>
+  <hr>
+  <p>Software engineer with 7+ years building fintech products and online games. Experience spans trading interfaces, full-stack investment flows, shared systems, and developer tools.</p>
+
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <p><b>Languages:</b> TypeScript, JavaScript, Python, C#, GDScript</p>
+    <p><b>Backend &amp; Data:</b> Node.js, NestJS, SQL, GraphQL</p>
+    <p><b>Development:</b> Agentic AI Development, Developer Tooling, Automated Testing</p>
+  </div>
+
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="head"><span>Skillcap Studio / Gambit Studio</span><span>Nov 2021 - Present</span></div>
+    <p class="title">Software Engineer (Full-Stack)</p>
+    <p class="intro">One of five core engineers on The Beacon (Godot, TypeScript/NestJS, GraphQL/Hasura), owning editor systems, developer tooling, and shared data infrastructure; contribute to code reviews and technical decisions.</p>
+    <ul>
+      <li>Own the product layer of the player house editor: built its placement-rule engine (rotated footprints, anchors, structural support, removal cascades), separated draft state from rules for testability, persisted layouts via ORM models and Hasura GraphQL, and improved startup time.</li>
+      <li>Major contributor to Tinker, the team’s node-based visual programming editor: built schema validation and issue diagnostics, dependency discovery, type-cast nodes, undo/redo, copy/paste, batch operations, and serialization.</li>
+      <li>Designed and maintain an asset-import pipeline (extended Importality fork) turning layered Aseprite art into production animations, with import profiles and headless reimport; replaced manual setup across 1,500+ configurations.</li>
+      <li>Replaced an ad-hoc content model with a typed, data-driven architecture covering creation and runtime use of 700+ assets and items, adopted as shared infrastructure extended by multiple engineers.</li>
+      <li>Built the initial GraphQL client architecture and a local data layer mirroring production models, enabling development and testing without a live backend.</li>
+      <li>Co-implemented cross-platform input (touch controls, virtual joystick, controller navigation, and mobile export configuration), expanding the devices and input methods the client supports.</li>
+    </ul>
+    <p class="context"><b>Product context:</b> 220K peak daily active users and 650K+ new accounts during its largest campaign.</p>
+  </div>
+
+  <div class="entry">
+    <div class="head"><span>CryptoMarket / Uppercap</span><span>Oct 2019 - Nov 2021</span></div>
+    <p class="title">Software Engineer (Full-Stack)</p>
+    <ul>
+      <li><b>CryptoMarket:</b> Built the full frontend of the professional trading interface with Django and Node.js, integrating market APIs, candlestick charts, order-book views, order entry, and order tracking.</li>
+      <li><b>Uppercap:</b> Joined the original engineering team and co-implemented frontend/backend investment flows using Python, JavaScript, and Node.js, covering company profiles, investment rounds, and share purchases.</li>
+      <li>Co-integrated Chilean bank APIs for credit-card payments and implemented investor portfolio features.</li>
+      <li>Implemented blockchain contracts representing purchased shares and managing ownership vesting.</li>
+    </ul>
+    <p class="context"><b>Company context:</b> CryptoMarket reported 500K registered users and ~$3M in daily transactions by Oct 2021.</p>
+  </div>
+
+  <div class="entry">
+    <div class="head"><span>Primus BI</span><span>Nov 2018 - Sep 2019</span></div>
+    <p class="title">Software Engineer (Frontend)</p>
+    <ul>
+      <li>Maintained and improved company web interfaces before moving to the Uppercap initiative with CryptoMarket.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <p><b>Universidad de los Andes, Chile</b> - Software Engineering, 2019</p>
+  <p>Teaching Assistant - Object-Oriented Programming</p>
+
+  <h2>Languages</h2>
+  <p>Spanish: Native | English: Fluent | Japanese: A2</p>
+</body>
+</html>

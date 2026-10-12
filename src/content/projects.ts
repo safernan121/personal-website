@@ -60,10 +60,18 @@ export const projects: Project[] = [
     description:
       'The Beacon is an online fantasy action game built around dungeon exploration, combat, and loot. Players can also customize a home, collect items, and meet in shared social spaces.',
     roleSummary:
-      'I’m one of five core engineers building The Beacon at Skillcap / Gambit Studio. My work spans gameplay features, the shared systems behind new game modes, and the tools used to bring content into the game. I also help shape technical decisions and review code across the team.',
+      'I’m one of five core engineers building The Beacon at Skillcap / Gambit Studio. I own editor systems, developer tools, and shared data infrastructure across the Godot client and the TypeScript/GraphQL services behind it, and I also work on gameplay. I help shape technical decisions and review code across the team.',
     context:
       'Product scale: During its largest campaign, The Beacon reached 220K peak daily active users and 650K+ new accounts.',
     contributions: [
+      {
+        title: 'Player house editor',
+        text: 'I own the product layer of the player house editor, built on an existing voxel-editor foundation. I integrated it into the game and wrote its placement-rule engine, which calculates rotated footprints and enforces anchors, structural support, and removal cascades. I kept draft state, layout rules, and editor orchestration separate so the rules stay testable, and connected saving to the backend through ORM models and Hasura GraphQL endpoints. I also added skins and carpets and improved the editor’s startup time.',
+      },
+      {
+        title: 'Visual programming editor',
+        text: 'Tinker is the team’s node-based editor for building game logic and data schemas. I didn’t create it, but I became a major contributor: I added schema validation and issue diagnostics, dependency discovery, type-cast nodes, undo/redo, copy/paste and batch editing, and serialization improvements. These capabilities are reused across the editor’s node types.',
+      },
       {
         title: 'Artwork to game-ready assets',
         text: 'I proposed and built the workflow that turns layered artwork into game-ready animations, and still maintain it. Artists can import a source file and choose a configuration instead of spending roughly five minutes setting up each animated asset by hand. The pipeline standardizes 1,500+ production configurations.',
@@ -79,6 +87,10 @@ export const projects: Project[] = [
       {
         title: 'Development without a live backend',
         text: 'Built the initial GraphQL client architecture and a local data layer that mirrors the production data model. Engineers could develop and test gameplay without connecting to the live backend.',
+      },
+      {
+        title: 'Touch and controller input',
+        text: 'Co-implemented touch buttons, a virtual joystick, controller navigation, and mobile export configuration, then maintained the related interface behavior. This expanded the devices and inputs the game supports.',
       },
       {
         title: 'Combat implementation',
@@ -103,7 +115,7 @@ export const projects: Project[] = [
     descriptionDetail:
       'The archived screenshot shows the trading interface documented in May 2020, during my time at the company.',
     roleSummary:
-      'I built the full frontend of CryptoMarket’s professional trading interface, connecting market data, charts, buying and selling, and order tracking in one workspace. My work included the API integrations and trading workflows shown here.',
+      'I built the full frontend of CryptoMarket’s professional trading interface with Django and Node.js, connecting market data, charts, buying and selling, and order tracking in one workspace. My work included the API integrations and trading workflows shown here.',
     context:
       'Company scale: By October 2021, the exchange reported 500K registered users and approximately $3M in daily transactions.',
     contributions: [
@@ -124,7 +136,7 @@ export const projects: Project[] = [
         text: 'Built views for active orders and trading history, helping users track open orders and review previous orders.',
       },
     ],
-    stack: ['JavaScript', 'Python', 'Django'],
+    stack: ['Python', 'Django', 'Node.js'],
     website: 'https://www.cryptomkt.com/en/',
     websiteLabel: 'Visit CryptoMKT',
     media: {

@@ -47,7 +47,7 @@ export const profile = {
       { text: 'At Skillcap / Gambit Studio, I’m one of five core engineers building ' },
       { text: 'The Beacon', emphasis: true },
       {
-        text: '. My work ranges from combat features to the foundations for new game modes. I also created and maintain an automated workflow that turns artists’ source files into game-ready animations.',
+        text: '. I own the product layer of the player house editor, contribute to the team’s visual programming editor, and created and maintain an automated workflow that turns artists’ source files into game-ready animations.',
       },
     ],
     [
@@ -95,17 +95,21 @@ export const experiences: Experience[] = [
     end: 'Present',
     current: true,
     summary:
-      'One of five core engineers building The Beacon, with work spanning gameplay, shared systems, and the tools the team uses to ship new content.',
+      'One of five core engineers building The Beacon, owning editor systems, developer tools, and shared data infrastructure across a Godot client and TypeScript/GraphQL services.',
     context:
       'Product scale: The Beacon reached 220K peak daily active users and 650K+ new accounts during its largest campaign.',
     highlights: [
       {
-        title: 'Artwork to game-ready assets',
-        text: 'Own an automated workflow I proposed and built to turn artwork into game-ready animations, replacing manual setup and standardizing 1,500+ production configurations.',
+        title: 'Player house editor',
+        text: 'Own the product layer of the house editor: a placement-rule engine for rotations, anchors, and structural support, with save validation, persistence through Hasura GraphQL, and faster startup.',
       },
       {
-        title: 'A foundation for new game modes',
-        text: 'Replaced separate game-mode implementations with shared systems for game state and room generation, giving new modes and live events a common foundation.',
+        title: 'Visual programming editor',
+        text: 'Major contributor to Tinker, the team’s node-based editor for game logic, adding schema validation, issue diagnostics, undo/redo, copy/paste, and serialization.',
+      },
+      {
+        title: 'Artwork to game-ready assets',
+        text: 'Own an automated workflow I proposed and built to turn artwork into game-ready animations, replacing manual setup and standardizing 1,500+ production configurations.',
       },
       {
         title: 'Shared models for game content',
@@ -116,8 +120,8 @@ export const experiences: Experience[] = [
         text: 'Built the initial GraphQL client architecture and a local data layer, allowing engineers to develop and test gameplay without connecting to the live backend.',
       },
       {
-        title: 'Combat implementation',
-        text: 'Designed and implemented combat behavior for enemies and bosses, and contributed to shared combat systems.',
+        title: 'Touch and controller input',
+        text: 'Co-implemented touch controls, a virtual joystick, controller navigation, and mobile export settings, expanding the devices and inputs the game supports.',
       },
     ],
     stack: ['Godot', 'GDScript', 'TypeScript', 'NestJS', 'GraphQL', 'Hasura', 'Solidity'],
@@ -135,7 +139,7 @@ export const experiences: Experience[] = [
     highlights: [
       {
         title: 'Trading frontend',
-        text: 'Built the full frontend of CryptoMarket’s professional trading interface, connecting market data, charts, order entry, and order tracking.',
+        text: 'Built the full frontend of CryptoMarket’s professional trading interface with Django and Node.js, connecting market data, charts, order entry, and order tracking.',
       },
       {
         title: 'The investment journey',

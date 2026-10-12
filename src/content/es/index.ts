@@ -22,7 +22,7 @@ export const profile: typeof englishProfile = {
     [
       { text: 'En Skillcap / Gambit Studio, soy uno de los cinco ingenieros del equipo principal de ' },
       { text: 'The Beacon', emphasis: true },
-      { text: '. Mi trabajo va desde funcionalidades de combate hasta las bases para nuevos modos de juego. También creé y mantengo un flujo automatizado que convierte los archivos originales de los artistas en animaciones listas para el juego.' },
+      { text: '. Soy responsable de la capa de producto del editor de casas de los jugadores, contribuyo al editor de programación visual del equipo, y creé y mantengo un flujo automatizado que convierte los archivos originales de los artistas en animaciones listas para el juego.' },
     ],
     [
       { text: 'Antes formé parte del equipo de ingeniería original de ' },
@@ -54,16 +54,20 @@ export const experiences: Experience[] = [
     start: 'nov. 2021',
     end: 'Actualidad',
     current: true,
-    summary: 'Uno de los cinco ingenieros del equipo principal de The Beacon, con trabajo en mecánicas de juego, sistemas compartidos y herramientas que el equipo usa para publicar contenido nuevo.',
+    summary: 'Uno de los cinco ingenieros del equipo principal de The Beacon, responsable de sistemas de edición, herramientas de desarrollo e infraestructura de datos compartida entre un cliente en Godot y servicios en TypeScript/GraphQL.',
     context: 'Escala del producto: The Beacon alcanzó un máximo de 220 mil usuarios activos diarios y más de 650 mil cuentas nuevas durante su mayor campaña.',
     highlights: [
       {
-        title: 'De ilustraciones a recursos listos para el juego',
-        text: 'Soy responsable de un flujo automatizado que propuse y construí para convertir ilustraciones en animaciones listas para el juego, sustituyendo la configuración manual y estandarizando más de 1.500 configuraciones de producción.',
+        title: 'Editor de casas de los jugadores',
+        text: 'Soy responsable de la capa de producto del editor de casas: un motor de reglas de colocación para rotaciones, anclajes y soporte estructural, con validación al guardar, persistencia mediante Hasura GraphQL y un arranque más rápido.',
       },
       {
-        title: 'Una base para nuevos modos de juego',
-        text: 'Sustituí implementaciones independientes de modos de juego por sistemas compartidos de estado del juego y generación de salas, dando una base común a nuevos modos y eventos en vivo.',
+        title: 'Editor de programación visual',
+        text: 'Contribuidor principal de Tinker, el editor basado en nodos que el equipo usa para la lógica del juego, donde añadí validación de esquemas, diagnóstico de errores, deshacer/rehacer, copiar/pegar y serialización.',
+      },
+      {
+        title: 'De ilustraciones a recursos listos para el juego',
+        text: 'Soy responsable de un flujo automatizado que propuse y construí para convertir ilustraciones en animaciones listas para el juego, sustituyendo la configuración manual y estandarizando más de 1.500 configuraciones de producción.',
       },
       {
         title: 'Modelos compartidos para el contenido del juego',
@@ -74,8 +78,8 @@ export const experiences: Experience[] = [
         text: 'Construí la arquitectura inicial del cliente GraphQL y una capa de datos local, permitiendo desarrollar y probar las mecánicas de juego sin conectarse al backend de producción.',
       },
       {
-        title: 'Implementación del combate',
-        text: 'Diseñé e implementé el comportamiento de combate de enemigos y jefes, y contribuí a los sistemas de combate compartidos.',
+        title: 'Controles táctiles y de mando',
+        text: 'Implementé junto al equipo controles táctiles, un joystick virtual, navegación con mando y la configuración de exportación móvil, ampliando los dispositivos y formas de control que admite el juego.',
       },
     ],
     stack: englishExperiences[0].stack,
@@ -91,7 +95,7 @@ export const experiences: Experience[] = [
     highlights: [
       {
         title: 'Frontend de trading',
-        text: 'Construí todo el frontend de la interfaz profesional de trading de CryptoMarket, conectando datos de mercado, gráficos, creación de órdenes y seguimiento de órdenes.',
+        text: 'Construí todo el frontend de la interfaz profesional de trading de CryptoMarket con Django y Node.js, conectando datos de mercado, gráficos, creación de órdenes y seguimiento de órdenes.',
       },
       {
         title: 'El recorrido de inversión',
@@ -159,9 +163,17 @@ export const projects: Project[] = [
     role: 'Ingeniero de software',
     period: 'nov. 2021 — Actualidad',
     description: 'The Beacon es un juego de acción y fantasía en línea centrado en la exploración de mazmorras, el combate y el botín. Los jugadores también pueden personalizar una casa, coleccionar objetos y encontrarse en espacios sociales compartidos.',
-    roleSummary: 'Soy uno de los cinco ingenieros del equipo principal de The Beacon en Skillcap / Gambit Studio. Mi trabajo abarca mecánicas de juego, los sistemas compartidos que sustentan nuevos modos y las herramientas para incorporar contenido al juego. También participo en las decisiones técnicas y reviso código del equipo.',
+    roleSummary: 'Soy uno de los cinco ingenieros del equipo principal de The Beacon en Skillcap / Gambit Studio. Soy responsable de sistemas de edición, herramientas de desarrollo e infraestructura de datos compartida entre el cliente en Godot y los servicios en TypeScript/GraphQL que lo respaldan, y también trabajo en mecánicas de juego. Participo en las decisiones técnicas y reviso código del equipo.',
     context: 'Escala del producto: durante su mayor campaña, The Beacon alcanzó un máximo de 220 mil usuarios activos diarios y más de 650 mil cuentas nuevas.',
     contributions: [
+      {
+        title: 'Editor de casas de los jugadores',
+        text: 'Soy responsable de la capa de producto del editor de casas de los jugadores, construido sobre una base existente de edición con vóxeles. Lo integré en el juego y escribí su motor de reglas de colocación, que calcula las huellas rotadas y aplica anclajes, soporte estructural y eliminaciones en cascada. Mantuve separados el estado del borrador, las reglas de distribución y la orquestación del editor para que las reglas sigan siendo testeables, y conecté el guardado con el backend mediante modelos ORM y endpoints de Hasura GraphQL. También añadí revestimientos y alfombras, y mejoré el tiempo de arranque del editor.',
+      },
+      {
+        title: 'Editor de programación visual',
+        text: 'Tinker es el editor basado en nodos que el equipo usa para crear la lógica del juego y los esquemas de datos. No lo creé yo, pero me convertí en uno de sus principales contribuidores: añadí validación de esquemas y diagnóstico de errores, descubrimiento de dependencias, nodos de conversión de tipos, deshacer/rehacer, copiar/pegar y edición por lotes, y mejoras de serialización. Estas capacidades se reutilizan en los distintos tipos de nodos del editor.',
+      },
       {
         title: 'De ilustraciones a recursos listos para el juego',
         text: 'Propuse y construí el flujo que convierte ilustraciones por capas en animaciones listas para el juego, y sigo manteniéndolo. Los artistas pueden importar un archivo original y elegir una configuración, en lugar de dedicar unos cinco minutos a configurar cada recurso animado a mano. El proceso estandariza más de 1.500 configuraciones de producción.',
@@ -179,6 +191,10 @@ export const projects: Project[] = [
         text: 'Construí la arquitectura inicial del cliente GraphQL y una capa de datos local que replica el modelo de datos de producción. Los ingenieros podían desarrollar y probar las mecánicas de juego sin conectarse al backend de producción.',
       },
       {
+        title: 'Controles táctiles y de mando',
+        text: 'Implementé junto al equipo botones táctiles, un joystick virtual, navegación con mando y la configuración de exportación móvil, y después mantuve el comportamiento de la interfaz relacionado. Esto amplió los dispositivos y formas de control que admite el juego.',
+      },
+      {
         title: 'Implementación del combate',
         text: 'Diseñé e implementé el comportamiento de combate de enemigos y jefes, y contribuí a los sistemas de combate compartidos.',
       },
@@ -193,7 +209,7 @@ export const projects: Project[] = [
     period: 'oct. 2019 — nov. 2021',
     description: 'CryptoMarket es una plataforma de intercambio de criptomonedas que opera con monedas locales en América Latina. Su interfaz profesional permite estudiar los movimientos de precios, operar y gestionar órdenes en un mismo espacio.',
     descriptionDetail: 'La captura del archivo muestra la interfaz de trading documentada en mayo de 2020, durante mi etapa en la empresa.',
-    roleSummary: 'Construí todo el frontend de la interfaz profesional de trading de CryptoMarket, conectando datos de mercado, gráficos, compra y venta, y seguimiento de órdenes en un mismo espacio. Mi trabajo incluyó las integraciones con API y los flujos de trading que se muestran aquí.',
+    roleSummary: 'Construí todo el frontend de la interfaz profesional de trading de CryptoMarket con Django y Node.js, conectando datos de mercado, gráficos, compra y venta, y seguimiento de órdenes en un mismo espacio. Mi trabajo incluyó las integraciones con API y los flujos de trading que se muestran aquí.',
     context: 'Escala de la empresa: en octubre de 2021, la plataforma reportaba 500 mil usuarios registrados y aproximadamente 3 millones de dólares en transacciones diarias.',
     contributions: [
       {
