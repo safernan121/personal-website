@@ -29,6 +29,11 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
             <span className={styles.statusDot} aria-hidden="true" />
             {project.availability}
           </div>
+          <ul className={styles.areaList} aria-label={ui.builtWith}>
+            {project.stack.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
         <section className={styles.prototypeSection} aria-labelledby="preview-heading">
           <div className={styles.previewHeader}>

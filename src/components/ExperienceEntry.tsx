@@ -4,7 +4,7 @@ import styles from './Portfolio.module.css'
 
 export function ExperienceEntry({ experience }: { experience: Experience }) {
   const { ui } = useLocale()
-  const { id, role, company, start, end, current, summary, context, highlights, areas } =
+  const { id, role, company, start, end, current, summary, context, highlights, stack } =
     experience
 
   return (
@@ -38,9 +38,9 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
           </ul>
         )}
         {context && <p className={styles.contextNote}>{context}</p>}
-        <ul className={styles.tags} aria-label={ui.focusAreas}>
-          {areas.map((area) => (
-            <li key={area}>{area}</li>
+        <ul className={styles.tags} aria-label={ui.technologies}>
+          {stack.map((item) => (
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </article>

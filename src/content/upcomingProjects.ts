@@ -6,6 +6,7 @@ export interface UpcomingProject {
   tagline: string
   introduction: string
   availability: string
+  stack: string[]
   features: { title: string; text: string }[]
   screenshots: {
     src: string
@@ -31,6 +32,7 @@ export const upcomingProjects: UpcomingProject[] = [
     introduction:
       'Open the fridge and know what to make. I’m building PantryApp to help you make the most of the food you already have, find meals you’ll look forward to, and head to the shops with a list that makes sense.',
     availability: 'Coming to iOS and Android',
+    stack: ['React Native', 'Expo', 'TypeScript', 'GraphQL', 'PostgreSQL', 'SQLite', 'Node.js'],
     features: [
       {
         title: 'Know what you have',

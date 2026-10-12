@@ -12,7 +12,7 @@ export interface Project {
   roleSummary?: string
   context?: string
   contributions: { title: string; text: string }[]
-  areas: string[]
+  stack: string[]
   website?: string
   websiteLabel?: string
   websiteNote?: string
@@ -85,13 +85,7 @@ export const projects: Project[] = [
         text: 'Designed and implemented combat behavior for enemies and bosses, and contributed to shared combat systems.',
       },
     ],
-    areas: [
-      'Gameplay',
-      'Software architecture',
-      'GraphQL',
-      'Shared systems',
-      'Developer tools',
-    ],
+    stack: ['Godot', 'GDScript', 'TypeScript', 'NestJS', 'GraphQL', 'Hasura', 'Solidity'],
     website: 'https://thebeacon.gg/',
     websiteLabel: 'Visit thebeacon.gg',
   },
@@ -130,7 +124,7 @@ export const projects: Project[] = [
         text: 'Built views for active orders and trading history, helping users track open orders and review previous orders.',
       },
     ],
-    areas: ['JavaScript', 'Frontend engineering', 'API integration', 'Data visualization', 'Trading workflows'],
+    stack: ['JavaScript', 'Python', 'Django'],
     website: 'https://www.cryptomkt.com/en/',
     websiteLabel: 'Visit CryptoMKT',
     media: {
@@ -180,7 +174,7 @@ export const projects: Project[] = [
         text: 'Implemented portfolio features for investors to review their holdings, with additional contributions to the platform’s referral functionality.',
       },
     ],
-    areas: ['Investment flows', 'Payment integration', 'JavaScript', 'Python', 'Node.js', 'Blockchain'],
+    stack: ['Python', 'Django', 'JavaScript', 'Node.js', 'Solidity'],
     website: 'https://www.uper.co/en/',
     websiteLabel: 'Visit Uper',
     websiteNote: 'Uppercap’s original domain now redirects to Uper.',

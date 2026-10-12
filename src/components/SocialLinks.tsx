@@ -13,8 +13,12 @@ export function SocialLinks() {
             aria-label={
               icon === 'email'
                 ? ui.emailSantiago
-                : `${label} ${ui.newTab}`
+                : icon === 'resume'
+                  ? ui.resumePdf
+                  : `${label} ${ui.newTab}`
             }
+            hrefLang={icon === 'resume' ? 'en' : undefined}
+            type={icon === 'resume' ? 'application/pdf' : undefined}
             target={icon === 'email' ? undefined : '_blank'}
             rel={icon === 'email' ? undefined : 'noopener noreferrer'}
           >

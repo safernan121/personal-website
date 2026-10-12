@@ -78,10 +78,10 @@ function ProjectDetail({ project }: { project: Project }) {
               <p>{project.roleSummary}</p>
               <ul
                 className={styles.areaList}
-                aria-label={ui.focusAreas}
+                aria-label={ui.technologies}
               >
-                {project.areas.map((area) => (
-                  <li key={area}>{area}</li>
+                {project.stack.map((item) => (
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </div>

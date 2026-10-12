@@ -1,4 +1,4 @@
-import { profile as englishProfile, type Experience } from '../profile'
+import { experiences as englishExperiences, profile as englishProfile, type Experience } from '../profile'
 import { projects as englishProjects, type Project } from '../projects'
 import { upcomingProjects as englishUpcomingProjects, type UpcomingProject } from '../upcomingProjects'
 import { recipes as englishRecipes, type Recipe } from '../recipes'
@@ -10,7 +10,6 @@ import type { aboutMe as englishAboutMe } from '../about'
 export const profile: typeof englishProfile = {
   ...englishProfile,
   role: 'Ingeniero de software',
-  location: 'Barcelona, España',
   tagline: 'Construyo software que la gente usa y sistemas sobre los que los equipos crean.',
   description: 'Santiago Fernández, ingeniero de software en Barcelona. Más de 7 años creando productos, sistemas compartidos y herramientas en videojuegos y fintech.',
   aboutLead: ['Desde la interfaz', 'hasta los sistemas que la hacen posible.'],
@@ -36,9 +35,14 @@ export const profile: typeof englishProfile = {
       { text: ', construí todo el frontend de su interfaz profesional de trading. Comencé mi carrera en desarrollo frontend en Primus BI.' },
     ],
   ],
+  stack: [
+    { label: 'Lenguajes', items: englishProfile.stack[0].items },
+    { label: 'Plataformas', items: englishProfile.stack[1].items },
+    { label: 'Datos y API', items: englishProfile.stack[2].items },
+  ],
   socialLinks: englishProfile.socialLinks.map((link) => ({
     ...link,
-    label: link.icon === 'email' ? 'Correo' : link.label,
+    label: link.icon === 'email' ? 'Correo' : link.icon === 'resume' ? 'CV' : link.label,
   })),
 }
 
@@ -74,7 +78,7 @@ export const experiences: Experience[] = [
         text: 'Diseñé e implementé el comportamiento de combate de enemigos y jefes, y contribuí a los sistemas de combate compartidos.',
       },
     ],
-    areas: ['Arquitectura de software', 'Herramientas de desarrollo', 'GraphQL', 'Modelado de datos', 'Sistemas compartidos'],
+    stack: englishExperiences[0].stack,
   },
   {
     id: 'cryptomarket-uppercap',
@@ -98,7 +102,7 @@ export const experiences: Experience[] = [
         text: 'Construí contratos en blockchain que representaban las acciones compradas y permitían gestionar la adquisición gradual de derechos de propiedad (vesting).',
       },
     ],
-    areas: ['JavaScript', 'Python', 'Node.js', 'Blockchain'],
+    stack: englishExperiences[1].stack,
   },
   {
     id: 'primus-bi',
@@ -108,7 +112,7 @@ export const experiences: Experience[] = [
     end: 'sept. 2019',
     summary: 'Mantuve y mejoré las interfaces web de Primus BI, y después me uní a Uppercap, su iniciativa de plataforma de inversión junto a CryptoMarket.',
     highlights: [],
-    areas: ['Interfaces web', 'Desarrollo frontend'],
+    stack: englishExperiences[2].stack,
   },
 ]
 
@@ -179,7 +183,6 @@ export const projects: Project[] = [
         text: 'Diseñé e implementé el comportamiento de combate de enemigos y jefes, y contribuí a los sistemas de combate compartidos.',
       },
     ],
-    areas: ['Mecánicas de juego', 'Arquitectura de software', 'GraphQL', 'Sistemas compartidos', 'Herramientas de desarrollo'],
     websiteLabel: 'Visitar thebeacon.gg',
   },
   {
@@ -210,7 +213,6 @@ export const projects: Project[] = [
         text: 'Construí las vistas de órdenes activas e historial de trading, ayudando a los usuarios a seguir sus órdenes abiertas y revisar las anteriores.',
       },
     ],
-    areas: ['JavaScript', 'Ingeniería frontend', 'Integración de API', 'Visualización de datos', 'Flujos de trading'],
     websiteLabel: 'Visitar CryptoMKT',
     media: {
       ...crypto.media!,
@@ -253,7 +255,6 @@ export const projects: Project[] = [
         text: 'Implementé funcionalidades de cartera para que los inversores revisaran sus participaciones, y también contribuí a la funcionalidad de referidos de la plataforma.',
       },
     ],
-    areas: ['Flujos de inversión', 'Integración de pagos', 'JavaScript', 'Python', 'Node.js', 'Blockchain'],
     websiteLabel: 'Visitar Uper',
     websiteNote: 'El dominio original de Uppercap ahora redirige a Uper.',
     media: {

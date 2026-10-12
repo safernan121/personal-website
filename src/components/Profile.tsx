@@ -1,6 +1,5 @@
 import type { SectionId } from '../content/profile'
 import { useLocale } from '../i18n/useLocale'
-import { Icon } from './Icon'
 import { Navigation } from './Navigation'
 import { SocialLinks } from './SocialLinks'
 import styles from './Portfolio.module.css'
@@ -18,13 +17,23 @@ export function Profile({ activeSection }: { activeSection: SectionId }) {
         </h1>
         <p className={styles.role}>{profile.role}</p>
         <p className={styles.tagline}>{profile.tagline}</p>
+        <dl className={styles.stack} aria-label={ui.techStack}>
+          {profile.stack.map((group) => (
+            <div key={group.label}>
+              <dt>{group.label}</dt>
+              <dd>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
+        </dl>
         <Navigation activeSection={activeSection} />
       </div>
       <div className={styles.profileFooter}>
-        <p className={styles.location}>
-          <Icon name="pin" width="15" height="15" />
-          {profile.location}
-        </p>
         <SocialLinks />
       </div>
     </header>

@@ -1,7 +1,12 @@
 export interface SocialLink {
   label: string
   href: string
-  icon: 'github' | 'linkedin' | 'email'
+  icon: 'github' | 'linkedin' | 'email' | 'resume'
+}
+
+export interface StackGroup {
+  label: string
+  items: string[]
 }
 
 export interface Experience {
@@ -14,7 +19,7 @@ export interface Experience {
   summary: string
   context?: string
   highlights: { title: string; text: string }[]
-  areas: string[]
+  stack: string[]
 }
 
 export const profile = {
@@ -22,7 +27,6 @@ export const profile = {
   firstName: 'Santiago',
   lastName: 'Fernández',
   role: 'Software Engineer',
-  location: 'Barcelona, Spain',
   tagline:
     'I build software people use and systems teams build on.',
   description:
@@ -64,6 +68,11 @@ export const profile = {
     ],
   ],
   email: 'safernan121@gmail.com',
+  stack: [
+    { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Python', 'GDScript', 'C#'] },
+    { label: 'Platforms', items: ['Godot', 'React', 'React Native', 'Node.js', 'NestJS', 'Django'] },
+    { label: 'Data & APIs', items: ['GraphQL', 'Hasura', 'PostgreSQL', 'SQLite'] },
+  ] satisfies StackGroup[],
   socialLinks: [
     { label: 'GitHub', href: 'https://github.com/safernan121', icon: 'github' },
     {
@@ -72,6 +81,7 @@ export const profile = {
       icon: 'linkedin',
     },
     { label: 'Email', href: 'mailto:safernan121@gmail.com', icon: 'email' },
+    { label: 'Résumé', href: '/santiago-fernandez-cv.pdf', icon: 'resume' },
   ] satisfies SocialLink[],
 }
 
@@ -110,13 +120,7 @@ export const experiences: Experience[] = [
         text: 'Designed and implemented combat behavior for enemies and bosses, and contributed to shared combat systems.',
       },
     ],
-    areas: [
-      'Software architecture',
-      'Developer tools',
-      'GraphQL',
-      'Data modeling',
-      'Shared systems',
-    ],
+    stack: ['Godot', 'GDScript', 'TypeScript', 'NestJS', 'GraphQL', 'Hasura', 'Solidity'],
   },
   {
     id: 'cryptomarket-uppercap',
@@ -142,7 +146,7 @@ export const experiences: Experience[] = [
         text: 'Built blockchain contracts that represented purchased shares and supported ownership vesting.',
       },
     ],
-    areas: ['JavaScript', 'Python', 'Node.js', 'Blockchain'],
+    stack: ['JavaScript', 'Python', 'Django', 'Node.js', 'Solidity'],
   },
   {
     id: 'primus-bi',
@@ -153,7 +157,7 @@ export const experiences: Experience[] = [
     summary:
       'Maintained and improved Primus BI’s web interfaces, then joined Uppercap, its investment-platform initiative with CryptoMarket.',
     highlights: [],
-    areas: ['Web interfaces', 'Frontend development'],
+    stack: ['JavaScript', 'HTML', 'CSS'],
   },
 ]
 
