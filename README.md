@@ -65,13 +65,15 @@ npm run dev        # http://localhost:5173
 | `npm run preview:cloudflare` | Serve the build through Cloudflare's runtime, including `_headers` |
 | `npm run previews` | Regenerate the link-preview images (macOS, Google Chrome) |
 | `npm run cv` | Regenerate the résumé PDF (macOS, Google Chrome) |
-| `npm run deploy` | Lint, type-check, build, and deploy to Cloudflare |
+| `npm run deploy` | Manual deploy from `main`: lint, type-check, build, and deploy to Cloudflare |
 
-CI runs lint, type checking, tests, and the build on every push to `main` and on pull requests.
+CI runs lint, type checking, tests, and the build on every push to `main` and on pull requests, and deploys `main` once they pass.
 
 ## Deployment
 
-`wrangler.jsonc` configures a static-assets-only Cloudflare Worker serving `dist/` on `safernan.dev` and `www.safernan.dev`. There is no server, database, or secret. The single-page-application fallback serves `index.html` for app routes, so direct links and reloads work. Deploying requires `npx wrangler login` with access to the domain's Cloudflare account, then `npm run deploy`.
+`wrangler.jsonc` configures a static-assets-only Cloudflare Worker serving `dist/` on `safernan.dev` and `www.safernan.dev`. There is no server or database. The single-page-application fallback serves `index.html` for app routes, so direct links and reloads work.
+
+Production deploys come from `main`: every push that passes CI is deployed by GitHub Actions, using the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets. For a manual deploy, run `npx wrangler login` with access to the domain's Cloudflare account, then `npm run deploy` on `main`; it refuses other branches unless `ALLOW_BRANCH_DEPLOY=1` is set.
 
 `public/_headers` holds the security policy; Vite's preview server doesn't apply it, so check header changes with `npm run preview:cloudflare`. The npm override pins Sharp (used only by Wrangler's Miniflare) to a patched version for [GHSA-wq5f-xc86-pv6w](https://github.com/lovell/sharp/security/advisories/GHSA-wq5f-xc86-pv6w); remove it once Miniflare ships the fix.
 
