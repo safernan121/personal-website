@@ -7,7 +7,7 @@ import styles from '../components/Pages.module.css'
 
 export function AboutPage() {
   const { aboutMe, path, ui } = useLocale()
-  usePageMetadata(`${aboutMe.label} — Santiago Fernández`, aboutMe.description)
+  usePageMetadata()
 
   return (
     <div className={styles.pageShell}>

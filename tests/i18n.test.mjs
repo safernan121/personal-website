@@ -7,7 +7,7 @@ import { createMemoryRouter, RouterProvider } from 'react-router'
 import { createServer } from 'vite'
 import { reviewFixtures } from './fixtures/reviews.mjs'
 
-let server, locale, content, ui, routes, getScrollKey
+let server, locale, content, ui, routes, getScrollKey, getPageMetadata
 before(async () => {
   server = await createServer({
     server: { middlewareMode: true, hmr: false, ws: false, watch: null },
@@ -18,6 +18,7 @@ before(async () => {
   ;({ content } = await server.ssrLoadModule('/src/i18n/useLocale.ts'))
   ;({ ui } = await server.ssrLoadModule('/src/i18n/ui.ts'))
   ;({ localizedRoutes: routes, getScrollKey } = await server.ssrLoadModule('/src/routes.tsx'))
+  ;({ getPageMetadata } = await server.ssrLoadModule('/src/pageMetadata.ts'))
 })
 after(async () => { await server?.close() })
 
@@ -118,6 +119,21 @@ for (const [path, englishHeading, spanishHeading] of pages) {
     }
   })
 }
+
+test('Every sitemap page has its own link preview in both languages', async () => {
+  const sitemap = await readFile('public/sitemap.xml', 'utf8')
+  for (const [, url] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    const { pathname } = new URL(url)
+    const { title, description, image } = getPageMetadata(pathname)
+    const language = locale.getLocale(pathname)
+    assert.ok(!title.startsWith(ui[language].notFoundTitle), pathname)
+    assert.ok(description.trim() && image.alt.trim(), pathname)
+    await readFile(`public${image.src}`)
+    const slug = pathname.match(/\/projects\/([^/]+)$/)?.[1]
+    assert.equal(image.src, `/images/previews/${slug ?? 'default'}.png`, pathname)
+  }
+  assert.ok(getPageMetadata('/es/projects/missing').title.startsWith(ui.es.notFoundTitle))
+})
 
 test('Spanish recipe cards retain translated baking and chilling details', () => {
   const html = renderPage('/es/cheesecake')

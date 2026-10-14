@@ -13,10 +13,7 @@ const copyrightYear = new Date().getFullYear()
 
 export function HomePage() {
   const { experiences, profile, path, ui } = useLocale()
-  usePageMetadata(
-    `${profile.name} — ${profile.role}`,
-    profile.description,
-  )
+  usePageMetadata()
 
   return (
     <>

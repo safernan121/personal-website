@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "cv": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf=public/santiago-fernandez-cv.pdf \"file://$PWD/resume/santiago-fernandez-cv.html\"",
+    "previews": "node scripts/preview-images.mjs",
     "deploy": "npm run lint && npm run typecheck && npm run build && wrangler deploy",
     "preview:cloudflare": "npm run build && wrangler dev"
   },

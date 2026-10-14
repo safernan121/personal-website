@@ -24,7 +24,7 @@ The source for **[safernan.dev](https://safernan.dev)**, the portfolio of Santia
 
 ### Trade-offs
 
-The site is a client-rendered single-page app. Crawlers that don't run JavaScript receive the default homepage metadata on every route, and unknown routes show a not-found page with HTTP status 200. Prerendering the routes at build time would fix both, and it's the next improvement I'd make.
+The site is a client-rendered single-page app. So that link previews still work, the build writes an HTML file for every page in the sitemap with that page's title, description, and preview image (`src/pageMetadata.ts`, applied in `vite.config.ts`); the body is still rendered in the browser. Unknown routes show a not-found page with HTTP status 200. Prerendering the page content would fix that too, and it's the next improvement I'd make.
 
 ## Project structure
 
@@ -35,10 +35,12 @@ src/
   pages/          Route views: home, about, project, cheesecake, recipe, not found
   components/     Shared UI and CSS Modules
   hooks/          Color mode state, per-route metadata
+  pageMetadata.ts Title, description, and preview image for each route
   routes.tsx      Route table, shared by both languages
 public/           Static files, security headers (_headers), sitemap, résumé PDF,
                   and theme-init.js (applies the saved color mode before first paint)
 resume/           Résumé source (HTML → PDF)
+scripts/          Link-preview image renderer
 tests/            Rendering, routing, and translation tests
 docs/CONTENT.md   Content rules, sources, and image attribution
 ```
@@ -61,6 +63,7 @@ npm run dev        # http://localhost:5173
 | `npm run build` | Build the static site into `dist/` |
 | `npm run preview` | Serve the production build locally |
 | `npm run preview:cloudflare` | Serve the build through Cloudflare's runtime, including `_headers` |
+| `npm run previews` | Regenerate the link-preview images (macOS, Google Chrome) |
 | `npm run cv` | Regenerate the résumé PDF (macOS, Google Chrome) |
 | `npm run deploy` | Lint, type-check, build, and deploy to Cloudflare |
 

@@ -8,10 +8,7 @@ import styles from '../components/Pages.module.css'
 
 export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
   const { path, profile, ui } = useLocale()
-  usePageMetadata(
-    `${project.name} — ${project.availability} — Santiago Fernández`,
-    `${project.summary} ${project.availability}. ${ui.currentlyInDevelopment}`,
-  )
+  usePageMetadata()
 
   return (
     <div className={styles.pageShell}>

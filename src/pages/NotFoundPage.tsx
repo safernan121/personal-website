@@ -6,10 +6,7 @@ import styles from '../components/Pages.module.css'
 
 export function NotFoundPage() {
   const { path, ui } = useLocale()
-  usePageMetadata(
-    `${ui.notFoundTitle} — Santiago Fernández`,
-    ui.notFoundDescription,
-  )
+  usePageMetadata()
   return (
     <div className={styles.pageShell}>
       <SiteHeader />

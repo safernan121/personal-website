@@ -16,7 +16,7 @@ export function RecipePage() {
 
 function RecipeDetail({ recipe }: { recipe: Recipe }) {
   const { path, ui } = useLocale()
-  usePageMetadata(`${recipe.name} — Santiago Fernández`, recipe.description)
+  usePageMetadata()
 
   return (
     <div className={`${styles.pageShell} ${styles.cheesecakePage}`}>

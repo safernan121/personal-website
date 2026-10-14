@@ -133,6 +133,10 @@ The logo and launch artwork appear in Uppercap's [January 25, 2021 founder story
 
 The public overview is adapted from PantryApp's own planning documents and README, reviewed October 6, 2026, and its screenshots come from the PantryApp project. Every screenshot carries a visible “Early prototype image” / “Design may change” label; CSS crops only empty side gutters. The page describes intended features, promises no release date or price, and keeps detailed storage, connectivity, and pricing decisions out of the public pitch.
 
+### Link previews
+
+`public/images/previews/` holds the 1200×630 images shown when a page is shared. `default.png` (the SF logo and name) is used for every page except projects, which use their own card: The Beacon, CryptoMKT, and Uppercap show the official logos listed above, and PantryApp shows its sprout mark. Regenerate them with `npm run previews` (macOS Google Chrome) after changing a logo, and add a card when adding a project; `npm test` checks every sitemap page has one. Titles, descriptions, and image alt text come from `src/pageMetadata.ts` in both languages.
+
 ### Original artwork
 
 The favicon, the cheesecake illustration, and the PantryApp sprout mark are original inline SVGs. Review photos are Santiago's own.
@@ -150,4 +154,5 @@ The favicon, the cheesecake illustration, and the PantryApp sprout mark are orig
 - Navigate from the skip link through the contact links using only the keyboard.
 - Check the email, LinkedIn, GitHub, and résumé links.
 - Enable reduced motion and confirm smooth scrolling and transitions are disabled.
+- Paste a project link and the homepage, in both languages, into a link-preview debugger and confirm the title, description, and image.
 - Check the browser console and network panel for errors, and verify dates and figures against the sources above.

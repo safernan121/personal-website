@@ -21,7 +21,7 @@ export function ProjectPage() {
 
 function ProjectDetail({ project }: { project: Project }) {
   const { projects, path, ui } = useLocale()
-  usePageMetadata(`${project.name} — Santiago Fernández`, project.tagline)
+  usePageMetadata()
   const isBeacon = project.slug === 'the-beacon'
   const nextProject =
     projects[(projects.indexOf(project) + 1) % projects.length]

@@ -13,7 +13,7 @@ type TabId = (typeof englishCheesecake.tabs)[number]['id']
 
 export function CheesecakePage() {
   const { cheesecake, recipes, reviews, path, ui } = useLocale()
-  usePageMetadata(`${ui.cheesecake} — Santiago Fernández`, cheesecake.introduction)
+  usePageMetadata()
   const [searchParams, setSearchParams] = useSearchParams()
   const activeTab: TabId =
     searchParams.get('tab') === 'reviews' ? 'reviews' : 'recipes'
