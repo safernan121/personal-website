@@ -813,7 +813,7 @@
   border-color: var(--accent-2);
   background: var(--accent-2);
 }
-.pantryMark {
+.hogaroMark {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -1484,11 +1484,11 @@
     gap: 16px;
     padding: 21px 17px;
   }
-  .pantryMark {
+  .hogaroMark {
     width: 52px;
     height: 64px;
   }
-  .pantryMark svg {
+  .hogaroMark svg {
     width: 32px;
     height: 32px;
   }

@@ -61,16 +61,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/uppercap" />
   </url>
   <url>
-    <loc>https://safernan.dev/projects/pantry-app</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/pantry-app" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/pantry-app" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/pantry-app" />
+    <loc>https://safernan.dev/projects/hogaro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/hogaro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/hogaro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/hogaro" />
   </url>
   <url>
-    <loc>https://safernan.dev/es/projects/pantry-app</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/pantry-app" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/pantry-app" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/pantry-app" />
+    <loc>https://safernan.dev/es/projects/hogaro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safernan.dev/projects/hogaro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safernan.dev/es/projects/hogaro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safernan.dev/projects/hogaro" />
   </url>
   <url>
     <loc>https://safernan.dev/cheesecake</loc>

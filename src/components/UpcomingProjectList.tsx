@@ -13,15 +13,16 @@ export function UpcomingProjectList() {
             to={path(`/projects/${project.slug}`)}
             className={`${styles.projectCard} ${styles.upcomingCard}`}
           >
-            <span className={styles.pantryMark} aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" width="40" height="40">
-                <path
-                  d="M20 31V18m0 7C9 25 8 17 8 12c9 0 12 4 12 10m0-4c0-7 5-11 13-11 0 8-5 13-13 13"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+            <span className={styles.hogaroMark} aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="currentColor" width="40" height="40">
+                <rect x="9.2" y="11.7" width="5.1" height="6.3" rx="1.4" />
+                <rect x="15.6" y="9.4" width="5.1" height="8.6" rx="1.4" />
+                <rect x="22" y="12.9" width="8.8" height="5.1" rx="1.4" />
+                <rect x="7.8" y="18.8" width="24.4" height="1.6" rx="0.8" />
+                <rect x="9.2" y="22.7" width="8.8" height="5.9" rx="1.4" />
+                <rect x="19.3" y="21.1" width="5.1" height="7.4" rx="1.4" />
+                <rect x="25.7" y="23.4" width="5.1" height="5.1" rx="1.4" />
+                <rect x="7.8" y="29.3" width="24.4" height="1.6" rx="0.8" />
               </svg>
             </span>
             <span className={styles.projectCardCopy}>

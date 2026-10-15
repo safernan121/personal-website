@@ -35,7 +35,7 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
         <section className={styles.prototypeSection} aria-labelledby="preview-heading">
           <div className={styles.previewHeader}>
             <h2 id="preview-heading" className={styles.sectionLabel}>{ui.firstTaste}</h2>
-            <p>{ui.pantryPeek}</p>
+            <p>{ui.hogaroPeek}</p>
           </div>
           <div className={styles.prototypeGrid}>
             {project.screenshots.map((screen) => (
@@ -66,7 +66,7 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
           <h2 id="vision-heading" className={styles.sectionLabel}>{ui.shelfToTable}</h2>
           <div className={styles.prose}>
             <p>
-              {ui.pantryVision}
+              {ui.hogaroVision}
             </p>
           </div>
         </section>
@@ -85,17 +85,17 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
           <h2 id="next-heading" className={styles.sectionLabel}>{ui.yourKitchen}</h2>
           <div className={styles.prose}>
             <p>
-              {ui.pantryFuture}
+              {ui.hogaroFuture}
             </p>
             <p className={styles.contextNote}>
-              {ui.pantryStatus}
+              {ui.hogaroStatus}
             </p>
             <a
-              href={`mailto:${profile.email}?subject=${encodeURIComponent(ui.pantryTestingSubject)}`}
+              href={`mailto:${profile.email}?subject=${encodeURIComponent(ui.hogaroTestingSubject)}`}
               className={styles.externalLink}
             >
               <Icon name="email" width="16" height="16" />
-              <span>{ui.pantryTestingLink}</span>
+              <span>{ui.hogaroTestingLink}</span>
             </a>
           </div>
         </section>

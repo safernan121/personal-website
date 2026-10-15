@@ -437,7 +437,7 @@ export const upcomingProjects: UpcomingProject[] = [
     category: 'Tu ayuda en la cocina',
     summary: 'Convierte lo que ya tienes en la cocina en comidas ricas, con menos desperdicio y menos dudas.',
     tagline: 'Un poco menos de desperdicio. Muchas más posibilidades.',
-    introduction: 'Abre la nevera y descubre qué preparar. Estoy creando PantryApp para ayudarte a aprovechar la comida que ya tienes, encontrar platos que te apetezcan y hacer la compra con una lista que tenga sentido.',
+    introduction: 'Abre la nevera y descubre qué preparar. Estoy creando Hogaro para ayudarte a aprovechar la comida que ya tienes, encontrar platos que te apetezcan y hacer la compra con una lista que tenga sentido.',
     availability: 'Próximamente en iOS y Android',
     features: [
       {
@@ -454,7 +454,7 @@ export const upcomingProjects: UpcomingProject[] = [
       },
       {
         title: 'Haz la semana un poco más fácil',
-        text: 'Elige tus comidas, ajusta las raciones y reúne todo lo que te falta en una sola lista de la compra. PantryApp tendrá en cuenta lo que ya hay en casa, para que dediques menos tiempo a las listas y más a disfrutar de la cena.',
+        text: 'Elige tus comidas, ajusta las raciones y reúne todo lo que te falta en una sola lista de la compra. Hogaro tendrá en cuenta lo que ya hay en casa, para que dediques menos tiempo a las listas y más a disfrutar de la cena.',
       },
       {
         title: 'Una despensa para compartir',
@@ -468,13 +468,13 @@ export const upcomingProjects: UpcomingProject[] = [
     screenshots: [
       {
         ...englishUpcomingProjects[0].screenshots[0],
-        alt: 'Prototipo inicial de PantryApp con una despensa de ejemplo, recuentos de alimentos para usar pronto y existencias bajas, búsqueda de ingredientes y navegación de la cocina.',
+        alt: 'Prototipo inicial de Hogaro con una despensa de ejemplo, recuentos de alimentos para usar pronto y existencias bajas, búsqueda de ingredientes y navegación de la cocina.',
         title: 'Tu cocina de un vistazo',
         caption: 'Lo que hay en tus estantes, lo que se está acabando y lo que conviene usar pronto. Se muestra una despensa de ejemplo.',
       },
       {
         ...englishUpcomingProjects[0].screenshots[1],
-        alt: 'Formulario de ingredientes del prototipo inicial de PantryApp con valores nutricionales del tomate por 100 g, su fuente USDA y un campo de cantidad.',
+        alt: 'Formulario de ingredientes del prototipo inicial de Hogaro con valores nutricionales del tomate por 100 g, su fuente USDA y un campo de cantidad.',
         title: 'Una mirada más cercana a tus alimentos',
         caption: 'Conoce tus ingredientes, desde sus valores nutricionales aproximados hasta la cantidad que te queda.',
       },

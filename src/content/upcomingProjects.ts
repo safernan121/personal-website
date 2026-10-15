@@ -19,18 +19,18 @@ export interface UpcomingProject {
   }[]
 }
 
-// Product direction from PantryApp/docs/MASTERPLAN.md, reviewed October 6, 2026.
+// Product direction from Hogaro/docs/MASTERPLAN.md, reviewed October 6, 2026.
 // These describe intended outcomes, including features still being developed.
 export const upcomingProjects: UpcomingProject[] = [
   {
-    slug: 'pantry-app',
-    name: 'PantryApp',
+    slug: 'hogaro',
+    name: 'Hogaro',
     category: 'Kitchen companion',
     summary:
       'Turn what’s already in your kitchen into good meals, with less waste and less guesswork.',
     tagline: 'A little less waste. A lot more possibility.',
     introduction:
-      'Open the fridge and know what to make. I’m building PantryApp to help you make the most of the food you already have, find meals you’ll look forward to, and head to the shops with a list that makes sense.',
+      'Open the fridge and know what to make. I’m building Hogaro to help you make the most of the food you already have, find meals you’ll look forward to, and head to the shops with a list that makes sense.',
     availability: 'Coming to iOS and Android',
     stack: ['React Native', 'Expo', 'TypeScript', 'GraphQL', 'PostgreSQL', 'SQLite', 'Node.js'],
     features: [
@@ -48,7 +48,7 @@ export const upcomingProjects: UpcomingProject[] = [
       },
       {
         title: 'Make the week a little easier',
-        text: 'Pick your meals, choose your servings, and bring everything you’re missing into one shopping list. PantryApp will account for what’s already at home, so you can spend less time making lists and more time enjoying dinner.',
+        text: 'Pick your meals, choose your servings, and bring everything you’re missing into one shopping list. Hogaro will account for what’s already at home, so you can spend less time making lists and more time enjoying dinner.',
       },
       {
         title: 'A pantry you can share',
@@ -61,19 +61,19 @@ export const upcomingProjects: UpcomingProject[] = [
     ],
     screenshots: [
       {
-        src: '/images/pantry-app/pantry-preview.png',
+        src: '/images/hogaro/pantry-preview.png',
         width: 390,
         height: 844,
-        alt: 'Early PantryApp prototype showing an example pantry, use-soon and low-stock counts, ingredient search, and kitchen navigation.',
+        alt: 'Early Hogaro prototype showing an example pantry, use-soon and low-stock counts, ingredient search, and kitchen navigation.',
         title: 'Your kitchen at a glance',
         caption:
           'What’s on your shelves, what’s running low, and what needs using soon. Example pantry shown.',
       },
       {
-        src: '/images/pantry-app/nutrition-preview.jpg',
+        src: '/images/hogaro/nutrition-preview.jpg',
         width: 795,
         height: 900,
-        alt: 'Early PantryApp ingredient form showing tomato nutrition per 100 g, its USDA source, and a quantity field.',
+        alt: 'Early Hogaro ingredient form showing tomato nutrition per 100 g, its USDA source, and a quantity field.',
         title: 'A closer look at your food',
         caption:
           'Get to know your ingredients, from approximate nutrition to the amount you have left.',

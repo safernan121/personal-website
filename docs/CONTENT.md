@@ -10,7 +10,7 @@ All copy is typed data in `src/content/`. Pages render from it; nothing is fetch
 | --- | --- |
 | `src/content/profile.ts` | Identity, introduction, the grouped tech stack under the name, social links (including the résumé), ordered experience entries, and homepage sections |
 | `src/content/projects.ts` | The Beacon, CryptoMKT, and Uppercap project pages: descriptions, role, contributions, technologies, media, and sources |
-| `src/content/upcomingProjects.ts` | Upcoming projects (PantryApp): planned features, technologies, and prototype screenshots |
+| `src/content/upcomingProjects.ts` | Upcoming projects (Hogaro): planned features, technologies, and prototype screenshots |
 | `src/content/about.ts` | The personal “Behind the keyboard” page at `/about` |
 | `src/content/cheesecake.ts` | Cheesecake notebook introduction and tab copy |
 | `src/content/recipes.ts` | Recipe entries, each with its own `/cheesecake/recipes/:slug` page |
@@ -129,17 +129,17 @@ Santiago was part of Uppercap's original team, helping build the first web-app i
 
 The logo and launch artwork appear in Uppercap's [January 25, 2021 founder story](https://contenido.uppercap.com/knowledgebase/5-lecciones-de-la-startup-chilena-que-debuto-en-pandemia/); the [July 13, 2020 platform article](https://contenido.uppercap.com/knowledgebase/donde-invertir-en-negocios/) supports the product overview. The guide screenshots are product context from public support documentation: exact capture dates are unverified, some show later Uper branding, and the page says so. Example share quantities are not presented as personal holdings or impact. The old domain redirects to [Uper](https://www.uper.co/en/).
 
-### PantryApp
+### Hogaro
 
-The public overview is adapted from PantryApp's own planning documents and README, reviewed October 6, 2026, and its screenshots come from the PantryApp project. Every screenshot carries a visible “Early prototype image” / “Design may change” label; CSS crops only empty side gutters. The page describes intended features, promises no release date or price, and keeps detailed storage, connectivity, and pricing decisions out of the public pitch.
+The public overview is adapted from Hogaro's own planning documents and README, reviewed October 6, 2026, and its screenshots come from the Hogaro project. The app was named PantryApp until its October 15, 2026 rebrand to Hogaro; the old `/projects/pantry-app` URLs redirect to `/projects/hogaro` through `public/_redirects`. Every screenshot carries a visible “Early prototype image” / “Design may change” label; CSS crops only empty side gutters. The page describes intended features, promises no release date or price, and keeps detailed storage, connectivity, and pricing decisions out of the public pitch.
 
 ### Link previews
 
-`public/images/previews/` holds the 1200×630 images shown when a page is shared. `default.png` (the SF logo and name) is used for every page except projects, which use their own card: The Beacon, CryptoMKT, and Uppercap show the official logos listed above, and PantryApp shows its sprout mark. Regenerate them with `npm run previews` (macOS Google Chrome) after changing a logo, and add a card when adding a project; `npm test` checks every sitemap page has one. Titles, descriptions, and image alt text come from `src/pageMetadata.ts` in both languages.
+`public/images/previews/` holds the 1200×630 images shown when a page is shared. `default.png` (the SF logo and name) is used for every page except projects, which use their own card: The Beacon, CryptoMKT, and Uppercap show the official logos listed above, and Hogaro shows its shelf mark. Regenerate them with `npm run previews` (macOS Google Chrome) after changing a logo, and add a card when adding a project; `npm test` checks every sitemap page has one. Titles, descriptions, and image alt text come from `src/pageMetadata.ts` in both languages.
 
 ### Original artwork
 
-The favicon, the cheesecake illustration, and the PantryApp sprout mark are original inline SVGs. Review photos are Santiago's own.
+The favicon and the cheesecake illustration are original inline SVGs. The Hogaro shelf mark is an inline SVG adapted from the app's own icon, drawn in the site's accent colour. Review photos are Santiago's own.
 
 ## Manual release checks
 
@@ -147,7 +147,7 @@ The favicon, the cheesecake illustration, and the PantryApp sprout mark are orig
 - Follow the header links (Work, Upcoming, Cheesecake) from the homepage and from a project page.
 - Switch between light and dark modes, reload, and confirm the choice persists; clear site data and confirm the mode follows the system setting.
 - Open Behind the keyboard from the homepage footer, follow its cheesecake link, and return. Check `/about` directly and refresh it.
-- Open PantryApp from Upcoming projects and the header, verify both prototype labels, and check its direct URL and refresh.
+- Open Hogaro from Upcoming projects and the header, verify both prototype labels, and check its direct URL and refresh.
 - Open each project from the homepage; use Next project and All projects; check Back/Forward, direct links, and refresh. Open and close each “How I built it”.
 - Switch cheesecake tabs with a pointer and with Arrow Left/Right and Home/End; reload Reviews and test browser Back.
 - Check the not-found view for unknown routes and unknown project slugs.

@@ -90,7 +90,7 @@ const pages = [
   ['/projects/the-beacon', 'The Beacon', 'The Beacon'],
   ['/projects/cryptomkt', 'CryptoMKT', 'CryptoMKT'],
   ['/projects/uppercap', 'Uppercap', 'Uppercap'],
-  ['/projects/pantry-app', 'PantryApp', 'PantryApp'],
+  ['/projects/hogaro', 'Hogaro', 'Hogaro'],
   ['/cheesecake', 'Cheesecake.', 'Tarta de queso.'],
   ['/cheesecake/recipes/the-protein-cloud', 'The Protein Cloud.', 'La nube proteica.'],
   ['/cheesecake/recipes/ricotta-cheesecake', 'Ricotta Cheesecake.', 'Tarta de queso de ricotta.'],
