@@ -13,11 +13,10 @@ const asset = (path) => pathToFileURL(join(root, path)).href
 const font = asset('node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2')
 const siteMark = readFileSync(join(root, 'public/favicon.svg'), 'utf8')
 
-// The Hogaro shelf mark from src/components/UpcomingProjectList.tsx.
-const shelf = `<svg viewBox="0 0 40 40" fill="currentColor"><rect x="9.2" y="11.7" width="5.1" height="6.3" rx="1.4"/><rect x="15.6" y="9.4" width="5.1" height="8.6" rx="1.4"/><rect x="22" y="12.9" width="8.8" height="5.1" rx="1.4"/><rect x="7.8" y="18.8" width="24.4" height="1.6" rx="0.8"/><rect x="9.2" y="22.7" width="8.8" height="5.9" rx="1.4"/><rect x="19.3" y="21.1" width="5.1" height="7.4" rx="1.4"/><rect x="25.7" y="23.4" width="5.1" height="5.1" rx="1.4"/><rect x="7.8" y="29.3" width="24.4" height="1.6" rx="0.8"/></svg>`
-
 const dark = { background: '#101113', heading: '#eef0f4', muted: '#8a909a', accent: '#8fa2ff' }
 const light = { background: '#f3f4f2', heading: '#15181d', muted: '#5f6570', accent: '#2a47c4' }
+// Hogaro's Umber + Wheat palette: cream page, ink text, umber primary.
+const hogaro = { background: '#f7f1e8', heading: '#2e251e', muted: '#6e6259', accent: '#6b4a32' }
 
 const cards = [
   {
@@ -28,7 +27,7 @@ const cards = [
   { file: 'the-beacon.png', theme: dark, body: `<img class="logo" src="${asset('public/images/the-beacon/logo.webp')}" alt="">` },
   { file: 'cryptomkt.png', theme: dark, body: `<img class="logo wide" src="${asset('public/images/cryptomkt/logo.png')}" alt="">` },
   { file: 'uppercap.png', theme: light, body: `<img class="logo" src="${asset('public/images/uppercap/logo-2021.png')}" alt="">` },
-  { file: 'hogaro.png', theme: light, body: `<div class="hogaro">${shelf}<p>Hogaro</p></div>` },
+  { file: 'hogaro.png', theme: hogaro, body: `<div class="hogaro"><img src="${asset('public/images/hogaro/icon.svg')}" alt=""><p>Hogaro</p></div>` },
 ]
 
 function page({ theme, body, file }) {
@@ -46,8 +45,8 @@ function page({ theme, body, file }) {
     .site { display: flex; flex-direction: column; align-items: center; gap: 40px; }
     .site svg { width: 240px; height: 240px; }
     .site p, .hogaro p { font-size: 64px; font-weight: 650; letter-spacing: -0.03em; }
-    .hogaro { display: flex; align-items: center; gap: 28px; margin-bottom: 40px; color: ${theme.accent}; }
-    .hogaro svg { width: 150px; height: 150px; }
+    .hogaro { display: flex; align-items: center; gap: 36px; margin-bottom: 40px; }
+    .hogaro img { width: 168px; height: 168px; border-radius: 38px; }
     .hogaro p { font-size: 104px; color: ${theme.heading}; }
     footer {
       position: absolute; left: 0; right: 0; bottom: 48px;

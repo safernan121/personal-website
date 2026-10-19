@@ -19,7 +19,7 @@ export interface UpcomingProject {
   }[]
 }
 
-// Product direction from Hogaro/docs/MASTERPLAN.md, reviewed October 6, 2026.
+// Product direction from Hogaro/docs/MASTERPLAN.md and hogaro.app, reviewed October 19, 2026.
 // These describe intended outcomes, including features still being developed.
 export const upcomingProjects: UpcomingProject[] = [
   {
@@ -30,21 +30,21 @@ export const upcomingProjects: UpcomingProject[] = [
       'Turn what’s already in your kitchen into good meals, with less waste and less guesswork.',
     tagline: 'A little less waste. A lot more possibility.',
     introduction:
-      'Open the fridge and know what to make. I’m building Hogaro to help you make the most of the food you already have, find meals you’ll look forward to, and head to the shops with a list that makes sense.',
-    availability: 'Coming to iOS and Android',
+      'Open the fridge and know what to make. I’m building Hogaro to help you make the most of the food you already have, find meals you’ll look forward to, share a pantry with the people you live with, and head to the shops with a list that makes sense.',
+    availability: 'Coming to iOS, Android and the web',
     stack: ['React Native', 'Expo', 'TypeScript', 'GraphQL', 'PostgreSQL', 'SQLite', 'Node.js'],
     features: [
       {
         title: 'Know what you have',
-        text: 'Is there rice in the cupboard? Are those tomatoes still waiting to be used? Keep a clear view of your kitchen, with a nudge when food needs using and a heads-up when the essentials are running low.',
+        text: 'Is there rice in the cupboard? Are those tomatoes still waiting to be used? Keep a clear view of your kitchen, where every purchase keeps its own quantity and dates and the food that expires first gets used first, with a nudge when something needs using and a heads-up when the essentials are running low.',
       },
       {
         title: 'Get to know your food',
-        text: 'See calories, protein, and more for your ingredients, with nutrition per 100 g and clear sources behind the numbers. Look up foods even when you’re offline, and add your own values for the ingredients you use.',
+        text: 'See calories, protein, and more for your ingredients, with nutrition per 100 g from the French Ciqual tables and reviewed USDA values filling the gaps. Look up hundreds of everyday foods even when you’re offline, and save anything you can’t find under your own name.',
       },
       {
         title: 'Dinner starts with what you have',
-        text: 'Turn a few ingredients into dinner ideas that suit the way you eat. AI will help you find recipes for your tastes and the time you have. Save the ones you love, adjust the servings, and confirm what you’ve cooked to keep your pantry up to date.',
+        text: 'Turn a few ingredients into dinner ideas that suit the way you eat. Bring in your own recipes from a website link or pasted text, see which ones you can make right now and which are just an ingredient away, and let AI find more recipes for your tastes and the time you have. Save the ones you love, adjust the servings, and confirm what you’ve cooked to keep your pantry up to date.',
       },
       {
         title: 'Make the week a little easier',
@@ -52,11 +52,11 @@ export const upcomingProjects: UpcomingProject[] = [
       },
       {
         title: 'A pantry you can share',
-        text: 'Keep everyone on the same page, from what’s in the cupboard to what needs picking up. Share pantry ingredients and shopping lists with your household, while your saved recipes stay yours. Check your shelves and update stock even when you’re offline.',
+        text: 'Keep everyone on the same page, from what’s in the cupboard to what needs picking up. Invite the people you live with, choose whether each of them can edit the stock, the shopping lists, or both, and set a few things aside just for you. Your saved recipes stay yours, you can check your shelves and update stock even when you’re offline, and sharing is free.',
       },
       {
-        title: 'A photo to get you started',
-        text: 'Take a photo and get a little help identifying your ingredients. Review the suggestions, add quantities and dates, and choose what goes into your pantry. A quicker start, with you in charge of what gets saved.',
+        title: 'Quicker ways to add food',
+        text: 'Type or paste a list like “2 cans of chickpeas, 1 l of milk, a dozen eggs” and review it before anything is saved, no connection needed. Scanning the barcode on packaged food comes next, so recording a shopping trip takes moments rather than minutes.',
       },
     ],
     screenshots: [

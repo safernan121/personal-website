@@ -90,13 +90,19 @@ export function UpcomingProjectPage({ project }: { project: UpcomingProject }) {
             <p className={styles.contextNote}>
               {ui.hogaroStatus}
             </p>
-            <a
-              href={`mailto:${profile.email}?subject=${encodeURIComponent(ui.hogaroTestingSubject)}`}
-              className={styles.externalLink}
-            >
-              <Icon name="email" width="16" height="16" />
-              <span>{ui.hogaroTestingLink}</span>
-            </a>
+            <div className={styles.upcomingLinks}>
+              <a
+                href={`mailto:${profile.email}?subject=${encodeURIComponent(ui.hogaroTestingSubject)}`}
+                className={styles.externalLink}
+              >
+                <Icon name="email" width="16" height="16" />
+                <span>{ui.hogaroTestingLink}</span>
+              </a>
+              <a href="https://hogaro.app" target="_blank" rel="noreferrer" className={styles.externalLink}>
+                {ui.hogaroSiteLink} <Icon name="arrow" width="17" height="17" />
+                <span className="sr-only"> {ui.newTab}</span>
+              </a>
+            </div>
           </div>
         </section>
         <Link to={path('/#upcoming-projects')} className={styles.nextProject}>

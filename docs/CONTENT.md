@@ -10,7 +10,7 @@ All copy is typed data in `src/content/`. Pages render from it; nothing is fetch
 | --- | --- |
 | `src/content/profile.ts` | Identity, introduction, the grouped tech stack under the name, social links (including the résumé), ordered experience entries, and homepage sections |
 | `src/content/projects.ts` | The Beacon, CryptoMKT, and Uppercap project pages: descriptions, role, contributions, technologies, media, and sources |
-| `src/content/upcomingProjects.ts` | Upcoming projects (Hogaro): planned features, technologies, and prototype screenshots |
+| `src/content/upcomingProjects.ts` | Upcoming projects (Hogaro): planned features, technologies, prototype screenshots, and the link to hogaro.app |
 | `src/content/about.ts` | The personal “Behind the keyboard” page at `/about` |
 | `src/content/cheesecake.ts` | Cheesecake notebook introduction and tab copy |
 | `src/content/recipes.ts` | Recipe entries, each with its own `/cheesecake/recipes/:slug` page |
@@ -131,15 +131,15 @@ The logo and launch artwork appear in Uppercap's [January 25, 2021 founder story
 
 ### Hogaro
 
-The public overview is adapted from Hogaro's own planning documents and README, reviewed October 6, 2026, and its screenshots come from the Hogaro project. The app was named PantryApp until its October 15, 2026 rebrand to Hogaro; the old `/projects/pantry-app` URLs redirect to `/projects/hogaro` through `public/_redirects`. Every screenshot carries a visible “Early prototype image” / “Design may change” label; CSS crops only empty side gutters. The page describes intended features, promises no release date or price, and keeps detailed storage, connectivity, and pricing decisions out of the public pitch.
+The public overview is adapted from Hogaro's own planning documents (`docs/MASTERPLAN.md`), README, and public site at [hogaro.app](https://hogaro.app), reviewed October 19, 2026, and its screenshots come from the Hogaro project. The app was named PantryApp until its October 15, 2026 rebrand to Hogaro; the old `/projects/pantry-app` URLs redirect to `/projects/hogaro` through `public/_redirects`. On October 19, 2026 the app adopted the Umber + Wheat palette (umber `#6B4A32`, wheat `#E9CC8A`, cream `#F7F1E8`); `public/images/hogaro/icon.svg` is a copy of the app's own Shelf icon in those colours and is shown on the Upcoming projects card and the link preview. The two prototype screenshots predate that palette and still show the earlier cobalt-and-apricot colours; the page says so and every screenshot carries a visible “Early prototype image” / “Design may change” label, while CSS crops only empty side gutters. Replace them when new-palette captures exist. The page describes intended features in the order of Hogaro's October 2026 roadmap (accurate stock, Ciqual-first nutrition, recipe import ahead of AI discovery, weekly planning, free household sharing, quick list entry with barcode scanning next; photo recognition is no longer mentioned because it was deferred), promises no release date or price, and keeps detailed storage, connectivity, and pricing decisions out of the public pitch. The page links to hogaro.app and to the email address for testers.
 
 ### Link previews
 
-`public/images/previews/` holds the 1200×630 images shown when a page is shared. `default.png` (the SF logo and name) is used for every page except projects, which use their own card: The Beacon, CryptoMKT, and Uppercap show the official logos listed above, and Hogaro shows its shelf mark. Regenerate them with `npm run previews` (macOS Google Chrome) after changing a logo, and add a card when adding a project; `npm test` checks every sitemap page has one. Titles, descriptions, and image alt text come from `src/pageMetadata.ts` in both languages.
+`public/images/previews/` holds the 1200×630 images shown when a page is shared. `default.png` (the SF logo and name) is used for every page except projects, which use their own card: The Beacon, CryptoMKT, and Uppercap show the official logos listed above, and Hogaro shows its Shelf icon on its own cream background. Regenerate them with `npm run previews` (macOS Google Chrome) after changing a logo, and add a card when adding a project; `npm test` checks every sitemap page has one. Titles, descriptions, and image alt text come from `src/pageMetadata.ts` in both languages.
 
 ### Original artwork
 
-The favicon and the cheesecake illustration are original inline SVGs. The Hogaro shelf mark is an inline SVG adapted from the app's own icon, drawn in the site's accent colour. Review photos are Santiago's own.
+The favicon and the cheesecake illustration are original inline SVGs. The Hogaro Shelf icon (`public/images/hogaro/icon.svg`) is the app's own icon, copied unchanged from the Hogaro repository's `assets/icon.svg`; the app's own `assets/README.md` describes it. Review photos are Santiago's own.
 
 ## Manual release checks
 

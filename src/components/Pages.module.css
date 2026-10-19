@@ -162,6 +162,11 @@
 .externalLink:hover {
   color: var(--heading);
 }
+.upcomingLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 32px;
+}
 .websiteNote {
   margin-top: 7px;
   font-size: 11px;
@@ -813,6 +818,7 @@
   border-color: var(--accent-2);
   background: var(--accent-2);
 }
+/* Hogaro's own Shelf icon: wheat jars on an umber field (Umber + Wheat palette). */
 .hogaroMark {
   display: flex;
   flex-shrink: 0;
@@ -822,8 +828,13 @@
   height: 80px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--accent-2-soft);
-  color: var(--accent-2);
+  background: #6b4a32;
+  overflow: hidden;
+}
+.hogaroMark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .upcomingLabel {
   display: block;
@@ -1487,10 +1498,6 @@
   .hogaroMark {
     width: 52px;
     height: 64px;
-  }
-  .hogaroMark svg {
-    width: 32px;
-    height: 32px;
   }
   .upcomingIntroduction {
     font-size: 14px;

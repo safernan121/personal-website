@@ -437,20 +437,20 @@ export const upcomingProjects: UpcomingProject[] = [
     category: 'Tu ayuda en la cocina',
     summary: 'Convierte lo que ya tienes en la cocina en comidas ricas, con menos desperdicio y menos dudas.',
     tagline: 'Un poco menos de desperdicio. Muchas más posibilidades.',
-    introduction: 'Abre la nevera y descubre qué preparar. Estoy creando Hogaro para ayudarte a aprovechar la comida que ya tienes, encontrar platos que te apetezcan y hacer la compra con una lista que tenga sentido.',
-    availability: 'Próximamente en iOS y Android',
+    introduction: 'Abre la nevera y descubre qué preparar. Estoy creando Hogaro para ayudarte a aprovechar la comida que ya tienes, encontrar platos que te apetezcan, compartir la despensa con quienes viven contigo y hacer la compra con una lista que tenga sentido.',
+    availability: 'Próximamente en iOS, Android y la web',
     features: [
       {
         title: 'Ten claro lo que tienes',
-        text: '¿Queda arroz en la despensa? ¿Siguen esperando esos tomates? Ten una visión clara de tu cocina, con recordatorios cuando toca usar un alimento y avisos cuando se están acabando los básicos.',
+        text: '¿Queda arroz en la despensa? ¿Siguen esperando esos tomates? Ten una visión clara de tu cocina, donde cada compra conserva su propia cantidad y sus fechas y lo que caduca antes se usa primero, con recordatorios cuando toca usar un alimento y avisos cuando se están acabando los básicos.',
       },
       {
         title: 'Conoce mejor tus alimentos',
-        text: 'Consulta calorías, proteínas y más información de tus ingredientes, con valores nutricionales por 100 g y fuentes claras para las cifras. Busca alimentos incluso sin conexión y añade tus propios valores para los ingredientes que usas.',
+        text: 'Consulta calorías, proteínas y más información de tus ingredientes, con valores nutricionales por 100 g tomados de las tablas francesas Ciqual y completados con valores revisados del USDA. Busca entre cientos de alimentos habituales incluso sin conexión y guarda con tu propio nombre lo que no encuentres.',
       },
       {
         title: 'La cena empieza con lo que tienes',
-        text: 'Convierte unos pocos ingredientes en ideas para cenar que se adapten a tu forma de comer. La IA te ayudará a encontrar recetas según tus gustos y el tiempo que tengas. Guarda tus favoritas, ajusta las raciones y confirma lo que has cocinado para mantener tu despensa al día.',
+        text: 'Convierte unos pocos ingredientes en ideas para cenar que se adapten a tu forma de comer. Importa tus propias recetas desde el enlace de una web o pegando el texto, descubre cuáles puedes preparar ahora mismo y a cuáles solo les falta un ingrediente, y deja que la IA encuentre más recetas según tus gustos y el tiempo que tengas. Guarda tus favoritas, ajusta las raciones y confirma lo que has cocinado para mantener tu despensa al día.',
       },
       {
         title: 'Haz la semana un poco más fácil',
@@ -458,11 +458,11 @@ export const upcomingProjects: UpcomingProject[] = [
       },
       {
         title: 'Una despensa para compartir',
-        text: 'Mantén a todos al tanto, desde lo que hay en la despensa hasta lo que hace falta comprar. Comparte ingredientes y listas de la compra con quienes viven contigo, mientras tus recetas guardadas siguen siendo tuyas. Consulta y actualiza las existencias incluso sin conexión.',
+        text: 'Mantén a todos al tanto, desde lo que hay en la despensa hasta lo que hace falta comprar. Invita a quienes viven contigo, elige si cada persona puede editar las existencias, las listas de la compra o ambas, y reserva algunas cosas solo para ti. Tus recetas guardadas siguen siendo tuyas, puedes consultar y actualizar las existencias incluso sin conexión, y compartir es gratis.',
       },
       {
-        title: 'Una foto para empezar',
-        text: 'Haz una foto y recibe ayuda para identificar tus ingredientes. Revisa las sugerencias, añade cantidades y fechas, y elige qué entra en tu despensa. Una forma más rápida de empezar, con el control de lo que se guarda en tus manos.',
+        title: 'Formas más rápidas de añadir comida',
+        text: 'Escribe o pega una lista como «2 latas de garbanzos, 1 l de leche, una docena de huevos» y revísala antes de guardar nada, sin necesidad de conexión. Lo siguiente será escanear el código de barras de los productos envasados, para que anotar una compra lleve un momento y no minutos.',
       },
     ],
     screenshots: [
